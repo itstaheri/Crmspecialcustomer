@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="RequestServiceAgg\" />
-    <Folder Include="RequestAgg\" />
-  </ItemGroup>
-
 </Project>

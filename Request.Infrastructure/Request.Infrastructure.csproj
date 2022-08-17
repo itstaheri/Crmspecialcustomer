@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Database\Mapps\" />
+    <Folder Include="Database\Implement\" />
+  </ItemGroup>
+
 </Project>
