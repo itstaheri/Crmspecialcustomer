@@ -1,0 +1,17 @@
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0\User.Application.deps.json
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0\User.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0\User.Application.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\obj\Debug\net6.0\User.Application.csproj.AssemblyReference.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\obj\Debug\net6.0\User.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\obj\Debug\net6.0\User.Application.AssemblyInfoInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\obj\Debug\net6.0\User.Application.AssemblyInfo.cs
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\obj\Debug\net6.0\User.Application.csproj.CoreCompileInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\obj\Debug\net6.0\User.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\obj\Debug\net6.0\refint\User.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\obj\Debug\net6.0\User.Application.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\obj\Debug\net6.0\ref\User.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0\Frameworkes.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0\User.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0\Frameworkes.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0\User.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\obj\Debug\net6.0\User.Application.csproj.CopyComplete

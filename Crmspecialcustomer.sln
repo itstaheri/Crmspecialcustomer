@@ -55,6 +55,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Application", "User.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Configuration", "User.Configuration\User.Configuration.csproj", "{68F4F57F-B33D-4A45-9AB4-19FF149803F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frameworkes", "Frameworkes\Frameworkes.csproj", "{71A26F6A-8F2F-47F9-99D9-1E5FDB17A21A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "Exceptions\Exceptions.csproj", "{AC31D5DC-D8C4-4240-A027-26860AD00BCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +149,14 @@ Global
 		{68F4F57F-B33D-4A45-9AB4-19FF149803F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68F4F57F-B33D-4A45-9AB4-19FF149803F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68F4F57F-B33D-4A45-9AB4-19FF149803F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A26F6A-8F2F-47F9-99D9-1E5FDB17A21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A26F6A-8F2F-47F9-99D9-1E5FDB17A21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A26F6A-8F2F-47F9-99D9-1E5FDB17A21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A26F6A-8F2F-47F9-99D9-1E5FDB17A21A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC31D5DC-D8C4-4240-A027-26860AD00BCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC31D5DC-D8C4-4240-A027-26860AD00BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC31D5DC-D8C4-4240-A027-26860AD00BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC31D5DC-D8C4-4240-A027-26860AD00BCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

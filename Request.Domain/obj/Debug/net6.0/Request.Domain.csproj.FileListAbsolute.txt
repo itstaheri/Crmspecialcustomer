@@ -1,0 +1,12 @@
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\bin\Debug\net6.0\Request.Domain.deps.json
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\bin\Debug\net6.0\Request.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\bin\Debug\net6.0\Request.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\obj\Debug\net6.0\Request.Domain.csproj.AssemblyReference.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\obj\Debug\net6.0\Request.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\obj\Debug\net6.0\Request.Domain.AssemblyInfoInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\obj\Debug\net6.0\Request.Domain.AssemblyInfo.cs
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\obj\Debug\net6.0\Request.Domain.csproj.CoreCompileInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\obj\Debug\net6.0\Request.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\obj\Debug\net6.0\refint\Request.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\obj\Debug\net6.0\Request.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Domain\obj\Debug\net6.0\ref\Request.Domain.dll

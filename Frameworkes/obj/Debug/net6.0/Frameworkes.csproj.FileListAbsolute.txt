@@ -1,0 +1,12 @@
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\bin\Debug\net6.0\Frameworkes.deps.json
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\bin\Debug\net6.0\Frameworkes.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\bin\Debug\net6.0\Frameworkes.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\obj\Debug\net6.0\Frameworkes.csproj.AssemblyReference.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\obj\Debug\net6.0\Frameworkes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\obj\Debug\net6.0\Frameworkes.AssemblyInfoInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\obj\Debug\net6.0\Frameworkes.AssemblyInfo.cs
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\obj\Debug\net6.0\Frameworkes.csproj.CoreCompileInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\obj\Debug\net6.0\Frameworkes.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\obj\Debug\net6.0\refint\Frameworkes.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\obj\Debug\net6.0\Frameworkes.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Frameworkes\obj\Debug\net6.0\ref\Frameworkes.dll

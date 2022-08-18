@@ -1,0 +1,12 @@
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\bin\Debug\net6.0\Service.Application.deps.json
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\bin\Debug\net6.0\Service.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\bin\Debug\net6.0\Service.Application.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\obj\Debug\net6.0\Service.Application.csproj.AssemblyReference.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\obj\Debug\net6.0\Service.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\obj\Debug\net6.0\Service.Application.AssemblyInfoInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\obj\Debug\net6.0\Service.Application.AssemblyInfo.cs
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\obj\Debug\net6.0\Service.Application.csproj.CoreCompileInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\obj\Debug\net6.0\Service.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\obj\Debug\net6.0\refint\Service.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\obj\Debug\net6.0\Service.Application.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Application\obj\Debug\net6.0\ref\Service.Application.dll

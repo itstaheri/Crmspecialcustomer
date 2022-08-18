@@ -1,7 +1,15 @@
-var builder = WebApplication.CreateBuilder(args);
+using User.Configuration;
 
+var builder = WebApplication.CreateBuilder(args);
+IConfiguration Configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//dbcontext database
+#region database
+string connectionString = Configuration.GetConnectionString("specialCustomerDB");
+UserBootestrapper.Configuration(builder.Services, connectionString);
+#endregion
 
 var app = builder.Build();
 

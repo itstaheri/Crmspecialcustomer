@@ -1,0 +1,12 @@
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Service.Configuration.deps.json
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Service.Configuration.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Service.Configuration.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\Service.Configuration.csproj.AssemblyReference.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\Service.Configuration.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\Service.Configuration.AssemblyInfoInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\Service.Configuration.AssemblyInfo.cs
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\Service.Configuration.csproj.CoreCompileInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\Service.Configuration.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\refint\Service.Configuration.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\Service.Configuration.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\ref\Service.Configuration.dll

@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Frameworkes/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Frameworkes.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Frameworkes.dll": {}
+        }
+      },
+      "User.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Frameworkes": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/User.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/User.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Frameworkes/1.0.0": {
+      "type": "project",
+      "path": "../Frameworkes/Frameworkes.csproj",
+      "msbuildProject": "../Frameworkes/Frameworkes.csproj"
+    },
+    "User.Domain/1.0.0": {
+      "type": "project",
+      "path": "../User.Domain/User.Domain.csproj",
+      "msbuildProject": "../User.Domain/User.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Frameworkes >= 1.0.0",
+      "User.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\alith\\.nuget\\packages\\": {},
@@ -38,7 +76,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Frameworkes\\Frameworkes.csproj": {
+              "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Frameworkes\\Frameworkes.csproj"
+            },
+            "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\User.Domain\\User.Domain.csproj": {
+              "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\User.Domain\\User.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

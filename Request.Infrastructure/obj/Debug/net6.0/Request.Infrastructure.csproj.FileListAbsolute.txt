@@ -1,0 +1,12 @@
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\bin\Debug\net6.0\Request.Infrastructure.deps.json
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\bin\Debug\net6.0\Request.Infrastructure.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\bin\Debug\net6.0\Request.Infrastructure.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\obj\Debug\net6.0\Request.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\obj\Debug\net6.0\Request.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\obj\Debug\net6.0\Request.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\obj\Debug\net6.0\Request.Infrastructure.AssemblyInfo.cs
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\obj\Debug\net6.0\Request.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\obj\Debug\net6.0\Request.Infrastructure.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\obj\Debug\net6.0\refint\Request.Infrastructure.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\obj\Debug\net6.0\Request.Infrastructure.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Infrastructure\obj\Debug\net6.0\ref\Request.Infrastructure.dll

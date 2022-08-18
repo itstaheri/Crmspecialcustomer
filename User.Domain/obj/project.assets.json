@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Frameworkes/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Frameworkes.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Frameworkes.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Frameworkes/1.0.0": {
+      "type": "project",
+      "path": "../Frameworkes/Frameworkes.csproj",
+      "msbuildProject": "../Frameworkes/Frameworkes.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Frameworkes >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\alith\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Frameworkes\\Frameworkes.csproj": {
+              "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Frameworkes\\Frameworkes.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
