@@ -12,7 +12,7 @@ namespace User.Application.Services
         Task<UserRoleViewModel> GetRoleInfoBy(long RoleId);
         Task<List<UserRoleViewModel>> GetAllRoles();
         Task ActionPermissions(List<string> permissions, long RoleId);
-        Task<List<PermissionViewModel>> GetPermissionBy(long RoleId);
+        Task<List<string>> GetPermissionBy(long RoleId);
         Task<List<PermissionViewModel>> GetAllPermissions();
         
     }

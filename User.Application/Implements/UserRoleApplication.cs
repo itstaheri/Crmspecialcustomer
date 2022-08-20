@@ -45,11 +45,11 @@ namespace User.Application.Implements
             return (await _repository.GetAll()).Select(x=>new UserRoleViewModel { RoleId = x.Id,RoleName = x.RoleName}).ToList();
         }
 
-        public async Task<List<PermissionViewModel>> GetPermissionBy(long RoleId)
+        public async Task<List<string>> GetPermissionBy(long RoleId)
         {
             //return permissions from RoleId 
-           return (await _repository.GetPermissionsBy(RoleId))
-                .Select(x=>new PermissionViewModel { PermissionKey= x.PermissionKey,RoleId = x.RoleId}).ToList();
+           return (await _repository.GetPermissionsKeysBy(RoleId))
+               .ToList();
 
             
         }

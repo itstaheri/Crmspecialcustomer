@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using User.Application.Common;
 using User.Application.Contract;
 
 namespace User.Application.Services
@@ -16,6 +17,7 @@ namespace User.Application.Services
         Task ActiveUser(long UserId);
         Task DeActiveUser(long UserId);
         Task<List<UserViewModel>> GetAllInfo();
+        Task<LoginResult> Login(LoginViewModel commend);    
         
     }
 }

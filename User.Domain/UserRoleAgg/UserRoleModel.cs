@@ -10,16 +10,14 @@ namespace User.Domain.UserRoleAgg
 {
     public class UserRoleModel : BaseEntity
     {
-        public UserRoleModel(string roleName, long userId)
+        public UserRoleModel(string roleName)
         {
             RoleName = roleName;
-            UserId = userId;
             permissions = new();
             users = new();
         }
 
         public string RoleName { get;private set; }
-        public long UserId { get;private set; }
         public List<UserModel> users { get;private set; }
         public List<UserPermissionModel> permissions { get;private set; }
 

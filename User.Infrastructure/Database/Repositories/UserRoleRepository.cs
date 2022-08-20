@@ -59,9 +59,14 @@ namespace User.Infrastructure.Database.Repositories
             return await _dbContext.userPermissions.ToListAsync();
         }
 
-        public async Task<List<UserPermissionModel>> GetPermissionsBy(long RoleId)
+        public async Task<List<string>> GetPermissionsKeysBy(long RoleId)
         {
-            return await _dbContext.userPermissions.Where(x=>x.RoleId == RoleId).ToListAsync();
+            return await _dbContext.userPermissions.Where(x=>x.RoleId == RoleId).Select(x=>x.PermissionKey).ToListAsync();
+        }
+
+        public string GetRoleName(long RoleId)
+        {
+            return _dbContext.userRoles.FirstOrDefault(x => x.Id == RoleId).RoleName;
         }
 
         public async Task<bool> RemovePermissionsBy(long RoleId)

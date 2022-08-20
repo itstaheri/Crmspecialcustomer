@@ -49,10 +49,10 @@ namespace User.Infrastructure.Database.Repositories
             return await _dbContext.users.FirstOrDefaultAsync(x=>x.Id == Id);
         }
 
-        public async Task<UserModel> GetInfoBy(string Username)
+        public async Task<UserModel> GetInfoBy(string Code)
         {
             //GetUserInfo by Username from database
-            return await _dbContext.users.FirstOrDefaultAsync(x => x.Username == Username);
+            return await _dbContext.users.FirstOrDefaultAsync(x => x.Code == Code);
         }
 
         public async Task SaveChanges()

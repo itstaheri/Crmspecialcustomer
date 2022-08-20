@@ -1,9 +1,17 @@
+using Frameworkes.Auth;
+using Frameworks;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using User.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration Configuration = builder.Configuration;
 // Add services to the container.
-builder.Services.AddRazorPages();
+//builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews();
+var mvcbuilder = builder.Services.AddMvc();
 
 //dbcontext database
 #region database
@@ -11,7 +19,54 @@ string connectionString = Configuration.GetConnectionString("specialCustomerDB")
 UserBootestrapper.Configuration(builder.Services, connectionString);
 #endregion
 
+
+//Authentication , Authorization
+#region identity
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.Configure<CookiePolicyOptions>(option =>
+{
+    option.CheckConsentNeeded = context => true;
+    option.MinimumSameSitePolicy = SameSiteMode.Lax;
+
+
+});
+
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, q =>
+    {
+        q.LoginPath = new PathString("/Account");
+        q.LogoutPath = new PathString("/Account");
+        q.AccessDeniedPath = new PathString("/AccessDenied");
+    });
+builder.Services.AddAuthorization(option =>
+{
+    option.AddPolicy("AdminArea", builder => builder.RequireClaim("RoleName", new List<string> { "Manager", "Admin" }));
+   // option.AddPolicy(PermissionTypes.Course.Create, builder => builder.RequireAssertion(context => context.User.HasClaim(x => (x.Type == "Permissions" && x.Value == PermissionTypes.Course.Create))));
+});
+
+
+
+#endregion
+
+//register frameworks
+#region frameworks
+builder.Services.AddTransient<IAuth, Auth>();
+builder.Services.AddTransient<IPasswordHasher, PasswordHasher>();
+
+#endregion
+
+
+
+
+//RunTimeCompiler
+mvcbuilder.AddRazorRuntimeCompilation();
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -26,8 +81,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+//authentication Middleware
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapRazorPages();
+
+//app.MapRazorPages();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
