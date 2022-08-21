@@ -15,3 +15,5 @@ C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0
 C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0\Frameworkes.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0\User.Domain.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\obj\Debug\net6.0\User.Application.csproj.CopyComplete
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0\Exceptions.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\User.Application\bin\Debug\net6.0\Exceptions.pdb

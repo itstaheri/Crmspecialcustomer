@@ -49,20 +49,20 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="post" asp-action="Login">
-					
+				<form class="login100-form validate-form" method="post" asp-action="Login" dir="rtl">
 					<span class="login100-form-title p-b-48">
 						<img src="https://bill.tci.ir/Skins/New/Home/SepehrLogoNew.png" />
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" asp-for="Code" name="Code" placeholder="Code">
+						<input class="input100" type="text" asp-for="Code" name="Code" placeholder="کد ملی">
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						
-						<input class="input100" type="password" asp-for="Password" name="Password" placeholder="Password">
+						<input class="input100" type="password" asp-for="Password" name="Password" placeholder="رمز عبور">
 					</div>
+					<div asp-validation-summary="All" class="text-danger"></div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">

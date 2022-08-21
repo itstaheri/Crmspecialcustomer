@@ -1,5 +1,6 @@
 using Frameworkes.Auth;
 using Frameworks;
+using Hofre.HostFrameworks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -44,7 +45,6 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddAuthorization(option =>
 {
     option.AddPolicy("AdminArea", builder => builder.RequireClaim("RoleName", new List<string> { "Manager", "Admin" }));
-   // option.AddPolicy(PermissionTypes.Course.Create, builder => builder.RequireAssertion(context => context.User.HasClaim(x => (x.Type == "Permissions" && x.Value == PermissionTypes.Course.Create))));
 });
 
 
@@ -55,6 +55,7 @@ builder.Services.AddAuthorization(option =>
 #region frameworks
 builder.Services.AddTransient<IAuth, Auth>();
 builder.Services.AddTransient<IPasswordHasher, PasswordHasher>();
+builder.Services.AddTransient<IFileHelper, FileHelper>();
 
 #endregion
 

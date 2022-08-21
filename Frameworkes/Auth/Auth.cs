@@ -46,14 +46,19 @@ namespace Frameworkes.Auth
             var model = new AuthViewModel();
             if(!IsAuthenticated()) return model;
 
-            var claims = _httpContext.HttpContext.User.Claims.ToList();
-            model.FullName = claims.FirstOrDefault(x => x.Type == "Fullname")?.Value;
-            model.Username = claims.FirstOrDefault(x => x.Type == "Username")?.Value;
-            model.ProfilePicture = claims.FirstOrDefault(x => x.Type == "ProfilePicture")?.Value;
-            model.Code = claims.FirstOrDefault(x => x.Type == "Code")?.Value;
-            model.UserId = long.Parse(claims.FirstOrDefault(x => x.Type == "UserId").Value);
-            model.RoleId = long.Parse(claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value);
-            var per = JsonConvert.DeserializeObject<string>(claims.FirstOrDefault(x => x.Type == "Permissions").Value).ToList();
+            await Task.Run(() =>
+            {
+                var claims = _httpContext.HttpContext.User.Claims.ToList();
+                model.FullName = claims.FirstOrDefault(x => x.Type == "Fullname")?.Value;
+                model.Username = claims.FirstOrDefault(x => x.Type == "Username")?.Value;
+                model.ProfilePicture = claims.FirstOrDefault(x => x.Type == "ProfilePicture")?.Value;
+                model.Code = claims.FirstOrDefault(x => x.Type == "Code")?.Value;
+                model.UserId = long.Parse(claims.FirstOrDefault(x => x.Type == "UserId").Value);
+                model.RoleId = long.Parse(claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value);
+                var per = JsonConvert.DeserializeObject<string>(claims.FirstOrDefault(x => x.Type == "Permissions").Value).ToList();
+            });
+
+        
 
             return model;
 

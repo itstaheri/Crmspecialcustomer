@@ -1,0 +1,100 @@
+﻿@using User.Application.Contract.UserRole;
+@using User.Application.Common;
+@model List<UserRoleViewModel>;
+
+
+<div class="col-12 col-lg-auto mb-20">
+    <div class="page-heading">
+        <h3>نقش ها</h3>
+    </div>
+</div><!-- Page Heading End -->
+<!--Table Head Dark Start-->
+<div class="col-lg-12 col-12 mb-30">
+    <div class="box">
+        <!--Modal-->
+        <div class="modal fade" id="exampleModal5">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">ایجاد سطح دسترسی</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" asp-action="Permission">
+                            <div class="form-group">
+                                <select class="form-control" name="permissions" multiple>
+                                    <optgroup label="کاربران" style="text-align:center;background-color:lightblue;"></optgroup>
+                                    <option value="@PermissionTypes.UserCreate">ایجاد</option>
+                                    <option value="@PermissionTypes.UserView">مشاهده</option>
+                                    <option value="@PermissionTypes.UserEdit">ویرایش</option>
+                                    <option value="@PermissionTypes.UserDelete">حذف</option>
+                                    <optgroup label="سرویس ها" style="text-align:center;background-color:lightblue;"></optgroup>
+                                    <option value="@PermissionTypes.ServiceCreate">ایجاد</option>
+                                    <option value="@PermissionTypes.ServiceView">مشاهده</option>
+                                    <option value="@PermissionTypes.ServiceEdit">ویرایش</option>
+                                    <option value="@PermissionTypes.ServiceDelete">حذف</option>
+                                    <optgroup label="شهرها" style="text-align:center;background-color:lightblue;"></optgroup>
+                                    <option value="@PermissionTypes.AreaCreate">ایجاد</option>
+                                    <option value="@PermissionTypes.AreaView">مشاهده</option>
+                                    <option value="@PermissionTypes.AreaEdit">ویرایش</option>
+                                    <option value="@PermissionTypes.AreaDelete">حذف</option>
+                                    <optgroup label="درخواست ها" style="text-align:center;background-color:lightblue;"></optgroup>
+                                    <option value="@PermissionTypes.RequestCreate">ایجاد</option>
+                                    <option value="@PermissionTypes.RequestView">مشاهده</option>
+                                    <option value="@PermissionTypes.RequestEdit">ویرایش</option>
+                                    <option value="@PermissionTypes.RequestDelete">حذف</option>
+                                     <optgroup label="سفارشات" style="text-align:center;background-color:lightblue;"></optgroup>
+                                    <option value="@PermissionTypes.OrderCreate">ایجاد</option>
+                                    <option value="@PermissionTypes.OrderView">مشاهده</option>
+                                    <option value="@PermissionTypes.OrderEdit">ویرایش</option>
+                                    <option value="@PermissionTypes.OrderDelete">حذف</option>
+                                </select>
+                                <input type="hidden" class="form-control" name="RoleId" id="UserRoleId">
+                            </div>
+                            <div class="modal-footer">
+                                <button class="button button-danger" data-dismiss="modal">بستن</button>
+                                <button type="submit" class="button button-primary">اعمال</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <table class="table" style="text-align:center;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>نقش</th>
+                        <th>سطح دسترسی ها</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var role in Model)
+                    {
+                        <tr>
+
+                            <td>@role.RoleId</td>
+                            <td>@role.RoleName</td>
+                            <td>
+                                <button class="button button-disqus" data-toggle="modal" data-target="#exampleModal5" data-whatever="mdo" onclick="RoleId(@role.RoleId)">مدیریت</button>
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--Table Head Dark End-->
+
+<script>
+    function RoleId(roleId){
+        $("#UserRoleId").val(roleId)
+    }
+</script>

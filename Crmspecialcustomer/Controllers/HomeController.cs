@@ -3,12 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Crmspecialcustomer.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
+      
     }
 }

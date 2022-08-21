@@ -1187,6 +1187,7 @@
       },
       "User.Application/1.0.0": {
         "dependencies": {
+          "Exceptions": "1.0.0",
           "Frameworkes": "1.0.0",
           "User.Domain": "1.0.0"
         },

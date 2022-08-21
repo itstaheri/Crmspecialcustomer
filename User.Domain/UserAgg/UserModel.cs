@@ -22,19 +22,21 @@ namespace User.Domain.UserAgg
             IsActive = true;
         }
         //Edit UserInfo
-        public void Edit(string username, string password, string fullName, string code, string profilePicture, string phone, long roleId)
+        public void Edit(string username,  string fullName, string code, string profilePicture, string phone, long roleId)
         {
             Username = username;
-            Password = password;
             FullName = fullName;
             Code = code;
-            ProfilePicture = profilePicture;
+            if(!string.IsNullOrWhiteSpace(profilePicture))
+                ProfilePicture = profilePicture;
             Phone = phone;
             RoleId = roleId;
         }
         //for active and deactive user
         public void ActiveUser()=> IsActive = true;
         public void DeActiveUser()=> IsActive = false;
+
+        public void ChangePassword(string NewPassword) => Password = NewPassword;
 
         public string Username { get;private set; }
         public string Password { get;private set; }

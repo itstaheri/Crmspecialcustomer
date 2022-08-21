@@ -11,13 +11,14 @@ namespace User.Application.Services
 {
     public interface IUserApplication 
     {
-        Task CreateUser(CreateUserViewModel commend);
-        Task EditUser(EditUserViewModel commend);
+        Task<UserResult> CreateUser(CreateUserViewModel commend);
+        Task<UserResult> EditUser(EditUserViewModel commend);
         Task<EditUserViewModel> GetValueForEdit(long UserId);
         Task ActiveUser(long UserId);
         Task DeActiveUser(long UserId);
         Task<List<UserViewModel>> GetAllInfo();
-        Task<LoginResult> Login(LoginViewModel commend);    
+        Task<LoginResult> Login(LoginViewModel commend);
+        Task<bool> ChangePassword(ChangePassword commend);
         
     }
 }

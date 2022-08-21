@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "User.Application/1.0.0": {
         "dependencies": {
+          "Exceptions": "1.0.0",
           "Frameworkes": "1.0.0",
           "User.Domain": "1.0.0"
         },
@@ -433,6 +434,11 @@
         }
       },
       "System.Text.Encodings.Web/4.5.0": {},
+      "Exceptions/1.0.0": {
+        "runtime": {
+          "Exceptions.dll": {}
+        }
+      },
       "Frameworkes/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.Cookies": "2.2.0",
@@ -768,6 +774,11 @@
       "sha512": "sha512-Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g==",
       "path": "system.text.encodings.web/4.5.0",
       "hashPath": "system.text.encodings.web.4.5.0.nupkg.sha512"
+    },
+    "Exceptions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Frameworkes/1.0.0": {
       "type": "project",

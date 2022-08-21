@@ -26,24 +26,19 @@ namespace Crmspecialcustomer.Controllers
             if (loginResult.Message==nameof(LoginResultMessage.WrongUsername))
             {
                 ModelState.AddModelError(commend.Code,LoginResultMessage.WrongUsername);
-                return View();
+                return View("index");
             }
             else if (loginResult.Message == nameof(LoginResultMessage.WrongPassword))
             {
                 ModelState.AddModelError(commend.Code, LoginResultMessage.WrongPassword);
-                return View();
+                return View("index");
             }
-            else if (loginResult.Message == nameof(LoginResultMessage.SuccessLogin))
-            {
-                return RedirectToAction();
-            }
-            else
-            {
-                return View();
-            }
+
+            return Redirect("/");
+
 
         }
 
-       
+
     }
 }

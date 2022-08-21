@@ -19,8 +19,4 @@
     <ProjectReference Include="..\User.Configuration\User.Configuration.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="HostFrameworks\" />
-  </ItemGroup>
-
 </Project>

@@ -251,6 +251,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Exceptions\\Exceptions.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Exceptions\\Exceptions.csproj"
+              },
               "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Frameworkes\\Frameworkes.csproj": {
                 "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Frameworkes\\Frameworkes.csproj"
               },

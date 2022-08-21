@@ -1,0 +1,48 @@
+﻿@using User.Application.Contract;
+@model EditUserViewModel;
+
+<div class="content-body">
+
+    <!-- Page Headings Start -->
+    <div class="row justify-content-between align-items-center mb-10">
+
+        <div class="add-edit-product-wrap col-12">
+
+            <div class="add-edit-product-form">
+                <form method="post" asp-action="EditUser" enctype="multipart/form-data">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <h4 class="title">ویرایش کاربر</h4>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" asp-for="FullName" type="text" placeholder="نام و نام خانوداگی"  required value="@Model.FullName"></div>
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" asp-for="Username" type="text" placeholder="نام کاربری" required value="@Model.Username"></div>
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" asp-for="Code" type="text" placeholder="کدملی" required value="@Model.Code"></div>
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" asp-for="Phone" type="text" placeholder="شماره همراه" required value="@Model.Phone"></div>
+                        <span asp-validation-for="RePassword" class="text-danger"></span>
+                        <div class="col-lg-6 col-12 mb-30">
+                            @(await Component.InvokeAsync("RoleList"))
+                        </div>
+                        <div class="col-lg-6 col-12 mb-30"><input type="hidden" value="@Model.UserId" asp-for="UserId"></div>
+
+                    </div>
+                     <h4 class="title">پروفایل کاربر</h4>
+
+                        <div class="product-upload-gallery row flex-wrap">
+                            <div class="col-12 mb-30">
+                                <input  type="file" asp-for="@Model.ProfilePicture" name="ProfilePicture">
+                            </div>
+                        </div>
+
+                    <div class="row">
+                        <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                            <button class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره و انتشار</button>
+                        </div>
+                    </div><!-- Button Group End -->
+
+                </form>
+            </div>
+
+        </div><!-- Add or Edit Product End -->
+    </div>
+</div>
+

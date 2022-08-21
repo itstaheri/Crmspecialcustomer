@@ -1,4 +1,5 @@
-﻿using Frameworkes;
+﻿using Exceptions;
+using Frameworkes;
 using Frameworkes.Auth;
 using Frameworks;
 using System;
@@ -20,13 +21,15 @@ namespace User.Application.Implements
         private readonly IUserRepository _repository;
         private readonly IPasswordHasher _hash;
         private readonly IUserRoleRepository _role;
+        private readonly IFileHelper _fileHelper;
 
-        public UserApplication(IAuth auth, IUserRepository repository, IPasswordHasher hash, IUserRoleRepository role)
+        public UserApplication(IAuth auth, IUserRepository repository, IPasswordHasher hash, IUserRoleRepository role, IFileHelper fileHelper)
         {
             _auth = auth;
             _repository = repository;
             _hash = hash;
             _role = role;
+            _fileHelper = fileHelper;
         }
 
         public async Task ActiveUser(long UserId)
@@ -39,13 +42,38 @@ namespace User.Application.Implements
             await _repository.SaveChanges();
 
         }
-
-        public async Task CreateUser(CreateUserViewModel commend)
+        //if oldpassword & userpassword was equal return true & change that else return false 
+        public async Task<bool> ChangePassword(ChangePassword commend)
         {
+            var user = await _repository.GetBy(commend.UserId);
+            if (user == null) return false;
+            var passwrod = await _hash.Hash(commend.NewPassword);
+
+            user.ChangePassword(passwrod);
+            await _repository.SaveChanges();
+            return true;
+
+
+        }
+
+        public async Task<UserResult> CreateUser(CreateUserViewModel commend)
+        {
+            //get all users & check the Unique check of values
+            var usersDetail = (await _repository.GetAll());
+            if (usersDetail.Any(x => x.Username == commend.Username)) return new UserResult(commend.Username, UserStatus.RepetitiousUserName);
+            if (usersDetail.Any(x => x.Code == commend.Code)) return new UserResult(commend.Code, UserStatus.RepetitiousUserCode);
+
+            //convet password to hash string
             var password = await _hash.Hash(commend.Password);
+
+            //make new of usermodel for create User
             var user = new UserModel
-                (commend.Username, password, commend.FullName, commend.Code, commend.ProfilePicture, commend.Phone, commend.RoleId);
+                (commend.Username, password, commend.FullName, commend.Code, "avatar.jpg", commend.Phone, commend.RoleId);
+
+
             await _repository.Create(user);
+
+            return new UserResult(commend.Username, UserStatus.CreateSuccess);
         }
 
         public async Task DeActiveUser(long UserId)
@@ -58,52 +86,68 @@ namespace User.Application.Implements
             await _repository.SaveChanges();
         }
 
-        public async Task EditUser(EditUserViewModel commend)
+        public async Task<UserResult> EditUser(EditUserViewModel commend)
         {
+            var userDetail = await _repository.GetAll();
+
+            var checkUsername = userDetail.Any(x => x.Username == commend.Username && x.Id != commend.UserId);
+            if (checkUsername) return new UserResult(commend.Username, UserStatus.RepetitiousUserName);
+
+            var checkCode = userDetail.Any(x => x.Code == commend.Code && x.Id != commend.UserId);
+            if (checkCode) return new UserResult(commend.Code, UserStatus.RepetitiousUserCode);
+
             //get userInfo
-            var user = await _repository.GetBy(commend.UserId);
-            user.Edit(commend.Username,commend.Password,commend.FullName,commend.Code,commend.ProfilePicture,commend.Phone, commend.RoleId);
+            var user = userDetail.FirstOrDefault(x => x.Id == commend.UserId);
+            var picture = await _fileHelper.SingleUploader(commend.ProfilePicture, "Users", commend.UserId.ToString());
+
+            user.Edit(commend.Username, commend.FullName, commend.Code, picture, commend.Phone, commend.RoleId);
 
             await _repository.SaveChanges();
-            
+            return new UserResult(user.Username, UserStatus.CreateSuccess);
         }
 
         public async Task<List<UserViewModel>> GetAllInfo()
         {
-           return (await _repository.GetAll()).Select(x=>new UserViewModel
-           {
-               Username = x.Username,
-               FullName = x.FullName,
-               Code = x.Code,
-               ProfilePicture = x.ProfilePicture,
-               Phone = x.Phone,
-               RoleId = x.RoleId
-               
-           }).ToList();
+            var query = (await _repository.GetAll()).Select(x => new UserViewModel
+            {
+                Username = x.Username,
+                FullName = x.FullName,
+                Code = x.Code,
+                ProfilePicture = x.ProfilePicture,
+                Phone = x.Phone,
+                RoleId = x.RoleId,
+                UserId = x.Id,
+                CreationDate = x.CreationDate.ToFarsi(),
+                IsActive = x.IsActive,
+
+            }).ToList();
+            query.ForEach(x => x.RoleName = _role.GetRoleName(x.RoleId));
+            return query;
         }
 
         public async Task<EditUserViewModel> GetValueForEdit(long UserId)
         {
             //get userInfo
             var user = await _repository.GetBy(UserId);
+            if (user == null) throw new NotFoundException(nameof(user), user);
             return new EditUserViewModel
             {
                 Code = user.Code,
                 FullName = user.FullName,
-                ProfilePicture = user.ProfilePicture,
                 Phone = user.Phone,
                 RoleId = user.RoleId,
                 Username = user.Username,
                 UserId = user.Id
 
             };
+
         }
 
         public async Task<LoginResult> Login(LoginViewModel commend)
         {
             var user = await _repository.GetInfoBy(commend.Code);
             if (user == null) return new LoginResult(nameof(LoginResultMessage.WrongUsername));
-            (bool Verified, bool NeedsUpgrade) =  _hash.Check(user.Password, commend.Password);
+            (bool Verified, bool NeedsUpgrade) = _hash.Check(user.Password, commend.Password);
             if (!Verified) return new LoginResult(nameof(LoginResultMessage.WrongPassword));
 
             AuthViewModel auth = new()
@@ -115,7 +159,7 @@ namespace User.Application.Implements
                 RoleId = user.RoleId,
                 UserId = user.Id,
                 Username = user.Username
-                
+
             };
             auth.RoleName = _role.GetRoleName(auth.RoleId);
             auth.Permissions = await _role.GetPermissionsKeysBy(auth.RoleId);
@@ -128,7 +172,7 @@ namespace User.Application.Implements
             catch (Exception ex)
             {
 
-                throw new Exception(ex.Message,ex.InnerException);
+                throw new Exception(ex.Message, ex.InnerException);
             }
 
         }

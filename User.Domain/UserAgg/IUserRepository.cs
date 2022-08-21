@@ -10,5 +10,7 @@ namespace User.Domain.UserAgg
     public interface IUserRepository : IGenericRepository<UserModel,UserModel>
     {
         Task<UserModel> GetInfoBy(string Code); 
+        
+        
     }
 }
