@@ -1,3 +1,4 @@
+using Area.Configuration;
 using Frameworkes.Auth;
 using Frameworks;
 using Hofre.HostFrameworks;
@@ -18,6 +19,7 @@ var mvcbuilder = builder.Services.AddMvc();
 #region database
 string connectionString = Configuration.GetConnectionString("specialCustomerDB");
 UserBootestrapper.Configuration(builder.Services, connectionString);
+AreaBootstrapper.Configuration(builder.Services, connectionString);
 #endregion
 
 
@@ -86,10 +88,16 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-
 //app.MapRazorPages();
+
+
+app.MapControllerRoute("areaRoute",
+    "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Index}/{id?}");
+
+
 
 app.Run();

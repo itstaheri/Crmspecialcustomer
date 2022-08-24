@@ -20,10 +20,10 @@ namespace Frameworkes.Auth
             _httpContext = httpContext;
         }
 
-        public long GetCurrentId()
+        public  long GetCurrentId()
         {
             return  IsAuthenticated()
-               ? long.Parse(_httpContext.HttpContext.User.Claims.FirstOrDefault(x => x.Type == "AccountId")?.Value)
+               ? long.Parse( _httpContext.HttpContext.User.Claims.FirstOrDefault(x => x.Type == "AccountId")?.Value)
                : 0;
         }
 
@@ -80,6 +80,7 @@ namespace Frameworkes.Auth
             var permissions = JsonConvert.SerializeObject(model.Permissions);
             var claims = new List<Claim>
             {
+                new Claim("AccountId",model.UserId.ToString()),
                 new Claim("Fullname",model.FullName),
                 new Claim("Username",model.Username),
                 new Claim("Phone",model.Phone),

@@ -68,7 +68,7 @@ namespace User.Application.Implements
 
             //make new of usermodel for create User
             var user = new UserModel
-                (commend.Username, password, commend.FullName, commend.Code, "avatar.jpg", commend.Phone, commend.RoleId);
+                (commend.Username, password, commend.FullName, commend.Code, "avatar.jpg", commend.Phone, commend.RoleId,_auth.GetCurrentId());
 
 
             await _repository.Create(user);
@@ -100,7 +100,7 @@ namespace User.Application.Implements
             var user = userDetail.FirstOrDefault(x => x.Id == commend.UserId);
             var picture = await _fileHelper.SingleUploader(commend.ProfilePicture, "Users", commend.UserId.ToString());
 
-            user.Edit(commend.Username, commend.FullName, commend.Code, picture, commend.Phone, commend.RoleId);
+            user.Edit(commend.Username, commend.FullName, commend.Code, picture, commend.Phone, commend.RoleId,_auth.GetCurrentId());
 
             await _repository.SaveChanges();
             return new UserResult(user.Username, UserStatus.CreateSuccess);

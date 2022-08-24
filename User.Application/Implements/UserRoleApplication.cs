@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Frameworkes.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,12 @@ namespace User.Application.Implements
     public class UserRoleApplication : IUserRoleApplication
     {
         private readonly IUserRoleRepository _repository;
+        private readonly IAuth _auth;
 
-        public UserRoleApplication(IUserRoleRepository repository)
+        public UserRoleApplication(IUserRoleRepository repository, IAuth auth)
         {
             _repository = repository;
+            _auth = auth;
         }
 
         public async Task ActionPermissions(List<string> permissions,long RoleId)
@@ -26,7 +29,7 @@ namespace User.Application.Implements
             //Add enteries to permissionsModel for add to CreatePermission Method
             foreach (var item in permissions)
             {
-                var permission = new UserPermissionModel(item, RoleId);
+                var permission = new UserPermissionModel(item, RoleId,_auth.GetCurrentId());
                 permissionsModel.Add(permission);
 
             }

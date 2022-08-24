@@ -1,46 +1,143 @@
-/* _content/Crmspecialcustomer/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* _content/Crmspecialcustomer/Areas/Admin/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-a.navbar-brand[b-dtkqw99iw6] {
+a.navbar-brand[b-4eiw14jxcd] {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
-a[b-dtkqw99iw6] {
+a[b-4eiw14jxcd] {
   color: #0077cc;
 }
 
-.btn-primary[b-dtkqw99iw6] {
+.btn-primary[b-4eiw14jxcd] {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active[b-dtkqw99iw6], .nav-pills .show > .nav-link[b-dtkqw99iw6] {
+.nav-pills .nav-link.active[b-4eiw14jxcd], .nav-pills .show > .nav-link[b-4eiw14jxcd] {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
-.border-top[b-dtkqw99iw6] {
+.border-top[b-4eiw14jxcd] {
   border-top: 1px solid #e5e5e5;
 }
-.border-bottom[b-dtkqw99iw6] {
+.border-bottom[b-4eiw14jxcd] {
   border-bottom: 1px solid #e5e5e5;
 }
 
-.box-shadow[b-dtkqw99iw6] {
+.box-shadow[b-4eiw14jxcd] {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy[b-dtkqw99iw6] {
+button.accept-policy[b-4eiw14jxcd] {
   font-size: 1rem;
   line-height: inherit;
 }
 
-.footer[b-dtkqw99iw6] {
+.footer[b-4eiw14jxcd] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+/* _content/Crmspecialcustomer/Areas/Admin/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-vlncup1or9] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-vlncup1or9] {
+  color: #0077cc;
+}
+
+.btn-primary[b-vlncup1or9] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-vlncup1or9], .nav-pills .show > .nav-link[b-vlncup1or9] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-vlncup1or9] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-vlncup1or9] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-vlncup1or9] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-vlncup1or9] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-vlncup1or9] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+/* _content/Crmspecialcustomer/Views/Shared/_HomeLayout.cshtml.rz.scp.css */
+
+
+a.navbar-brand[b-7eqnaiqd4c] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-7eqnaiqd4c] {
+  color: #0077cc;
+}
+
+.btn-primary[b-7eqnaiqd4c] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-7eqnaiqd4c], .nav-pills .show > .nav-link[b-7eqnaiqd4c] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-7eqnaiqd4c] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-7eqnaiqd4c] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-7eqnaiqd4c] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-7eqnaiqd4c] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-7eqnaiqd4c] {
   position: absolute;
   bottom: 0;
   width: 100%;

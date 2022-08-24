@@ -1,0 +1,79 @@
+﻿@using Area.Application.Contract.State
+@model List<StateViewModel>
+
+<button class="button button-disqus" data-toggle="modal" data-target="#exampleModal5" data-whatever="mdo">افزودن استان</button>
+
+
+<div class="col-lg-12 col-12 mb-30">
+    <div class="box">
+
+        <div class="box-body">
+            <table class="table" style="text-align:center;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th data-name="نام استان">نام استان</th>
+                        <th data-name="تاریخ ایجاد">تاریخ ایجاد</th>
+                        <th>شهرستان ها</th>
+                        <th>ویرایش</th>
+                        <th>حذف</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var state in Model)
+                    {
+                        <tr>
+
+                            <td>@state.StateName</td>
+                            <td>@state.CreationDate</td>
+                            <td><a class="btn btn-primary" asp-controller="City" asp-action="Index" asp-route-id="@state.StateId">مشاهده</a></td>
+                            <td><button class="button button-disqus" data-toggle="modal" data-target="#exampleModal4" data-whatever="mdo" id="moddl" onclick="GetValue('@state.StateName',@state.StateId)">ویرایش</button></td>
+                            <td><a asp-action="RemoveState" asp-route-stateId="@state.StateId" class="btn btn-danger">حذف</a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<!--View Modal-->
+<div class="modal fade" id="exampleModal4">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ویرایش استان</h5>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-action="EditState">
+                    <div class="form-group">
+
+
+                        <input type="text" class="form-control" name="StateName" Id="StateName" placeholder="نام استان" required>
+                        <input type="hidden" class="form-control" name="StateId" Id="StateId">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="button button-danger" data-dismiss="modal">بستن</button>
+                        <button type="submit" class="button button-primary">اعمال</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+        //Get CenterValue by OnClick htmlEvent for insert to Editinputs value
+    function GetValue(Name,Id){
+       $("#StateName").val(Name)
+       $("#StateId").val(Id)
+
+    }
+</script>

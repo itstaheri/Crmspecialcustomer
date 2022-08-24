@@ -10,3 +10,6 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Area.Domain\obj\Debug\net6.0\Area
 C:\Users\alith\source\repos\Crmspecialcustomer\Area.Domain\obj\Debug\net6.0\refint\Area.Domain.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Area.Domain\obj\Debug\net6.0\Area.Domain.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\Area.Domain\obj\Debug\net6.0\ref\Area.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Area.Domain\bin\Debug\net6.0\Frameworkes.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Area.Domain\bin\Debug\net6.0\Frameworkes.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Area.Domain\obj\Debug\net6.0\Area.Domain.csproj.CopyComplete

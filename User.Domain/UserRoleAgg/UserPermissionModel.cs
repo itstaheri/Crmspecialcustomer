@@ -9,7 +9,7 @@ namespace User.Domain.UserRoleAgg
 {
     public class UserPermissionModel : BaseEntity
     {
-        public UserPermissionModel(string permissionKey, long roleId)
+        public UserPermissionModel(string permissionKey, long roleId,long creatorId) : base(creatorId)
         {
             PermissionKey = permissionKey;
             RoleId = roleId;

@@ -34,6 +34,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Crmspecialcustomer/1.0.0": {
         "dependencies": {
+          "Area.Configuration": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.8",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.8",
           "Microsoft.EntityFrameworkCore.Design": "6.0.8",
@@ -1160,6 +1161,58 @@
         },
         "compile": {
           "ref/netcoreapp3.0/System.Windows.Extensions.dll": {}
+        }
+      },
+      "Area.Application/1.0.0": {
+        "dependencies": {
+          "Area.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Area.Application.dll": {}
+        },
+        "compile": {
+          "Area.Application.dll": {}
+        }
+      },
+      "Area.Configuration/1.0.0": {
+        "dependencies": {
+          "Area.Application": "1.0.0",
+          "Area.Infrastructure": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "runtime": {
+          "Area.Configuration.dll": {}
+        },
+        "compile": {
+          "Area.Configuration.dll": {}
+        }
+      },
+      "Area.Domain/1.0.0": {
+        "dependencies": {
+          "Frameworkes": "1.0.0"
+        },
+        "runtime": {
+          "Area.Domain.dll": {}
+        },
+        "compile": {
+          "Area.Domain.dll": {}
+        }
+      },
+      "Area.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Area.Domain": "1.0.0",
+          "Exceptions": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8"
+        },
+        "runtime": {
+          "Area.Infrastructure.dll": {}
+        },
+        "compile": {
+          "Area.Infrastructure.dll": {}
         }
       },
       "Exceptions/1.0.0": {
@@ -3533,6 +3586,26 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "Area.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Area.Configuration/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Area.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Area.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Exceptions/1.0.0": {
       "type": "project",

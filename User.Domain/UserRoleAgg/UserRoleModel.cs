@@ -10,7 +10,7 @@ namespace User.Domain.UserRoleAgg
 {
     public class UserRoleModel : BaseEntity
     {
-        public UserRoleModel(string roleName)
+        public UserRoleModel(string roleName,long creatorId) : base(creatorId)
         {
             RoleName = roleName;
             permissions = new();

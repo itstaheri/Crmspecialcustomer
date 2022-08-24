@@ -10,7 +10,7 @@ namespace User.Domain.UserAgg
 {
     public class UserModel : BaseEntity
     {
-        public UserModel(string username, string password, string fullName, string code, string profilePicture, string phone, long roleId)
+        public UserModel(string username, string password, string fullName, string code, string profilePicture, string phone, long roleId,long creatorId) : base(creatorId)
         {
             Username = username;
             Password = password;
@@ -22,7 +22,7 @@ namespace User.Domain.UserAgg
             IsActive = true;
         }
         //Edit UserInfo
-        public void Edit(string username,  string fullName, string code, string profilePicture, string phone, long roleId)
+        public void Edit(string username,  string fullName, string code, string profilePicture, string phone, long roleId, long creatorId)
         {
             Username = username;
             FullName = fullName;
@@ -31,6 +31,8 @@ namespace User.Domain.UserAgg
                 ProfilePicture = profilePicture;
             Phone = phone;
             RoleId = roleId;
+           CreatorId = creatorId;
+
         }
         //for active and deactive user
         public void ActiveUser()=> IsActive = true;

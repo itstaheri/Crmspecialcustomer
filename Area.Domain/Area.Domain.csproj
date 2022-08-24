@@ -7,9 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="CityAgg\" />
-    <Folder Include="PartAgg\" />
-    <Folder Include="StateAgg\" />
+    <ProjectReference Include="..\Frameworkes\Frameworkes.csproj" />
   </ItemGroup>
 
 </Project>

@@ -73,7 +73,6 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Antiforgery.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Authentication.Cookies.dll
@@ -396,3 +395,14 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\obj\Debug\net6.0\Crmspecialcustomer.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Area.Configuration.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Area.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Area.Infrastructure.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Area.Configuration.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Area.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Area.Infrastructure.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Area.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Area.Application.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\obj\Debug\net6.0\scopedcss\Areas\Admin\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\obj\Debug\net6.0\scopedcss\Views\Shared\_HomeLayout.cshtml.rz.scp.css
