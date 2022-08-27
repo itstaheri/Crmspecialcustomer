@@ -5,6 +5,7 @@ using Hofre.HostFrameworks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Service.Configuration;
 using System.Text;
 using User.Configuration;
 
@@ -20,6 +21,7 @@ var mvcbuilder = builder.Services.AddMvc();
 string connectionString = Configuration.GetConnectionString("specialCustomerDB");
 UserBootestrapper.Configuration(builder.Services, connectionString);
 AreaBootstrapper.Configuration(builder.Services, connectionString);
+ServiceBootstrapper.Configuration(builder.Services,connectionString);
 #endregion
 
 

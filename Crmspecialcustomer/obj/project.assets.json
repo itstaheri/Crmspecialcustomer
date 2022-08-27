@@ -1295,6 +1295,66 @@
           "bin/placeholder/Frameworkes.dll": {}
         }
       },
+      "Service.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Service.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.Application.dll": {}
+        }
+      },
+      "Service.Configuration/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Service.Application": "1.0.0",
+          "Service.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.Configuration.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.Configuration.dll": {}
+        }
+      },
+      "Service.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Frameworkes": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.Domain.dll": {}
+        }
+      },
+      "Service.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Exceptions": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "Service.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.Infrastructure.dll": {}
+        }
+      },
       "User.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3440,6 +3500,26 @@
       "path": "../Frameworkes/Frameworkes.csproj",
       "msbuildProject": "../Frameworkes/Frameworkes.csproj"
     },
+    "Service.Application/1.0.0": {
+      "type": "project",
+      "path": "../Service.Application/Service.Application.csproj",
+      "msbuildProject": "../Service.Application/Service.Application.csproj"
+    },
+    "Service.Configuration/1.0.0": {
+      "type": "project",
+      "path": "../Service.Configuration/Service.Configuration.csproj",
+      "msbuildProject": "../Service.Configuration/Service.Configuration.csproj"
+    },
+    "Service.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Service.Domain/Service.Domain.csproj",
+      "msbuildProject": "../Service.Domain/Service.Domain.csproj"
+    },
+    "Service.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Service.Infrastructure/Service.Infrastructure.csproj",
+      "msbuildProject": "../Service.Infrastructure/Service.Infrastructure.csproj"
+    },
     "User.Application/1.0.0": {
       "type": "project",
       "path": "../User.Application/User.Application.csproj",
@@ -3467,6 +3547,8 @@
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.8",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.8",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.8",
+      "Service.Application >= 1.0.0",
+      "Service.Configuration >= 1.0.0",
       "User.Configuration >= 1.0.0"
     ]
   },
@@ -3504,6 +3586,12 @@
           "projectReferences": {
             "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Area.Configuration\\Area.Configuration.csproj": {
               "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Area.Configuration\\Area.Configuration.csproj"
+            },
+            "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Service.Application\\Service.Application.csproj": {
+              "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Service.Application\\Service.Application.csproj"
+            },
+            "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Service.Configuration\\Service.Configuration.csproj": {
+              "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Service.Configuration\\Service.Configuration.csproj"
             },
             "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\User.Configuration\\User.Configuration.csproj": {
               "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\User.Configuration\\User.Configuration.csproj"

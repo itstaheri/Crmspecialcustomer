@@ -1,0 +1,45 @@
+﻿@using global::Service.Application.Contract.Material
+@model CreateMaterialViewModel;
+
+<div class="content-body">
+
+    <!-- Page Headings Start -->
+    <div class="row justify-content-between align-items-center mb-10">
+
+        <div class="add-edit-product-wrap col-12">
+
+            <div class="add-edit-product-form">
+                <form method="post" asp-action="CreateMaterial">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <h4 class="title">افزودن مصالح</h4>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" asp-for="ServiceName" type="text" placeholder="نام مصالح" required></div>
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" asp-for="MaterialPrice" type="number" placeholder="قیمت مواد پای کار" required></div>
+                        <div class="col-lg-6 col-12 mb-30"><input class="form-control" asp-for="SalaryPrice" type="number" placeholder="قیمت کار اجرایی" required></div>
+                        <div class="col-lg-6 col-12 mb-30">
+                            <select asp-for="Unit" class="form-control select2">
+                                <option value="سانتی متر">سانتی متر</option>
+                                <option value="متر">متر</option>
+                                <option value="کیلومتر">کیلومتر</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-12 mb-30">
+                        </div>
+                        <div class="col-lg-12 col-12 mb-30"><textarea class="form-control" asp-for="Description" type="text" placeholder="شرح کار" required></textarea></div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                            <button class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره و انتشار</button>
+                        </div>
+                    </div><!-- Button Group End -->
+
+                </form>
+            </div>
+
+        </div><!-- Add or Edit Product End -->
+    </div>
+</div>
+

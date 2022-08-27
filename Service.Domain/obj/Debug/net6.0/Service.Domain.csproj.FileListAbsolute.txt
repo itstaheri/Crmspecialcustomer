@@ -10,3 +10,6 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Service.Domain\obj\Debug\net6.0\S
 C:\Users\alith\source\repos\Crmspecialcustomer\Service.Domain\obj\Debug\net6.0\refint\Service.Domain.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Service.Domain\obj\Debug\net6.0\Service.Domain.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\Service.Domain\obj\Debug\net6.0\ref\Service.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Domain\bin\Debug\net6.0\Frameworkes.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Domain\bin\Debug\net6.0\Frameworkes.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Domain\obj\Debug\net6.0\Service.Domain.csproj.CopyComplete

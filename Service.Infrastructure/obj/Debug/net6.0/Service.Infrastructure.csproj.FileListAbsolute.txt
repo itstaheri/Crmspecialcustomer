@@ -10,3 +10,10 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Service.Infrastructure\obj\Debug\
 C:\Users\alith\source\repos\Crmspecialcustomer\Service.Infrastructure\obj\Debug\net6.0\refint\Service.Infrastructure.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Service.Infrastructure\obj\Debug\net6.0\Service.Infrastructure.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\Service.Infrastructure\obj\Debug\net6.0\ref\Service.Infrastructure.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Infrastructure\bin\Debug\net6.0\Frameworkes.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Infrastructure\bin\Debug\net6.0\Service.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Infrastructure\bin\Debug\net6.0\Service.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Infrastructure\bin\Debug\net6.0\Frameworkes.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Infrastructure\obj\Debug\net6.0\Service.Infrastructure.csproj.CopyComplete
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Infrastructure\bin\Debug\net6.0\Exceptions.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Infrastructure\bin\Debug\net6.0\Exceptions.pdb

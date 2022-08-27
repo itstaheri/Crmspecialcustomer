@@ -406,3 +406,11 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\obj\Debug\net6.0\scopedcss\Areas\Admin\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\obj\Debug\net6.0\scopedcss\Views\Shared\_HomeLayout.cshtml.rz.scp.css
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Configuration.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Infrastructure.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Configuration.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Infrastructure.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Application.pdb

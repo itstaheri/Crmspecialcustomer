@@ -10,3 +10,14 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\n
 C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\refint\Service.Configuration.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\Service.Configuration.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\ref\Service.Configuration.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Frameworkes.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Service.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Service.Infrastructure.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Service.Infrastructure.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Frameworkes.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Service.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\obj\Debug\net6.0\Service.Configuration.csproj.CopyComplete
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Exceptions.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Exceptions.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Service.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Service.Configuration\bin\Debug\net6.0\Service.Application.pdb

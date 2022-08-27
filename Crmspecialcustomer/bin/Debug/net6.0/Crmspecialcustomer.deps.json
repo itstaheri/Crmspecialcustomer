@@ -38,6 +38,8 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.8",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.8",
           "Microsoft.EntityFrameworkCore.Design": "6.0.8",
+          "Service.Application": "1.0.0",
+          "Service.Configuration": "1.0.0",
           "User.Configuration": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "6.0.0.0",
@@ -1236,6 +1238,58 @@
         },
         "compile": {
           "Frameworkes.dll": {}
+        }
+      },
+      "Service.Application/1.0.0": {
+        "dependencies": {
+          "Service.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Service.Application.dll": {}
+        },
+        "compile": {
+          "Service.Application.dll": {}
+        }
+      },
+      "Service.Configuration/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Service.Application": "1.0.0",
+          "Service.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "Service.Configuration.dll": {}
+        },
+        "compile": {
+          "Service.Configuration.dll": {}
+        }
+      },
+      "Service.Domain/1.0.0": {
+        "dependencies": {
+          "Frameworkes": "1.0.0"
+        },
+        "runtime": {
+          "Service.Domain.dll": {}
+        },
+        "compile": {
+          "Service.Domain.dll": {}
+        }
+      },
+      "Service.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Exceptions": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "Service.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Service.Infrastructure.dll": {}
+        },
+        "compile": {
+          "Service.Infrastructure.dll": {}
         }
       },
       "User.Application/1.0.0": {
@@ -3613,6 +3667,26 @@
       "sha512": ""
     },
     "Frameworkes/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Service.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Service.Configuration/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Service.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Service.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
