@@ -1295,6 +1295,82 @@
           "bin/placeholder/Frameworkes.dll": {}
         }
       },
+      "Intermediary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Area.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Intermediary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Intermediary.dll": {}
+        }
+      },
+      "Request.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Intermediary": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Request.Domain": "1.0.0",
+          "Request.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Request.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Request.Application.dll": {}
+        }
+      },
+      "Request.Configuration/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Request.Application": "1.0.0",
+          "Request.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Request.Configuration.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Request.Configuration.dll": {}
+        }
+      },
+      "Request.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Frameworkes": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Request.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Request.Domain.dll": {}
+        }
+      },
+      "Request.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Exceptions": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "Request.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Request.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Request.Infrastructure.dll": {}
+        }
+      },
       "Service.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3500,6 +3576,31 @@
       "path": "../Frameworkes/Frameworkes.csproj",
       "msbuildProject": "../Frameworkes/Frameworkes.csproj"
     },
+    "Intermediary/1.0.0": {
+      "type": "project",
+      "path": "../Intermediary/Intermediary.csproj",
+      "msbuildProject": "../Intermediary/Intermediary.csproj"
+    },
+    "Request.Application/1.0.0": {
+      "type": "project",
+      "path": "../Request.Application/Request.Application.csproj",
+      "msbuildProject": "../Request.Application/Request.Application.csproj"
+    },
+    "Request.Configuration/1.0.0": {
+      "type": "project",
+      "path": "../Request.Configuration/Request.Configuration.csproj",
+      "msbuildProject": "../Request.Configuration/Request.Configuration.csproj"
+    },
+    "Request.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Request.Domain/Request.Domain.csproj",
+      "msbuildProject": "../Request.Domain/Request.Domain.csproj"
+    },
+    "Request.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Request.Infrastructure/Request.Infrastructure.csproj",
+      "msbuildProject": "../Request.Infrastructure/Request.Infrastructure.csproj"
+    },
     "Service.Application/1.0.0": {
       "type": "project",
       "path": "../Service.Application/Service.Application.csproj",
@@ -3547,6 +3648,7 @@
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.8",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.8",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.8",
+      "Request.Configuration >= 1.0.0",
       "Service.Application >= 1.0.0",
       "Service.Configuration >= 1.0.0",
       "User.Configuration >= 1.0.0"
@@ -3586,6 +3688,9 @@
           "projectReferences": {
             "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Area.Configuration\\Area.Configuration.csproj": {
               "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Area.Configuration\\Area.Configuration.csproj"
+            },
+            "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Request.Configuration\\Request.Configuration.csproj": {
+              "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Request.Configuration\\Request.Configuration.csproj"
             },
             "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Service.Application\\Service.Application.csproj": {
               "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Service.Application\\Service.Application.csproj"

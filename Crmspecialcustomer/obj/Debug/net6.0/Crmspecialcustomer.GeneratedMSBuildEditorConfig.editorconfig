@@ -15,14 +15,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Areas/Admin/Shared/Components/RoleList/default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cU2hhcmVkXENvbXBvbmVudHNcUm9sZUxpc3RcZGVmYXVsdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Areas/Admin/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Areas/Admin/Views/Center/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2VudGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -41,6 +33,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Areas/Admin/Views/Material/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWF0ZXJpYWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Areas/Admin/Views/Request/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVxdWVzdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Areas/Admin/Views/Request/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVxdWVzdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Areas/Admin/Views/Request/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVxdWVzdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Areas/Admin/Views/Service/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VydmljZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Areas/Admin/Views/Shared/Components/RoleList/default.cshtml]
@@ -98,10 +106,6 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Areas/Admin/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-4eiw14jxcd
 
 [C:/Users/alith/source/repos/Crmspecialcustomer/Crmspecialcustomer/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s

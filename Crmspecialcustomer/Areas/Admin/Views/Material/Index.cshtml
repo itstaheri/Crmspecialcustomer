@@ -101,23 +101,12 @@
        $("#MaterialSalaryPrice").val(SalaryPrice)
        $("#MateriaServiceName").val(ServiceName)
 
-       $("#selectlist:selected").each(function()
-       {
-           console.log(this)
-       })
-
-       $("#selectlist option").each(function()
-       {
-
-
-           if($(this).val() == Unit){
-               $('#selectlist option[value='+Unit+']').attr('selected',true)
-           }
-       });
+       //unit selected
+      $("#selectlist option").attr('selected',false); //remove selected of all options
+      $('#selectlist option[value='+Unit+']').attr('selected',true); //add selected attribute to option whoes value is <Unit>
+      $("#selectlist").trigger('change') 
        
 
 
-
-       //$("#MaterialUnit").val(Unit)
     }
 </script>

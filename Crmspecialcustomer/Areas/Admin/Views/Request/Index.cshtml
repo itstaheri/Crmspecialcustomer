@@ -1,0 +1,114 @@
+﻿@using global::Request.Application.Contract.Request
+@model List<RequestViewModel>
+
+
+<a class="button button-disqus" asp-action="Create">افزودن درخواست</a>
+
+
+<div class="col-lg-12 col-12 mb-30">
+    <div class="box">
+
+        <div class="box-body">
+            <table class="table" style="text-align:center;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th data-name="نامه">نامه</th>
+                        <th data-name="کدمشتری">کدمشتری</th>
+                        <th data-name="سرویس">سرویس</th>
+                        <th data-name="درخواست کننده">درخواست کننده</th>
+                        <th data-name="مبدا">مبدا</th>
+                        <th data-name="مقصد">مقصد</th>
+                        <th data-name="تلفن ثابت">تلفن ثابت</th>
+                        <th data-name="تلفن همراه">تلفن همراه</th>
+                        <th data-name="استان">استان</th>
+                        <th data-name="شهر">شهر</th>
+                        <th data-name="وضعیت">وضعیت</th>
+                        <th>عملیات</th>
+                        <th>ویرایش</th>
+                        <th>حذف</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var request in Model)
+                    {
+                        <tr>
+
+                            <td height="60px" width="60px" data-toggle="modal" data-target="#exampleModal5" data-whatever="mdo" onclick="GetValue('@request.LetterId','@request.LetterPhoto')">
+                                <img src="~/Media/Letters/@request.LetterId/@request.LetterPhoto">
+                            </td>
+                            <td>@request.CustomerCode</td>
+                            <td>@request.ServiceName</td>   
+                            <td>@request.ApplicantName</td>
+                            <td>@request.Origin</td>
+                            <td>@request.Destination</td>
+                            <td>@request.ConstantPhone</td>
+                            <td>@request.Phone</td>
+                            <td>@request.StateName</td>
+                            <td>@request.CityName</td>
+                            @if (request.IsConfirm)
+                            {
+                                <td class="text-success">تایید شده</td>
+                            }
+                            else
+
+                            {
+                                <td class="text-warning">در انتظار تایید</td>
+                            }
+                            @if (request.IsConfirm)
+                            {
+                                <td>
+                                    <a asp-action="DeConfirmRequest" asp-route-RequestId="@request.RequestId" class="btn btn-danger">لغو کردن</a>                         
+
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <a asp-action="ConfirmRequest" asp-route-RequestId="@request.RequestId" class="btn btn-success">تایید کردن</a>                         
+
+                                </td>
+                            }
+                            <td>
+                                <a class="btn btn-primary" asp-action="Edit" asp-route-RequestId="@request.RequestId">ویرایش</a>
+
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" asp-action="RemoveRequest" asp-route-RequestId="@request.RequestId">حذف</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--Modal-->
+<div class="modal fade" id="exampleModal5">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+               
+                <img id="letterPhoto" >
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+     //Get CenterValue by OnClick htmlEvent for insert to Editinputs value
+    function GetValue(letterId,letterPath){
+        var value = `/Media/Letters/${letterId}/${letterPath}`
+       $("#letterPhoto").attr('src',value)
+    }
+</script>

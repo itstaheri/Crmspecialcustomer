@@ -20,7 +20,7 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Service
 
         }
         //create index
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return View();
         }

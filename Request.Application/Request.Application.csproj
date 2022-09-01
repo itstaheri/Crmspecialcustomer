@@ -7,9 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contract\" />
-    <Folder Include="Implements\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intermediary\Intermediary.csproj" />
+    <ProjectReference Include="..\Request.Domain\Request.Domain.csproj" />
+    <ProjectReference Include="..\Request.Infrastructure\Request.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

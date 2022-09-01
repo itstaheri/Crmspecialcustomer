@@ -1,0 +1,156 @@
+﻿@using global::Request.Application.Contract.Request;
+@model CreateRequestViewModel;
+
+<div class="content-body">
+
+    <!-- Page Headings Start -->
+    <div class="row justify-content-between align-items-center mb-10">
+
+        <div class="add-edit-product-wrap col-12">
+
+            <div class="add-edit-product-form">
+                <form asp-action="CreateRequest" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <h4 class="title">افزودن درخواست</h4>
+
+                    <div class="row">
+                        <div class="col-12 col-lg-4 col-12 mb-30"><input class="form-control" asp-for="CustomerCode" type="text" placeholder="کد مشتری" required></div>
+                        <div class="col-12 col-lg-4 col-12 mb-30"><input class="form-control" asp-for="ApplicantName" type="text" placeholder="نام درخواست کننده" required></div>
+                        <div class="col-12 col-lg-4 col-12 mb-30"><input class="form-control" asp-for="CompanyName" type="text" placeholder="نام سازمان یا شرکت " required></div>
+                        <div class="col-12 col-lg-6 col-12 mb-30"><input class="form-control" asp-for="ConstantPhone" type="number" placeholder="تلفن ثابت" required></div>
+                        <div class="col-12 col-lg-6 col-12 mb-30"><input class="form-control" asp-for="Phone" type="number" placeholder="تلفن همراه" required></div>
+
+
+                        <div class="col-lg-3 col-12 mb-30">
+                            <select id="statelist" asp-for="StateId" asp-items="@ViewBag.States" class="form-control select2">
+                                <option value="0">انتخاب استان</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-12 mb-30">
+                            <select id="citylist" asp-for="CityId" class="form-control select2">
+                                <option value="0">انتخاب شهر</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-12 mb-30">
+
+
+                            <input id="origininput" class="form-control" asp-for="Origin" type="text" placeholder="مبدا" />
+                            <button type="button" id="showcenters" class="button button-disqus" data-toggle="modal" data-target="#exampleModal5" data-whatever="mdo">انتخاب از مراکز</button>
+                        </div>
+                        <div class="col-12 col-lg-3 col-12 mb-30"><input class="form-control" asp-for="Destination" type="text" placeholder="مقصد" required></div>
+                        <div class="col-lg-3 col-12 mb-30">
+                            <select id="servicelist" asp-for="ServiceId" asp-items="ViewBag.Services" class="form-control select2">
+                                <option value="0">انتخاب سرویس</option>
+                            </select>
+                        </div>
+
+                        <div class="col-3 col-lg-6 col-12 mb-30"><input class="form-control" asp-for="LetterPhoto" type="file" required></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                            <button type="submit" class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره و انتشار</button>
+                        </div>
+                    </div><!-- Button Group End -->
+
+                </form>
+            </div>
+
+        </div><!-- Add or Edit Product End -->
+    </div>
+</div>
+
+
+<!--Modal centers-->
+<div class="modal fade" id="exampleModal5">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ایجاد سرویس</h5>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+
+                    <select id="centerlist" class="form-control select2">
+                        <option value="0">انتخاب مرکز</option>
+                    </select>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="button button-danger" data-dismiss="modal">بستن</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/assets/js/vendor/jquery-3.3.1.min.js"></script>
+
+<script>
+
+    $("#statelist").change(function () {
+        var stateId = $("#statelist option:selected").val()
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetCities","Request")',
+            data: { "StateId": stateId },
+            headers: { "RequestVerificationToken": stateId },
+            dataType: 'json',
+            success: function (response) {
+                   $("#citylist option").remove()
+                   $("#citylist").append(`<option value="0">انتخاب شهر</option>`);
+                $(response).each(function () {
+                    var value = `<option value="${this.cityId}"$>${this.cityName}</option>`;
+                    $("#citylist").append(value)
+                })
+
+
+            },
+
+        })
+    })
+    //city
+    $("#citylist").change(function () {
+        var cityId = $("#citylist option:selected").val()
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetCenters","Request")',
+            data: { "CityId": cityId },
+            headers: { "RequestVerificationToken": cityId },
+            dataType: 'json',
+            success: function (response) {
+
+                if (response.length <= 0) {
+
+                } else {
+                    $("#centerlist option").remove()
+                     $("#centerlist").append(`<option value="0">انتخاب مرکز</option>`);
+                    $(response).each(function () {
+                        var value = `<option value="${this.centerName}"$>${this.centerName}</option>`;
+                        $("#centerlist").append(value)
+                    })
+                }
+
+            },
+
+        })
+    })
+</script>
+
+<script>
+
+    $("showcenters").click(function(){
+        this.preventDefault();
+
+    })
+    $("#centerlist").change(function(){
+        var centerName =$("#centerlist option:selected").val()
+        $("#origininput").val(centerName)
+    })
+
+</script>

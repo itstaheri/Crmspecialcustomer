@@ -38,6 +38,7 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.8",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.8",
           "Microsoft.EntityFrameworkCore.Design": "6.0.8",
+          "Request.Configuration": "1.0.0",
           "Service.Application": "1.0.0",
           "Service.Configuration": "1.0.0",
           "User.Configuration": "1.0.0",
@@ -1238,6 +1239,72 @@
         },
         "compile": {
           "Frameworkes.dll": {}
+        }
+      },
+      "Intermediary/1.0.0": {
+        "dependencies": {
+          "Area.Application": "1.0.0"
+        },
+        "runtime": {
+          "Intermediary.dll": {}
+        },
+        "compile": {
+          "Intermediary.dll": {}
+        }
+      },
+      "Request.Application/1.0.0": {
+        "dependencies": {
+          "Intermediary": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Request.Domain": "1.0.0",
+          "Request.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "Request.Application.dll": {}
+        },
+        "compile": {
+          "Request.Application.dll": {}
+        }
+      },
+      "Request.Configuration/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Request.Application": "1.0.0",
+          "Request.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "Request.Configuration.dll": {}
+        },
+        "compile": {
+          "Request.Configuration.dll": {}
+        }
+      },
+      "Request.Domain/1.0.0": {
+        "dependencies": {
+          "Frameworkes": "1.0.0"
+        },
+        "runtime": {
+          "Request.Domain.dll": {}
+        },
+        "compile": {
+          "Request.Domain.dll": {}
+        }
+      },
+      "Request.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Exceptions": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "Request.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Request.Infrastructure.dll": {}
+        },
+        "compile": {
+          "Request.Infrastructure.dll": {}
         }
       },
       "Service.Application/1.0.0": {
@@ -3667,6 +3734,31 @@
       "sha512": ""
     },
     "Frameworkes/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Intermediary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Request.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Request.Configuration/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Request.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Request.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

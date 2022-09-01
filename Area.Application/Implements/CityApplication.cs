@@ -1,4 +1,5 @@
-﻿using Area.Application.Contract.City;
+﻿using Area.Application.Contract.Center;
+using Area.Application.Contract.City;
 using Area.Domain.CityAgg;
 using Frameworkes.Auth;
 using Frameworks;
@@ -23,7 +24,7 @@ namespace Area.Application.Implements
 
         public async Task CreateCity(CreateCityViewModel commend)
         {
-            var city = new CityModel(commend.CityName,commend.StateId, _auth.GetCurrentId());
+            var city = new CityModel(commend.CityName, commend.StateId, _auth.GetCurrentId());
             await repository.Create(city);
         }
 
@@ -37,30 +38,53 @@ namespace Area.Application.Implements
         public async Task<List<CityViewModel>> GetAllCity()
         {
             return (await repository.GetAll())
-               .Select(x => new CityViewModel { CityId = x.Id,CityName = x.CityName,StateId =x.StateId,StateName = x.State.StateName})
+               .Select(x => new CityViewModel { CityId = x.Id, CityName = x.CityName, StateId = x.StateId, StateName = x.State.StateName })
                .ToList();
         }
 
         public async Task<List<CityViewModel>> GetCitiesBy(long StateId)
         {
-           return (await repository.GetAll()).Where(x=>x.StateId == StateId).Select(x=> new CityViewModel
-           {
-               CityId = x.Id,
-               CityName = x.CityName,
-               StateId = x.StateId,
-               StateName = x.State.StateName,
-               CreationDate = x.CreationDate.ToFarsi()
-           }).ToList();
+            return (await repository.GetAll()).Where(x => x.StateId == StateId).Select(x => new CityViewModel
+            {
+                CityId = x.Id,
+                CityName = x.CityName,
+                StateId = x.StateId,
+                StateName = x.State.StateName,
+                CreationDate = x.CreationDate.ToFarsi()
+            }).ToList();
         }
 
-        public async Task<EditCityViewModel> GetValueForEdit(long CityId)
+        public async Task<List<CenterViewModel>> GetCityCentersBy(long CityId)
+        {
+            var centers = (await repository.GetBy(CityId)).Centers;
+            if (centers != null)
+            {
+                return centers.Select(x => new CenterViewModel
+                {
+                    CreationDate = x.CreationDate.ToFarsi(),
+                    CenterId = x.Id,
+                    CenterName = x.CenterName,
+                    CityId = x.CityId,
+                    Lenght = x.Lenght,
+                    StateName = x.City.State.StateName,
+                    CityName = x.City.CityName,
+                    Weight = x.Weight
+                }).ToList();
+            }
+            return new List<CenterViewModel>();
+
+        }
+
+        public async Task<CityViewModel> GetCityInfoBy(long CityId)
         {
             var city = await repository.GetBy(CityId);
-            return new EditCityViewModel
+            return new CityViewModel
             {
                 StateId = city.StateId,
-               CityId = city.Id,
-               CityName = city.CityName,
+                CityId = city.Id,
+                CityName = city.CityName,
+                CreationDate = city.CreationDate.ToFarsi(),
+                StateName = city.State.StateName
             };
         }
 

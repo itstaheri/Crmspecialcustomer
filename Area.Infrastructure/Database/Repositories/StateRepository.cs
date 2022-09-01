@@ -39,7 +39,7 @@ namespace Area.Infrastructure.Database.Repositories
 
         public async Task<StateModel> GetBy(long Id)
         {
-            var state =  await _context.states.FirstOrDefaultAsync(x=>x.Id == Id);
+            var state =  await _context.states.Include(x=>x.Cities).FirstOrDefaultAsync(x=>x.Id == Id);
             if (state == null) throw new NotFoundException(nameof(state), state);
             return state;
         }

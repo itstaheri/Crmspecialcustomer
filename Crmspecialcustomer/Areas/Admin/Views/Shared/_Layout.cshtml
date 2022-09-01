@@ -50,8 +50,8 @@
                     <!-- Header Logo (Header Left) Start -->
                     <div class="header-logo col-auto">
                         <a href="index.html">
-                            <img src="assets/images/logo/logo.png" alt="">
-                            <img src="assets/images/logo/logo-light.png" class="logo-light" alt="">
+                            <img src="~/assets/images/logo/logo.png" alt="">
+                            <img src="~/assets/images/logo/logo-light.png" class="logo-light" alt="">
                         </a>
                     </div><!-- Header Logo (Header Left) End -->
                     <!-- Header Right Start -->
@@ -65,23 +65,7 @@
                                     <!--Side Header Toggle-->
                                     <div class="col-auto"><button class="side-header-toggle"><i class="zmdi zmdi-menu"></i></button></div>
 
-                                    <!--Header Search-->
-                                    <div class="col-auto">
-
-                                        <div class="header-search">
-
-                                            <button class="header-search-open d-block d-xl-none"><i class="zmdi zmdi-search"></i></button>
-
-                                            <div class="header-search-form">
-                                                <form action="#">
-                                                    <input type="text" placeholder="جستجو کنید">
-                                                    <button><i class="zmdi zmdi-search"></i></button>
-                                                </form>
-                                                <button class="header-search-close d-block d-xl-none"><i class="zmdi zmdi-close"></i></button>
-                                            </div>
-
-                                        </div>
-                                    </div>
+                                 
 
                                 </div>
                             </div><!-- Side Header Toggle & Search End -->
@@ -90,76 +74,8 @@
 
                                 <ul class="header-notification-area">
 
-                                    <!--Language-->
-                                    <li class="adomx-dropdown position-relative col-auto">
-                                        <a class="toggle" href="#"><img class="lang-flag" src="assets/images/flags/flag-1.jpg" alt=""><i class="zmdi zmdi-caret-down drop-arrow"></i></a>
-
-                                        <!-- Dropdown -->
-                                        <ul class="adomx-dropdown-menu dropdown-menu-language">
-                                            <li><a href="#"><img src="assets/images/flags/flag-1.jpg" alt=""> ایرانی</a></li>
-                                            <li><a href="#"><img src="assets/images/flags/flag-2.jpg" alt=""> انگلیسی</a></li>
-                                            <li><a href="#"><img src="assets/images/flags/flag-3.jpg" alt=""> اسپانیایی </a></li>
-                                            <li><a href="#"><img src="assets/images/flags/flag-4.jpg" alt=""> آلمانی</a></li>
-                                        </ul>
-
-                                    </li>
-
-                                    <!--Mail-->
-                                    <li class="adomx-dropdown col-auto">
-                                        <a class="toggle" href="#"><i class="zmdi zmdi-email-open"></i><span class="badge"></span></a>
-
-                                        <!-- Dropdown -->
-                                        <div class="adomx-dropdown-menu dropdown-menu-mail">
-                                            <div class="head">
-                                                <h4 class="title">شما 3 ایمیل دارید.</h4>
-                                            </div>
-                                            <div class="body custom-scroll">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <div class="image"><img src="assets/images/avatar/avatar-2.jpg" alt=""></div>
-                                                            <div class="content">
-                                                                <h6>زیر: اکانت جدید</h6>
-                                                                <p>تغییرات زیادی در قسمت هایی از آدومکس وجود دارد. </p>
-                                                            </div>
-                                                            <span class="reply"><i class="zmdi zmdi-mail-reply"></i></span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <div class="image"><img src="assets/images/avatar/avatar-1.jpg" alt=""></div>
-                                                            <div class="content">
-                                                                <h6>زیر: ایمیل پشتیبانی</h6>
-                                                                <p>تغییرات زیادی در قسمت هایی از آدومکس وجود دارد. </p>
-                                                            </div>
-                                                            <span class="reply"><i class="zmdi zmdi-mail-reply"></i></span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <div class="image"><img src="assets/images/avatar/avatar-2.jpg" alt=""></div>
-                                                            <div class="content">
-                                                                <h6>زیر: درخواست کالا</h6>
-                                                                <p>تغییرات زیادی در قسمت هایی از آدومکس وجود دارد. </p>
-                                                            </div>
-                                                            <span class="reply"><i class="zmdi zmdi-mail-reply"></i></span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <div class="image"><img src="assets/images/avatar/avatar-1.jpg" alt=""></div>
-                                                            <div class="content">
-                                                                <h6>زیر: ایمیل پشتیبانی</h6>
-                                                                <p>تغییرات زیادی در قسمت هایی از آدومکس وجود دارد. </p>
-                                                            </div>
-                                                            <span class="reply"><i class="zmdi zmdi-mail-reply"></i></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                    </li>
+                                   
+                                  
 
                                     <!--Notification-->
                                     <li class="adomx-dropdown col-auto">
@@ -301,32 +217,15 @@
                 <nav class="side-header-menu" id="side-header-menu">
                     <ul>
                         <li class="has-sub-menu">
-                            <a href="#"><i class="ti-home"></i> <span>داشبورد</span></a>
-                            <ul class="side-header-sub-menu">
-                                <li><a href="index.html"><span>تجارت الکترونیکی (پیش فرض)</span></a></li>
-                                <li><a href="index-crypto.html"><span>کریپتوکارنسی</span></a></li>
-                            </ul>
+                            <a asp-controller="Home"><i class="ti-home"></i> <span>داشبورد</span></a>
+                           
                         </li>
                         <li><a href="widgets.html"><i class="ti-palette"></i> <span>ابزارک ها</span></a></li>
                         <li class="has-sub-menu">
-                            <a href="#"><i class="ti-package"></i> <span>عناصر پایه</span></a>
+                            <a href="#"><i class="ti-package"></i> <span>بخش ها</span></a>
                             <ul class="side-header-sub-menu">
-                                <li><a href="elements-alerts.html"><span>هشدار ها</span></a></li>
-                                <li><a href="elements-accordions.html"><span>آکاردئون ها</span></a></li>
-                                <li><a href="elements-avatar.html"><span>آواتار</span></a></li>
-                                <li><a href="elements-badge.html"><span>نشانک ها</span></a></li>
-                                <li><a href="elements-buttons.html"><span>دکمه ها</span></a></li>
-                                <li><a href="elements-carousel.html"><span>کرسول</span></a></li>
-                                <li><a href="elements-dropdown.html"><span>افت کشیدن</span></a></li>
-                                <li><a href="elements-list-group.html"><span>فهرست گروه</span></a></li>
-                                <li><a href="elements-media.html"><span>رسانه ها</span></a></li>
-                                <li><a href="elements-modal.html"><span>مودال</span></a></li>
-                                <li><a href="elements-pagination.html"><span>صفحه بندی</span></a></li>
-                                <li><a href="elements-progress.html"><span>نوار پیشرفت</span></a></li>
-                                <li><a href="elements-spinners.html"><span>اسپینرها</span></a></li>
-                                <li><a href="elements-tabs.html"><span>زبانه ها</span></a></li>
-                                <li><a href="elements-tooltip.html"><span>راهنمایی</span></a></li>
-                                <li><a href="elements-typography.html"><span>تایپوگرافی</span></a></li>
+                                <li><a href="elements-tabs.html"><span>شهرها</span></a></li>
+                                <li><a href="elements-typography.html"><span>نمودار</span></a></li>
                             </ul>
                         </li>
                         <li class="has-sub-menu">

@@ -403,7 +403,6 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Area.Infrastructure.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Area.Application.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Area.Application.pdb
-C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\obj\Debug\net6.0\scopedcss\Areas\Admin\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\obj\Debug\net6.0\scopedcss\Views\Shared\_HomeLayout.cshtml.rz.scp.css
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Configuration.dll
@@ -414,3 +413,13 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Infrastructure.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Application.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Service.Application.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Request.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Request.Configuration.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Request.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Request.Infrastructure.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Request.Configuration.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Request.Application.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Request.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Request.Infrastructure.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Intermediary.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Crmspecialcustomer\bin\Debug\net6.0\Intermediary.pdb

@@ -2,9 +2,12 @@ using Area.Configuration;
 using Frameworkes.Auth;
 using Frameworks;
 using Hofre.HostFrameworks;
+using Intermediary.Implement;
+using Intermediary.Repository;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Request.Configuration;
 using Service.Configuration;
 using System.Text;
 using User.Configuration;
@@ -22,6 +25,7 @@ string connectionString = Configuration.GetConnectionString("specialCustomerDB")
 UserBootestrapper.Configuration(builder.Services, connectionString);
 AreaBootstrapper.Configuration(builder.Services, connectionString);
 ServiceBootstrapper.Configuration(builder.Services,connectionString);
+RequestBootestrapper.Configuration(builder.Services, connectionString);
 #endregion
 
 
@@ -63,7 +67,11 @@ builder.Services.AddTransient<IFileHelper, FileHelper>();
 
 #endregion
 
+//register Intermediary
+#region Intermediary
+builder.Services.AddTransient<IRequestToAreaRepository, RequestToAreaRepository>();
 
+#endregion
 
 
 //RunTimeCompiler

@@ -28,12 +28,12 @@
                             <td>@city.CityName</td>
                             <td>@city.StateName</td>
                             <td>@city.CreationDate</td>
-                            <td width="200px"><a class="btn btn-primary" asp-controller="Center" asp-action="Index" asp-route-cityId="@city.CityId">مشاهده</a></td>
+                            <td ><a class="btn btn-primary" asp-controller="Center" asp-action="Index" asp-route-cityId="@city.CityId">مشاهده</a></td>
                             <td>
                                 <button class="button button-disqus" data-toggle="modal" data-target="#exampleModal4" data-whatever="mdo" onclick="GetValue('@city.CityName',@city.CityId)">ویرایش</button>
 
                             </td>
-                            <td width="200px">
+                            <td >
                                 <form asp-action="RemoveCity">
                                     <input type="hidden" name="CityId" value=@city.CityId>
                                     <input type="hidden" name="StateId" value=@city.StateId>
@@ -80,7 +80,6 @@
     </div>
 </div>
 
-</div>
 <!--Modal Create-->
 <div class="modal fade" id="exampleModal4">
     <div class="modal-dialog modal-dialog-centered">

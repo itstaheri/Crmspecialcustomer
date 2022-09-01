@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Area.Configuration\Area.Configuration.csproj" />
+    <ProjectReference Include="..\Request.Configuration\Request.Configuration.csproj" />
     <ProjectReference Include="..\Service.Application\Service.Application.csproj" />
     <ProjectReference Include="..\Service.Configuration\Service.Configuration.csproj" />
     <ProjectReference Include="..\User.Configuration\User.Configuration.csproj" />
