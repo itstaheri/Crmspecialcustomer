@@ -1,6 +1,15 @@
 ﻿@using global::Service.Application.Contract.Material
+@using Frameworks;
 @model List<MaterialViewModel>
 
+<style>
+    input,select,textarea{
+        margin:7px;
+        
+    }
+
+
+</style>
 
 <a class="button button-disqus" asp-action="Create">افزودن فهرست بها</a>
 
@@ -15,6 +24,7 @@
                         <th data-name="شرح کار">شرح کار</th>
                         <th data-name="مصالح">مصالح</th>
                         <th data-name="قیمت مواد پای کار">قیمت مواد پای کار</th>
+                        <th data-name="قیمت واحد">قیمت واحد</th>
                         <th data-name="هزینه اجرایی">هزینه اجرایی</th>
                         <th data-name="تاریخ">تاریخ</th>
                         <th data-name="واحد">واحد</th>
@@ -30,12 +40,13 @@
 
                             <td>@(material.Description.Length <= 20 ? @material.Description : @material.Description.Substring(0,20))</td>
                             <td>@material.ServiceName</td>
-                            <td>@material.MaterialPrice تومان</td>
-                            <td>@material.SalaryPrice تومان</td>
+                            <td>@material.MaterialPrice.ToMoney() تومان</td>
+                            <td>@material.UnitPrice.ToMoney() تومان</td>
+                            <td>@material.SalaryPrice.ToMoney() تومان</td>
                             <td>@material.CreationDate</td>
-                            <td>@material.Unit</td>
+                            <td>@material.UnitOfMaterial</td>
                             <td>
-                                <button id="EditButton" class="button button-disqus" data-toggle="modal" data-target="#exampleModal5" data-whatever="mdo" onclick="GetValue('@material.Description',@material.MaterialId,@material.MaterialPrice,@material.SalaryPrice,'@material.Unit','@material.ServiceName')">ویرایش</button>
+                                <button id="EditButton" class="button button-disqus" data-toggle="modal" data-target="#exampleModal5" data-whatever="mdo" onclick="GetValue('@material.Description',@material.MaterialId,@material.MaterialPrice,@material.SalaryPrice,'@material.UnitOfMaterial','@material.ServiceName','@material.UnitPrice')">ویرایش</button>
 
                             </td>
                             <td>
@@ -64,11 +75,11 @@
                 <form method="post" asp-action="EditMaterial">
                     <div class="form-group">
 
-
+                        <input id="MateriaServiceName" type="text" class="form-control" name="ServiceName" placeholder="نام مصالح" required>
                         <input id="MaterialPrice" type="number" class="form-control" name="MaterialPrice" placeholder="قیمت مواد پای کار " required>
                         <input id="MaterialSalaryPrice" type="number" class="form-control" name="SalaryPrice" placeholder="هزینه اجرایی" required>
-                        <input id="MateriaServiceName" type="text" class="form-control" name="ServiceName" placeholder="نام مصالح" required>
-                        <select id="selectlist" name="Unit" class="form-control select2">
+                        <input id="MateriaUnitPrice" type="number" class="form-control" name="UnitPrice" placeholder="قیمت واحد" required>
+                        <select id="selectlist" name="UnitOfMaterial" class="form-control select2">
                             <option value="سانتی متر">سانتی متر</option>
                             <option value="متر">متر</option>
                             <option value="کیلومتر">کیلومتر</option>
@@ -93,19 +104,20 @@
 
 <script>
      //Get CenterValue by OnClick htmlEvent for insert to Editinputs value
-    function GetValue(Description,Id,MaterialPrice,SalaryPrice,Unit,ServiceName){
+    function GetValue(Description,Id,MaterialPrice,SalaryPrice,UnitOfMaterial,ServiceName,UnitPrice){
 
        $("#MaterialDescription").val(Description)
        $("#MaterialId").val(Id)
        $("#MaterialPrice").val(MaterialPrice)
        $("#MaterialSalaryPrice").val(SalaryPrice)
        $("#MateriaServiceName").val(ServiceName)
+       $("#MateriaUnitPrice").val(UnitPrice)
 
        //unit selected
       $("#selectlist option").attr('selected',false); //remove selected of all options
-      $('#selectlist option[value='+Unit+']').attr('selected',true); //add selected attribute to option whoes value is <Unit>
-      $("#selectlist").trigger('change') 
-       
+      $('#selectlist option[value='+UnitOfMaterial+']').attr('selected',true); //add selected attribute to option whoes value is <Unit>
+      $("#selectlist").trigger('change')
+
 
 
     }

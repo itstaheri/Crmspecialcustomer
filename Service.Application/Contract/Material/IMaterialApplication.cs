@@ -10,7 +10,7 @@ namespace Service.Application.Contract.Material
     public interface IMaterialApplication
     {
         Task CreateMaterial(CreateMaterialViewModel commend);
-        Task<MaterialViewModel> GetMaterialInfoBy(long MaterialId);
+        Task<EditMaterialViewModel> GetValueForEdit(long MaterialId);
         Task<List<MaterialViewModel>> GetAllMaterialsInfo();
         Task EditMaterial(EditMaterialViewModel commend);  
         Task Remove(long MaterialId);

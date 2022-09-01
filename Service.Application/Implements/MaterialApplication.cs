@@ -24,7 +24,8 @@ namespace Service.Application.Implements
 
         public async Task CreateMaterial(CreateMaterialViewModel commend)
         {
-            var material = new MaterialModel(commend.Description, double.Parse(commend.MaterialPrice), double.Parse(commend.SalaryPrice), commend.Unit, commend.ServiceName, _auth.GetCurrentId());
+            var material = new MaterialModel(commend.Description, double.Parse(commend.MaterialPrice), 
+                double.Parse(commend.SalaryPrice), commend.UnitOfMaterial, commend.ServiceName, double.Parse(commend.UnitPrice), _auth.GetCurrentId());
             await repository.Create(material);
         }
 
@@ -32,7 +33,8 @@ namespace Service.Application.Implements
         public async Task EditMaterial(EditMaterialViewModel commend)
         {
             var material = await repository.GetBy(commend.MaterialId);
-            material.Edit(commend.Description, double.Parse(commend.MaterialPrice), double.Parse(commend.SalaryPrice), commend.Unit, commend.ServiceName, _auth.GetCurrentId());
+            material.Edit(commend.Description, double.Parse(commend.MaterialPrice),
+                double.Parse(commend.SalaryPrice), commend.UnitOfMaterial, commend.ServiceName, double.Parse(commend.UnitPrice), _auth.GetCurrentId());
             await repository.SaveChanges();
 
 
@@ -46,9 +48,11 @@ namespace Service.Application.Implements
                 Description = x.Description,
                 MaterialPrice = x.MaterialPrice,
                 SalaryPrice = x.SalaryPrice,
-                Unit = x.Unit,
+                UnitOfMaterial = x.UnitOfMaterial,
                 CreationDate = x.CreationDate.ToFarsi(),
-                ServiceName = x.ServiceName
+                ServiceName = x.ServiceName,
+                UnitPrice= x.UnitPrice,
+                
 
             }).ToList();
            
@@ -56,19 +60,21 @@ namespace Service.Application.Implements
             return query;
         }
 
-        public async Task<MaterialViewModel> GetMaterialInfoBy(long MaterialId)
+        public async Task<EditMaterialViewModel> GetValueForEdit(long MaterialId)
         {
             
             var material = await repository.GetBy(MaterialId);
-            var query = new MaterialViewModel
+            var query = new EditMaterialViewModel
             {
                 Description = material.Description,
-                CreationDate = material.CreationDate.ToFarsi(),
                 MaterialId = material.Id,
-                MaterialPrice = material.MaterialPrice,
-                SalaryPrice = material.SalaryPrice,
+                MaterialPrice = material.MaterialPrice.ToString(),
+                SalaryPrice = material.SalaryPrice.ToString(),
                 ServiceName = material.ServiceName,
-                Unit = material.Unit,
+                UnitOfMaterial = material.UnitOfMaterial,
+                UnitPrice = material.UnitPrice.ToString(),
+                
+                
             };
           
             return query;

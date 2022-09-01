@@ -11,7 +11,8 @@ namespace Service.Application.Contract.Material
         public string Description { get; set; }
         public string MaterialPrice { get; set; }
         public string SalaryPrice { get; set; }
-        public string Unit { get; set; }
+        public string UnitOfMaterial { get; set; }
         public string ServiceName { get; set; }
+        public string UnitPrice { get; set; }
     }
 }

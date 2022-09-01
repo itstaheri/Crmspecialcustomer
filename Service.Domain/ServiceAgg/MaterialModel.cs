@@ -9,30 +9,33 @@ namespace Service.Domain.ServiceAgg
 {
     public class MaterialModel : BaseEntity
     {
-        public MaterialModel(string description, double materialPrice, double salaryPrice, string unit,string serviceName, long creatorId) : base(creatorId)
+        public MaterialModel(string description, double materialPrice, double salaryPrice, string unitOfMaterial, string serviceName, double unitPrice, long creatorId) : base(creatorId)
         {
             Description = description;
             MaterialPrice = materialPrice;
             SalaryPrice = salaryPrice;
-            Unit = unit;
+            UnitOfMaterial = unitOfMaterial;
             ServiceName = serviceName;
+            UnitPrice = unitPrice;
         }
-        public void Edit(string description, double materialPrice, double salaryPrice, string unit,string serviceName, long creatorId)
+        public void Edit(string description, double materialPrice, double salaryPrice, string unitOfMaterial, string serviceName, double unitPrice, long creatorId)
         {
             Description = description;
             MaterialPrice = materialPrice;
             SalaryPrice = salaryPrice;
-            Unit = unit;
+            UnitPrice = unitPrice;
             CreatorId = creatorId;
             ServiceName = serviceName;
+            UnitPrice = unitPrice;
+            UnitOfMaterial = unitOfMaterial;
         }
 
         public string Description { get; private set; }
         public double MaterialPrice { get; private set; }
         public double SalaryPrice { get; private set; }
-        public string Unit { get; private set; }
+        public string UnitOfMaterial { get; private set; }
         public string ServiceName { get; private set; }
-
+        public double UnitPrice { get; private set; }
 
     }
 }

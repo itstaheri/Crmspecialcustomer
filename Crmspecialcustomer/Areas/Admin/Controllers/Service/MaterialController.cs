@@ -39,7 +39,7 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Service
             return RedirectToAction("Index");
         }
         //remove Action
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> RemoveMaterial(long MaterialId)
         {
             await _materialApplication.Remove(MaterialId);

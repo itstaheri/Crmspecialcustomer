@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "c9tP5HF6R/dG/GQvb2QrW+K071NphLRZH8iZwPqhfcc=",
+  "Hash": "c2gR+rBQdFzug00Tf+yxKVqiLH9Bu3mJnbGmQMuRskE=",
   "Source": "Crmspecialcustomer",
   "BasePath": "_content/Crmspecialcustomer",
   "Mode": "Default",
@@ -6137,23 +6137,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\Media\\Letters\\439848359318296\\icon.png",
-      "SourceId": "Crmspecialcustomer",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\",
-      "BasePath": "_content/Crmspecialcustomer",
-      "RelativePath": "Media/Letters/439848359318296/icon.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Media\\Letters\\439848359318296\\icon.png"
-    },
-    {
       "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\Media\\Letters\\439848359332323258491\\hosting.jpg",
       "SourceId": "Crmspecialcustomer",
       "SourceType": "Discovered",
@@ -6186,6 +6169,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Media\\Letters\\439848359332323258491\\icon.png"
+    },
+    {
+      "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\Media\\Letters\\439848359332323258491\\SQL-server.jpg",
+      "SourceId": "Crmspecialcustomer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\",
+      "BasePath": "_content/Crmspecialcustomer",
+      "RelativePath": "Media/Letters/439848359332323258491/SQL-server.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Media\\Letters\\439848359332323258491\\SQL-server.jpg"
     },
     {
       "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\Media\\Users\\3\\icon.png",
