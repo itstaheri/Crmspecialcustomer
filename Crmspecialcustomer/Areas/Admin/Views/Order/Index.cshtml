@@ -1,0 +1,227 @@
+﻿@using global::Order.Application.Contract;
+@using Crmspecialcustomer.HostFrameworks.Pagination;
+@using Frameworks;
+@model PaginationViewModel<OrderViewModel>
+<script src="https://rawcdn.githack.com/FuriosoJack/TableHTMLExport/v2.0.0/src/tableHTMLExport.js"></script>
+
+<script src="~/js/tableHTMLExport.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+
+<style>
+    input, select, textarea {
+        margin: 7px;
+    }
+
+</style>
+
+
+<a class="button button-disqus" asp-action="select"> براورد طرح جدید</a>
+
+<div class="add-edit-product-wrap col-12">
+
+    <div class="add-edit-product-form">
+        <form method="post" asp-action="Index">
+            <h4 class="title">جستجو</h4>
+
+            <div class="row">
+                <div class="col-lg-2 col-12 mb-30">
+                    <label>نام شرکت</label>
+                    <input id="CompanyName" class="form-control" name="CompanyName" type="text">
+                </div>
+                <div class="col-lg-2 col-12 mb-30">
+                    <label>کد پیگیری</label>
+                    <input id="Code" class="form-control" name="Code" type="text">
+                </div>
+                <div class="col-lg-2 col-12 mb-30">
+                    <label>از تاریخ</label>
+                    <input id="FromDate" class="form-control PersianDateInput" name="FromDate">
+                </div>
+                <div class="col-lg-2 col-12 mb-30">
+                    <label>تا تاریخ</label>
+                    <input id="ToDate" class="form-control PersianDateInput" name="ToDate">
+                </div>
+                <div class="col-lg-2 col-12 mb-30">
+                    <label>وضعیت</label>
+                    <label><input id="IsPaidFull" type="radio" class="form-control" name="IsPaidFull" value="true">پرداخت شده</label>
+                    <label><input id="IsPaidFull" type="radio" class="form-control" name="IsPaidFull" value="false">پرداخت نشده</label>
+                </div>
+                <input type="hidden" value="true" name="Status" />
+                <div class="col-lg-2 col-12 mb-30"><button type="submit" class="btn btn-primary" id="searchButton">جستجو</button></div>
+
+            </div>
+
+
+
+        </form>
+    </div>
+
+</div><!-- Add or Edit Product End -->
+
+<div class="col-lg-12 col-12 mb-30">
+    <div class="box">
+
+        <div class="box-body" id="content">
+            <table class="table" id="tblData">
+                <thead class="thead-dark">
+                    <tr>
+                        <th data-name="کدپیگیری">کدپیگیری</th>
+                        <th data-name="درخواست دهنده">درخواست دهنده</th>
+                        <th data-name="قیمت کل">قیمت کل</th>
+                        <th data-name="قیمت بعد از ارزش افزوده">قیمت بعد از ارزش افزوده</th>
+                        <th data-name="مقدار پرداخت نشده">مقدار پرداخت نشده</th>
+                        <th data-name="تاریخ ایجاد">تاریخ ایجاد</th>
+                        <th data-name="وضعیت پرداخت">وضعیت پرداخت</th>
+                        <th>جزییات</th>
+                        <th>قبوض</th>
+                        <th>حذف</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var order in Model.Models)
+                    {
+                        <tr>
+                            <td style="color:green;">@order.Code</td>
+                            <td><b>@order.CompanyName</b></td>
+                            <td>@order.TotalPrice.ToMoney() تومان</td>
+                            <td>@order.TotalPriceAfterTax.ToMoney() تومان</td>
+                            <td style="color:red">@order.UnpaidAmount.ToMoney() تومان</td>
+                            <td>@order.CreationDate</td>
+                            @if (order.TotalPriceAfterTax == 0)
+                            {
+                                <td class="text-warning">وارد نشده</td>
+                            }
+                            else if (order.IsPaidInFull)
+                            {
+                                <td class="text-success">پرداخت شده</td>
+                            }
+                            else
+                            {
+                                <td class="text-danger">پرداخت نشده</td>
+                            }
+                            <td>
+                                <a class="btn btn-primary" asp-action="OrderDetail" asp-route-OrderId="@order.OrderId">جزییات</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" asp-action="DocumentReceiptIndex" asp-route-OrderId="@order.OrderId">قبوض</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" asp-action="RemoveOrder" asp-route-OrderId="@order.OrderId">حذف</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <!--Pagination-->
+            <div class="footable-pagination-wrapper">
+                <ul class="pagination">
+                    <li class="footable-page-nav disabled" data-page="prev"><a asp-action="Index" asp-route-PageId="@(Model.CurrentPage-1)" class="footable-page-link">‹</a></li>
+                    @for (int i = 1; i <= Model.PageCount; i++)
+                    {
+                        <li class="footable-page visible @(Model.CurrentPage == i ? "active" : "")" data-page="1"><a asp-action="Index" asp-route-PageId="@i" class="footable-page-link">@i</a></li>
+
+                    }
+                    <li class="footable-page-nav" data-page="next"><a asp-action="Index" asp-route-PageId="@(Model.CurrentPage+1)" class="footable-page-link">›</a></li>
+                </ul><div class="divider"></div><span class="label label-default">1 of 3</span>
+            </div>
+            <!--Export Button-->
+            <button style="color:black" class="button button-success" onclick="exportTableToExcel('tblData','@DateTime.Now.ToFarsiFull() برآورد')">خروجی Excel</button>
+          @*  <button id="pdf" style="color:black" class="button button-danger">خروجی PDF </button>
+            <button id="export" style="color:black" class="button button-danger">خروجی PDF2 </button>*@
+
+        </div>
+    </div>
+</div>
+
+
+
+<!--Modal Edit-->
+<div class="modal fade" id="exampleModal5">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ویرایش فهرست بها</h5>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-action="EditMaterial">
+                    <div class="form-group">
+
+                        <input id="MateriaServiceName" type="text" class="form-control" name="ServiceName" placeholder="نام مصالح" required>
+                        <input id="MaterialPrice" type="number" class="form-control" name="MaterialPrice" placeholder="قیمت مواد پای کار " required>
+                        <input id="MaterialSalaryPrice" type="number" class="form-control" name="SalaryPrice" placeholder="هزینه اجرایی" required>
+                        <input id="MateriaUnitPrice" type="number" class="form-control" name="UnitPrice" placeholder="قیمت واحد" required>
+                        <select id="selectlist" name="UnitOfMaterial" class="form-control select2">
+                            <option value="سانتی متر">سانتی متر</option>
+                            <option value="متر">متر</option>
+                            <option value="کیلومتر">کیلومتر</option>
+                        </select>
+                        <textarea id="MaterialDescription" type="text" class="form-control" name="Description" placeholder="شرح کار" required></textarea>
+                        <input id="MaterialId" type="hidden" class="form-control" name="MaterialId">
+                        <input id="MaterialServiceId" type="hidden" class="form-control" name="ServiceId">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="button button-danger" data-dismiss="modal">بستن</button>
+                        <button type="submit" class="button button-primary">اعمال</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/ExportExcel.js"></script>
+
+
+<script>
+
+
+    $("#pdf").on("click", function () {
+      $("#content").tableHTMLExport({ type: "pdf", filename: "sample.pdf" });
+    });
+
+</script>
+<script>
+
+    document.getElementById('export').addEventListener('click',
+      exportPDF);
+
+    var specialElementHandlers = {
+      '.no-export': function(element, renderer) {
+        return true;
+      }
+    };
+
+    function exportPDF() {
+
+      var doc = new jsPDF('p', 'pt', 'a1');
+
+
+      var source = document.getElementById('content').innerHTML;
+
+      var margins = {
+        top: 10,
+        bottom: 10,
+        left: 10,
+
+      };
+
+      doc.fromHTML(
+        source,
+        margins.left,
+        margins.top, {
+          'width': margins.width,
+          'elementHandlers': specialElementHandlers
+        },
+
+        function(dispose) {
+          doc.save('Test.pdf');
+        }, margins);
+    }
+</script>

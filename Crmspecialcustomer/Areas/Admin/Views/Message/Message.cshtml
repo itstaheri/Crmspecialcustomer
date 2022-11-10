@@ -1,0 +1,33 @@
+﻿@using global::Message.Application.Contract;
+@model MessageViewModel
+@using Frameworks
+<style>
+    #lbl{
+        color:black;
+        
+    }
+   
+</style>
+<h2 id="subject">@Model.Subject</h2>
+
+
+<div class="col-lg-12 col-12 mb-30">
+    <div class="box">
+
+        <div class="box-head">
+            <h3 class="title">@Model.Subject</h3>
+        </div>
+
+        <div class="box-body">
+            <p>@Model.BodyMessage</p>
+        </div>
+        <hr />
+        <div class="box-foot" >
+            <a><span id="lbl">تاریخ : </span>@Model.CreationDate.ToFarsiFull()</a>
+        <br />
+        <a><span id="lbl">از طرف : </span>@Model.FromUserName</a>
+        </div>
+
+    </div>
+</div>
+

@@ -1,5 +1,7 @@
 ﻿using Frameworkes;
 using Frameworkes.Auth;
+using Frameworkes.Message;
+using Frameworkes.Message.Sms;
 using Frameworks;
 using Intermediary.Repository;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -20,22 +22,26 @@ namespace Request.Application.Implements
         private readonly IRequestToAreaRepository _requestToArea;
         private readonly IAuth _auth;
         private readonly IFileHelper _fileHelper;
+        private readonly IMessage<SmsDetail> _message = new SmsMessage();
 
-        public RequestApplication(IRequestRepository repository, IRequestToAreaRepository requestToArea, IAuth auth, IFileHelper fileHelper)
+        public RequestApplication(IRequestRepository repository, IRequestToAreaRepository requestToArea, IAuth auth, IFileHelper fileHelper, IMessage<SmsDetail> message)
         {
             this.repository = repository;
             _requestToArea = requestToArea;
             _auth = auth;
             _fileHelper = fileHelper;
+            _message = message;
         }
 
         public async Task ConfirmRequest(long RequestId)
         {
 
-            var request = await repository.GetBy(RequestId);
-
             //confirm request by <confirm> Method & savechange
+            var request = (await repository.GetBy(RequestId));
             request.Confirm();
+            //send confirm notification message by sms
+            await _message.SendMassege(new SmsDetail { Message = "درخواست شما تایید شد" ,Number = request.Phone });
+
             await repository.SaveChanges();
 
         }
@@ -58,9 +64,9 @@ namespace Request.Application.Implements
 
         public async Task DeConfirmRequest(long RequestId)
         {
-            var request = await repository.GetBy(RequestId);
             //confirm request by <confirm> Method & savechange
-            request.DeConfirm();
+            var request = (await repository.GetBy(RequestId)).DeConfirm;
+           
             await repository.SaveChanges();
         }
 
@@ -75,7 +81,7 @@ namespace Request.Application.Implements
             await repository.SaveChanges();
         }
 
-        public async Task<List<RequestViewModel>> GetAllRequestInfo()
+        public async Task<List<RequestViewModel>> GetAllRequestInfo(RequestSearchViewModel commend)
         {
 
             var query = (await repository.GetAll()).Select(x => new RequestViewModel
@@ -86,7 +92,7 @@ namespace Request.Application.Implements
                 Destination = x.Destination,
                 ConstantPhone = x.ConstantPhone,
                 Phone = x.Phone,
-                CreationDate = x.CreationDate.ToFarsi(),
+                CreationDate = x.CreationDate,
                 CityId = x.CityId,
                 CustomerCode = x.CustomerCode,
                 IsConfirm = x.IsConfirm,
@@ -112,7 +118,35 @@ namespace Request.Application.Implements
                 }
 
             }
-            return query;
+
+            //select by 
+            if (commend != null)
+            {
+                if (!string.IsNullOrEmpty(commend.ConstantPhone))
+                    query = query.Where(x => x.ConstantPhone == commend.ConstantPhone).ToList();
+
+                if (!string.IsNullOrEmpty(commend.CityName))
+                    query = query.Where(x => x.CityName == commend.CityName).ToList();
+
+                if (!string.IsNullOrEmpty(commend.Phone))
+                    query = query.Where(x => x.Phone == commend.Phone).ToList();
+
+                if (!string.IsNullOrEmpty(commend.CompanyName))
+                    query = query.Where(x => x.CompanyName == commend.CompanyName).ToList();
+
+                if (commend.CustomerCode > 0)
+                    query = query.Where(x => x.CustomerCode == commend.CustomerCode).ToList();
+
+                if (commend.IsConfirm && commend.Status)
+                    query = query.Where(x => x.IsConfirm == true).ToList();
+
+
+                if (!string.IsNullOrEmpty(commend.FromDate) && !string.IsNullOrEmpty(commend.ToDate))
+                    query = query.Where(x => x.CreationDate >= commend.FromDate.ToGeorgianDateTime() && x.CreationDate <= commend.ToDate.ToGeorgianDateTime()).ToList();
+
+            }
+
+            return query.ToList();
         }
 
         public async Task<long> GetStateId(long RequestId)

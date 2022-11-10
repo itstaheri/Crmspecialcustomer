@@ -1,100 +1,104 @@
 ﻿@using User.Application.Contract
 @model LoginViewModel
 
-<link href="~/css/Login/Login.css" rel="stylesheet/>
+<link href="~/css/Login/Login.css" rel="stylesheet />
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V2</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="~/css/Login_v2/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/fonts/vazir-font-v16.1.0">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/css/util.css">
-	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/css/main.css">
-<!--===============================================================================================-->
+    <title>Login V2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/css/Login_v2/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    @*	<link rel="stylesheet" type="text/css" href="~/css/Login_v2/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    *@<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/Login_v2/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/lib/Yekan.ttf" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/Login_v2/fonts/vazir-font-v16.1.0">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/Login_v2/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/Login_v2/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/css/Login_v2/css/main.css">
+    <!--===============================================================================================-->
 
-<style>
-.wrap-login100{
-	background-color:#333333;
-}
-</style>
+    <style>
+        .wrap-login100 {
+            background-color: #333333;
+        }
+       
+
+    </style>
 </head>
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="post" asp-action="Login" dir="rtl">
-					<span class="login100-form-title p-b-48">
-						<img src="https://bill.tci.ir/Skins/New/Home/SepehrLogoNew.png" />
-					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" asp-for="Code" name="Code" placeholder="کد ملی">
-					</div>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form" method="post" asp-action="Login" dir="rtl">
+                    <span class="login100-form-title p-b-48">
+                        <img src="https://www.tci.ir/dorsapax/Data/Sub_0/Template/main/img/2020104163548logo.png" />
+                    </span>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						
-						<input class="input100" type="password" asp-for="Password" name="Password" placeholder="رمز عبور">
-					</div>
-					<div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                        <input class="input100" type="text" asp-for="Code" name="Code" placeholder="کد ملی">
+                    </div>
 
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
-								ورود
-							</button>
-						</div>
-					</div>
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
 
-					
-				</form>
-			</div>
-		</div>
-	</div>
-	
+                        <input class="input100" type="password" asp-for="Password" name="Password" placeholder="رمز عبور">
+                    </div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
 
-	<div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="~/css/Login_v2/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="~/css/Login_v2/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="~/css/Login_v2/vendor/bootstrap/js/popper.js"></script>
-	<script src="~/css/Login_v2/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="~/css/Login_v2/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="~/css/Login_v2/vendor/daterangepicker/moment.min.js"></script>
-	<script src="~/css/Login_v2/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="~/css/Login_v2/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn">
+                                ورود
+                            </button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/css/Login_v2/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/css/Login_v2/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/css/Login_v2/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/css/Login_v2/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/css/Login_v2/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/css/Login_v2/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/css/Login_v2/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/css/Login_v2/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
 
 </body>
 </html>

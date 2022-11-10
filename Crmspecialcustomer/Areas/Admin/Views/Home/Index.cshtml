@@ -1,5 +1,124 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<!-- Top Report Wrap Start -->
+<div class="row">
+    <!-- Top Report Start -->
+    <div class="col-xlg-4 col-md-6 col-12 mb-30">
+        <div class="top-report">
+
+            <!-- Head -->
+            <div class="head">
+                <h4>برآورد ها</h4>
+                <a asp-controller="Order" asp-action="Index" class="view"><i class="zmdi zmdi-eye"></i></a>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>تعداد کل</h3>
+                        <h4>@ViewBag.OrderCountAll</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>پرداخت شده</h3>
+                        <h4>@ViewBag.OrderIsPaid</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>پرداخت نشده</h3>
+                        <h4>@ViewBag.OrderIsNotPaid</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="progess">
+                    <div class="progess-bar" style="width: 100%;"></div>
+                </div>
+                <p>98٪ بازدید کننده منحصر به فرد</p>
+            </div>
+
+        </div>
+    </div><!-- Top Report End -->
+    <!-- Top Report Start -->
+    <div class="col-xlg-4 col-md-6 col-12 mb-30">
+        <div class="top-report">
+
+            <!-- Head -->
+            <div class="head">
+                <h4>درخواست ها</h4>
+                <a asp-controller="Request" asp-action="Index" class="view"><i class="zmdi zmdi-eye"></i></a>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>تعداد کل</h3>
+                        <h4>@ViewBag.RequestCountAll</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>تایید شده</h3>
+                        <h4>@ViewBag.RequestIsConfirm</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>تایید نشده</h3>
+                        <h4>@ViewBag.RequestIsNotConfirmed</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="progess">
+                    <div class="progess-bar" style="width: 100%;"></div>
+                </div>
+                <p>98٪ بازدید کننده منحصر به فرد</p>
+            </div>
+
+        </div>
+    </div><!-- Top Report End -->
+    <!-- Top Report Start -->
+    <div class="col-xlg-4 col-md-6 col-12 mb-30" >
+        <div class="top-report">
+
+            <!-- Head -->
+            <div class="head">
+                <h4>پیام ها</h4>
+                <a asp-controller="" asp-action="" class="view"><i class="zmdi zmdi-eye"></i></a>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>تعداد کل</h3>
+                        <h4>85,000.00</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>خوانده شده</h3>
+                        <h4>85,000.00</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>خوانده نشده</h3>
+                        <h4>85,000.00</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="progess">
+                    <div class="progess-bar" style="width: 100%;"></div>
+                </div>
+                <p>88٪ از بازدید کننده منحصر به فرد</p>
+            </div>
+
+        </div>
+    </div><!-- Top Report End -->
+    <!-- Top Report Start -->
+
+</div><!-- Top Report Wrap End -->
+@(await Component.InvokeAsync("UserLogs"))
+

@@ -1,0 +1,170 @@
+﻿@using Crmspecialcustomer.HostFrameworks.Pagination
+@using global::Message.Application.Contract
+@model PaginationViewModel<MessageViewModel>
+@using Frameworks
+
+
+
+
+<div class="row">
+
+    <!--App Todo List Start-->
+    <div class="col-12">
+        <!--Todo List Wrapper Start-->
+        <div class="todo-list-wrapper">
+
+            <!--Todo List Menu Start-->
+            <div class="todo-list-menu">
+                <ul>
+                    <li><a href="#"><i class="zmdi zmdi-star"></i> ستاره</a></li>
+                    <li><a href="#"><i class="zmdi zmdi-time-restore"></i> دیروز</a></li>
+                    <li><a href="#"><i class="zmdi zmdi-calendar"></i> 7 روز قبل</a></li>
+                    <li><a href="#"><i class="zmdi zmdi-calendar-check"></i> 30 روز قبل</a></li>
+                    <li><a href="#"><i class="zmdi zmdi-check-square"></i> تایید</a></li>
+                    <li><a href="#"><i class="zmdi zmdi-delete"></i> زباله ها</a></li>
+                </ul>
+            </div>
+            <!--Todo List Menu End-->
+            <!--Todo List Container Start-->
+            <div class="todo-list-container">
+
+                <!--Todo List Search Start-->
+                <div class="todo-list-search">
+                    <form action="#">
+                        <button><i class="zmdi zmdi-search"></i></button>
+                        <input type="text" placeholder="جستجو برای انجام">
+                    </form>
+                </div>
+                <!--Todo List Search End-->
+                <ul class="todo-list">
+                    @foreach (var message in Model.Models)
+                    {
+                        <li>
+                            <div class="list-action">
+                                <label class="adomx-checkbox">
+                                    <input type="checkbox"> <i class="icon"></i>
+                                </label>
+                                <button class="remove"><i class="zmdi zmdi-delete"></i></button>
+                            </div>
+                            <div class="list-content">
+                                <p><a asp-action="Message" asp-route-MessageId="@message.Id">@(message.BodyMessage.Length < 25 ? message.BodyMessage : message.BodyMessage.Substring(0,25))</a></p>
+                                <span class="time">@message.CreationDate.ToFarsiFull() تاریخ</span>
+                                @if (message.IsReadByCurrentUser)
+                                {
+                                    <span class="text-success">خوانده شده ✔</span>
+
+                                }
+                                else
+                                {
+                                    <span class="text-danger">خوانده نشده ❌</span>
+
+                                }
+                            </div>
+
+                            <div class="list-action right">
+                                <a asp-action="RemoveMessage" asp-route-MessageId="@message.Id"><i class="zmdi zmdi-delete"></i></a>
+                            </div>
+                        </li>
+                    }
+
+                </ul>
+                <!--Todo List End-->
+                <!--Add Todo List Start-->
+                <form action="#" class="todo-list-add-new">
+                    <button data-toggle="modal" data-target="#exampleModal4" data-whatever="mdo" class="submit"><i class="zmdi zmdi-plus-circle-o"></i></button>
+                </form>
+                <!--Add Todo List End-->
+
+            </div>
+            <!--Todo List Container End-->
+
+        </div>
+        <!--Todo List Wrapper End-->
+    </div>
+    <!--App Todo List End-->
+
+</div>
+
+<!--Modal Create-->
+<div class="modal fade" id="exampleModal4">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ایجاد اعلان</h5>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form >
+                    <h4 class="title">ارسال اعلان جدید</h4>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-12 mb-30"><input class="form-control" id="subject" name="Subject" type="text" placeholder="موضوع" required></div>
+                        <div class="col-lg-12 col-12 mb-30"><textarea class="form-control" id="body" name="BodyMessage" placeholder="پیام" required></textarea></div>
+                        <div><input class="form-control" id="datetime" value="@DateTime.Now.ToFarsi()" hidden></div>
+
+                        <div class="col-lg-12 col-12 mb-30">
+                            <ul class="nav nav-pills justify-content-center">
+                                <li class="nav-item">
+                                    <a id="AdminSelect" class="nav-link active" aria-current="page">Admins</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="ManagerSelect" class="nav-link">Managers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Members</a>
+                                </li>
+
+                            </ul>
+                            <select id="ToUsersId" name="ToUsersId" asp-items="ViewBag.Users" class="form-control select2" multiple>
+                            </select>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                            <button type="button" id="sendButton" class="button button-outline button-primary mb-10 ml-10 mr-0" >ارسال</button>
+                        </div>
+                    </div><!-- Button Group End -->
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/signalr/dist/browser/signalr.min.js"></script>
+<script asp-append-version="true" src="~/js/chat.js"></script>
+<script>
+    $("#AdminSelect").click(function(){
+        $.ajax({
+        type:'POST',
+        url:'@Url.Action("GetAdminUsers","Message")',
+        dataType:'json',
+        success:function(response){
+            $("#ToUsersId option").remove()
+            $(response).each(function () {
+                $("#ToUsersId").append(`<option value="${this.userId}">${this.username}</option>`)
+
+            })
+        }
+    })
+    })
+      $("#ManagerSelect").click(function(){
+        $.ajax({
+        type:'POST',
+        url:'@Url.Action("GetManagerUsers","Message")',
+        dataType:'json',
+        success:function(response){
+            $("#ToUsersId option").remove()
+            $(response).each(function () {
+                $("#ToUsersId").append(`<option value="${this.userId}">${this.username}</option>`)
+
+            })
+        }
+    })
+    })
+</script>

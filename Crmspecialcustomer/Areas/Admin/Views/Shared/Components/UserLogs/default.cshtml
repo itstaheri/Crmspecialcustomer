@@ -1,0 +1,43 @@
+﻿@using User.Application.Contract.UserLog;
+@using Frameworks;
+@model List<UserLogViewModel>
+<style>
+    .table {
+        overflow-y: scroll;
+        box-shadow: 2px 0 2px 0 gray;
+        border-radius: 2px;
+        text-align:center;
+        overflow-x:auto;
+    }
+
+    thead {
+        background-color: aqua;
+    }
+</style>
+<div class="content">
+    <div class="row col-12 col-xl-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>نام کاربری</th>
+                    <th>عملیات</th>
+                    <th>تاریخ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.UserName</td>
+                        <td style="color:purple">@item.Action</td>
+                        <td>@item.ActionDate.ToFarsiFull()</td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

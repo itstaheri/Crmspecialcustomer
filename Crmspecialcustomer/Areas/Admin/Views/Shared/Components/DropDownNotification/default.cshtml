@@ -1,0 +1,33 @@
+﻿@using global::Message.Application.Contract;
+@model List<MessageViewModel>
+
+
+
+<!--Notification-->
+<li class="adomx-dropdown col-auto">
+    <a class="toggle" href="#"><i class="zmdi zmdi-notifications"></i><span id="notification" class="@(Model.Count>0 ? "badge" : "")"></span></a>
+
+    <div class="adomx-dropdown-menu dropdown-menu-notifications">
+        <div class="head">
+            <h5 class="title">شما @(Model.Count) اعلان خوانده نشده دارید!</h5>
+        </div>
+        <div class="body custom-scroll">
+            <ul id="demoMessageList">
+                @foreach (var message in Model)
+                {
+                    <li>
+                        <a asp-controller="Message" asp-action="Message" asp-route-MessageId="@message.Id">
+                            <i class="zmdi zmdi-notifications-none"></i>
+                            <p>@(message.Subject). </p>
+                            <span>@message.CreationDate</span>
+                        </a>
+                        <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="footer">
+            <a asp-controller="Message" asp-action="Index" class="view-all">مشاهده همه</a>
+        </div>
+    </div>
+</li>

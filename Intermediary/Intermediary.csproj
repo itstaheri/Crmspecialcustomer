@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Area.Application\Area.Application.csproj" />
+    <ProjectReference Include="..\Exceptions\Exceptions.csproj" />
+    <ProjectReference Include="..\Order.Domain\Order.Domain.csproj" />
+    <ProjectReference Include="..\Request.Domain\Request.Domain.csproj" />
+    <ProjectReference Include="..\Service.Application\Service.Application.csproj" />
+    <ProjectReference Include="..\User.Domain\User.Domain.csproj" />
   </ItemGroup>
 
 </Project>

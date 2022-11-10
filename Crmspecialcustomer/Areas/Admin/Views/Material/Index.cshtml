@@ -1,13 +1,12 @@
-﻿@using global::Service.Application.Contract.Material
+﻿@using Crmspecialcustomer.HostFrameworks.Pagination
+@using global::Service.Application.Contract.Material
 @using Frameworks;
-@model List<MaterialViewModel>
+@model PaginationViewModel<MaterialViewModel>;
 
 <style>
-    input,select,textarea{
-        margin:7px;
-        
+    input, select, textarea {
+        margin: 7px;
     }
-
 
 </style>
 
@@ -34,7 +33,7 @@
                 </thead>
                 <tbody>
 
-                    @foreach (var material in Model)
+                    @foreach (var material in Model.Models)
                     {
                         <tr>
 
@@ -43,7 +42,7 @@
                             <td>@material.MaterialPrice.ToMoney() تومان</td>
                             <td>@material.UnitPrice.ToMoney() تومان</td>
                             <td>@material.SalaryPrice.ToMoney() تومان</td>
-                            <td>@material.CreationDate</td>
+                            <td>@material.CreationDateString</td>
                             <td>@material.UnitOfMaterial</td>
                             <td>
                                 <button id="EditButton" class="button button-disqus" data-toggle="modal" data-target="#exampleModal5" data-whatever="mdo" onclick="GetValue('@material.Description',@material.MaterialId,@material.MaterialPrice,@material.SalaryPrice,'@material.UnitOfMaterial','@material.ServiceName','@material.UnitPrice')">ویرایش</button>
@@ -56,7 +55,19 @@
                     }
 
                 </tbody>
+              
             </table>
+              <div class="footable-pagination-wrapper">
+                    <ul class="pagination">
+                        <li class="footable-page-nav disabled" data-page="prev"><a  asp-action="Index" asp-route-PageId="@(Model.CurrentPage-1)" class="footable-page-link" >‹</a></li>
+                        @for (int i = 1; i <= Model.PageCount; i++)
+                        {
+                            <li class="footable-page visible @(Model.CurrentPage == i ? "active" : "")" data-page="1"><a asp-action="Index" asp-route-PageId="@i" class="footable-page-link">@i</a></li>
+
+                        }
+                        <li class="footable-page-nav" data-page="next"><a  asp-action="Index" asp-route-PageId="@(Model.CurrentPage+1)"  class="footable-page-link">›</a></li>
+                    </ul><div class="divider"></div><span class="label label-default">1 of 3</span>
+                </div>
         </div>
     </div>
 </div>

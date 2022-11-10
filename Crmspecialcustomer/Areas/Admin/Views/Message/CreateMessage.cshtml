@@ -1,0 +1,42 @@
+﻿@using Frameworks;
+@using global::Message.Application.Contract;
+@model CreateMessageViewModel
+<div class="content-body">
+
+    <!-- Page Headings Start -->
+    <div class="row justify-content-between align-items-center mb-10">
+
+        <div class="add-edit-product-wrap col-12">
+
+            <div class="add-edit-product-form">
+                <form method="post" asp-action="Create">
+                    <h4 class="title">ارسال پیام جدید</h4>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-12 mb-30"><input class="form-control" id="subject" asp-for="Subject" type="text" placeholder="موضوع" required></div>
+                        <div class="col-lg-6 col-12 mb-30"><textarea class="form-control" id="body" asp-for="BodyMessage"  placeholder="پیام" required></textarea></div>
+                        <div><input class="form-control" id="datetime" value="@DateTime.Now.ToFarsi()" hidden></div>
+                        <div class="col-lg-6 col-12 mb-30">
+                            <select id="ToUsersId" asp-for="ToUsersId" asp-items="ViewBag.Users" class="form-control select2" multiple>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-12 mb-30">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                            <button type="submit" id="sendButton" class="button button-outline button-primary mb-10 ml-10 mr-0">ارسال</button>
+                        </div>
+                    </div><!-- Button Group End -->
+
+                </form>
+            </div>
+
+        </div><!-- Add or Edit Product End -->
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/signalr/dist/browser/signalr.min.js"></script>
+<script asp-append-version="true" src="~/js/chat.js"></script>

@@ -317,6 +317,18 @@
               "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Area.Configuration\\Area.Configuration.csproj": {
                 "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Area.Configuration\\Area.Configuration.csproj"
               },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Application\\Message.Application.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Application\\Message.Application.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Configuration\\Message.Configuration.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Configuration\\Message.Configuration.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Application\\Order.Application.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Application\\Order.Application.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Configuration\\Order.Configuration.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Configuration\\Order.Configuration.csproj"
+              },
               "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Request.Configuration\\Request.Configuration.csproj": {
                 "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Request.Configuration\\Request.Configuration.csproj"
               },
@@ -342,6 +354,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNet.SignalR.Core": {
+              "target": "Package",
+              "version": "[2.4.3, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.8, )"
@@ -477,6 +493,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.96.0, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
             "Microsoft.AspNetCore.Authentication.Cookies": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -547,6 +571,21 @@
             "projectReferences": {
               "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Area.Application\\Area.Application.csproj": {
                 "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Area.Application\\Area.Application.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Exceptions\\Exceptions.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Exceptions\\Exceptions.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Domain\\Order.Domain.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Domain\\Order.Domain.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Request.Domain\\Request.Domain.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Request.Domain\\Request.Domain.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Service.Application\\Service.Application.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Service.Application\\Service.Application.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\User.Domain\\User.Domain.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\User.Domain\\User.Domain.csproj"
               }
             }
           }
@@ -560,6 +599,600 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Application\\Message.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Application\\Message.Application.csproj",
+        "projectName": "Message.Application",
+        "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Application\\Message.Application.csproj",
+        "packagesPath": "C:\\Users\\alith\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alith\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Intermediary\\Intermediary.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Intermediary\\Intermediary.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Domain\\Message.Domain.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Domain\\Message.Domain.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Infrastructure\\Message.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Infrastructure\\Message.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Configuration\\Message.Configuration.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Configuration\\Message.Configuration.csproj",
+        "projectName": "Message.Configuration",
+        "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Configuration\\Message.Configuration.csproj",
+        "packagesPath": "C:\\Users\\alith\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Configuration\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alith\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Application\\Message.Application.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Application\\Message.Application.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Infrastructure\\Message.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Infrastructure\\Message.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Domain\\Message.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Domain\\Message.Domain.csproj",
+        "projectName": "Message.Domain",
+        "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Domain\\Message.Domain.csproj",
+        "packagesPath": "C:\\Users\\alith\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alith\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Frameworkes\\Frameworkes.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Frameworkes\\Frameworkes.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Infrastructure\\Message.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Infrastructure\\Message.Infrastructure.csproj",
+        "projectName": "Message.Infrastructure",
+        "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Infrastructure\\Message.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\alith\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alith\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Exceptions\\Exceptions.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Exceptions\\Exceptions.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Domain\\Message.Domain.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Message.Domain\\Message.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Application\\Order.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Application\\Order.Application.csproj",
+        "projectName": "Order.Application",
+        "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Application\\Order.Application.csproj",
+        "packagesPath": "C:\\Users\\alith\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alith\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Domain\\Order.Domain.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Domain\\Order.Domain.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Infrastructure\\Order.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Infrastructure\\Order.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Configuration\\Order.Configuration.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Configuration\\Order.Configuration.csproj",
+        "projectName": "Order.Configuration",
+        "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Configuration\\Order.Configuration.csproj",
+        "packagesPath": "C:\\Users\\alith\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Configuration\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alith\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Application\\Order.Application.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Application\\Order.Application.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Infrastructure\\Order.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Infrastructure\\Order.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Domain\\Order.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Domain\\Order.Domain.csproj",
+        "projectName": "Order.Domain",
+        "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Domain\\Order.Domain.csproj",
+        "packagesPath": "C:\\Users\\alith\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alith\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Frameworkes\\Frameworkes.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Frameworkes\\Frameworkes.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Infrastructure\\Order.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Infrastructure\\Order.Infrastructure.csproj",
+        "projectName": "Order.Infrastructure",
+        "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Infrastructure\\Order.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\alith\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alith\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Exceptions\\Exceptions.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Exceptions\\Exceptions.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Intermediary\\Intermediary.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Intermediary\\Intermediary.csproj"
+              },
+              "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Domain\\Order.Domain.csproj": {
+                "projectPath": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Order.Domain\\Order.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -1204,6 +1837,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

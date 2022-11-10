@@ -77,7 +77,7 @@ namespace Crmspecialcustomer.Controllers.Users
         [HttpPost]
         public async Task<IActionResult> ChangePassword(ChangePassword commend)
         {
-            if (!ModelState.IsValid) return View();
+            //if (!ModelState.IsValid) return View();
             var result = await _UserApplication.ChangePassword(commend);
             if (!result)
             {

@@ -12,8 +12,10 @@ namespace Service.Application.Contract.Material
         Task CreateMaterial(CreateMaterialViewModel commend);
         Task<EditMaterialViewModel> GetValueForEdit(long MaterialId);
         Task<List<MaterialViewModel>> GetAllMaterialsInfo();
+        Task<List<ServiceAndDateViewModel>> GetAllServiceNameandDate();
         Task EditMaterial(EditMaterialViewModel commend);  
         Task Remove(long MaterialId);
+        Task<MaterialViewModel> GetMaterialInfoBy(long MaterialId);
 
     }
 }

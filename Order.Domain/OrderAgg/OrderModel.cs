@@ -1,4 +1,6 @@
 ﻿using Frameworkes;
+using Order.Domain.OrderDocumentReceiptAgg;
+using Order.Domain.OrderSupportAgg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,70 +11,45 @@ namespace Order.Domain.OrderAgg
 {
     public class OrderModel : BaseEntity
     {
-        public OrderModel(long materialId, long value, double totalPrice, double payAmount,
-            int discountRate, double discountAmount, double customerShare, string description, 
-            string customerCode, string documentReceiptPhoto, string letterPhoto,long creatorId) : base(creatorId)
+        public OrderModel(long requestId, double totalPrice, string code, long creatorId) : base(creatorId)
         {
-            MaterialId = materialId;
-            Value = value;
+            RequestId = requestId;
             TotalPrice = totalPrice;
-            PayAmount = payAmount;
-            DiscountRate = discountRate;
-            DiscountAmount = discountAmount;
-            CustomerShare = customerShare;
-            Description = description;
-            CustomerCode = customerCode;
-            DocumentReceiptPhoto = documentReceiptPhoto;
-            LetterPhoto = letterPhoto;
-            IsPaid = false;
+            Code = code;
+            IsPaidInFull = false;
+            DocumentReceipt = new();
+            OrderDetails = new();
         }
-        public void Edit(long materialId, long value, double totalPrice, double payAmount,
-          int discountRate, double discountAmount, double customerShare, string description,
-          string customerCode, string documentReceiptPhoto, string letterPhoto, long creatorId) 
+        public void Edit(double totalPrice, long creatorId)
         {
-            MaterialId = materialId;
-            Value = value;
             TotalPrice = totalPrice;
-            PayAmount = payAmount;
-            DiscountRate = discountRate;
-            DiscountAmount = discountAmount;
-            CustomerShare = customerShare;
-            Description = description;
-            CustomerCode = customerCode;
-            DocumentReceiptPhoto = documentReceiptPhoto;
-            LetterPhoto = letterPhoto;
-            
+            CreatorId = creatorId;
         }
 
-        public void Paid() => IsPaid = true;
-        public void UnPaid() => IsPaid = false;
 
-        public double ApplyDiscountrate(int discountRate)
+        //make true the IsPaidInFull
+        public void PaidInFull() => IsPaidInFull = true;
+        //make false the IsPaidInFull
+        public void UnPaidInFull() => IsPaidInFull = false;
+
+
+        //set TotalPrice AfterTax
+        public void AfterTax(double totalPriceAfterTax)
         {
-            return (TotalPrice * discountRate) / 100;
+            TotalPriceAfterTax = totalPriceAfterTax;
         }
-        public double ApplyDiscountamount(double discountAmount)
+        //add orderDetails
+        public void AddDetail(OrderDetailModel orderDetail)
         {
-            return TotalPrice - discountAmount;
+            OrderDetails.Add(orderDetail);
         }
 
-        public long MaterialId { get;private set; }
-        public long Value { get;private set; }
-        public double TotalPrice { get;private set; }
-        public double PayAmount { get;private set; }
-        public int DiscountRate { get;private set; }
-        public double DiscountAmount { get;private set; }
-        public double CustomerShare { get;private set; }
-        public string Description { get;private set; }
-        public string CustomerCode { get;private set; }
-        public string DocumentReceiptPhoto { get;private set; }
-        public string LetterPhoto { get;private set; }
-        public bool IsPaid { get;private set; }
-
-
-
-
-
-
+        public long RequestId { get; private set; }
+        public double TotalPrice { get; private set; } //قیمت کل
+        public double TotalPriceAfterTax { get; private set; } //قیمت کل بعد از ارزش افزوده
+        public bool IsPaidInFull { get; private set; } //وضعیت پرداخت کامل
+        public string Code { get; private set; }
+        public List<OrderDocumentReceiptModel> DocumentReceipt { get; private set; }
+        public List<OrderDetailModel> OrderDetails { get; private set; }
     }
 }

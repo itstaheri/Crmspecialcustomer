@@ -102,6 +102,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.96.0, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
             "Microsoft.AspNetCore.Authentication.Cookies": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -191,6 +199,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

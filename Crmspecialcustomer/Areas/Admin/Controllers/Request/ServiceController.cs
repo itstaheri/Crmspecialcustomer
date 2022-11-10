@@ -21,6 +21,10 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Request
         [HttpPost]
         public async Task<IActionResult> CreateService(CreateServiceViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("index");
+            }
             await _serviceApplication.CreateService(model);
             return RedirectToAction("Index");
         }

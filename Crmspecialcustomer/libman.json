@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "FileSaver.js@2.0.5",
+      "destination": "wwwroot/FileSaver.js/"
+    },
+    {
+      "library": "signalr.js@2.4.3",
+      "destination": "wwwroot/lib/signalr.js/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "@microsoft/signalr@latest",
+      "destination": "wwwroot/js/microsoft/signalr/",
+      "files": [
+        "dist/browser/signalr.js",
+        "dist/browser/signalr.js.map",
+        "dist/browser/signalr.min.js",
+        "dist/browser/signalr.min.js.map"
+      ]
+    }
+  ]
+}

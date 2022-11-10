@@ -1,15 +1,24 @@
 using Area.Configuration;
+using Crmspecialcustomer.Chat;
+using Crmspecialcustomer.HostFrameworks.Permission;
 using Frameworkes.Auth;
+using Frameworkes.Message;
+using Frameworkes.Message.Sms;
 using Frameworks;
 using Hofre.HostFrameworks;
 using Intermediary.Implement;
 using Intermediary.Repository;
+using Message.Configuration;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
+using Order.Configuration;
 using Request.Configuration;
 using Service.Configuration;
+using System.Security.Claims;
 using System.Text;
+using User.Application.Common;
 using User.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +35,8 @@ UserBootestrapper.Configuration(builder.Services, connectionString);
 AreaBootstrapper.Configuration(builder.Services, connectionString);
 ServiceBootstrapper.Configuration(builder.Services,connectionString);
 RequestBootestrapper.Configuration(builder.Services, connectionString);
+OrderBootestrapper.Configuration(builder.Services, connectionString);
+MessageBootestrapper.Configuration(builder.Services, connectionString);
 #endregion
 
 
@@ -52,7 +63,11 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 builder.Services.AddAuthorization(option =>
 {
-    option.AddPolicy("AdminArea", builder => builder.RequireClaim("RoleName", new List<string> { "Manager", "Admin" }));
+    option.AddPolicy("AdminArea", builder => builder.RequireRole( new List<string> { "1", "2" }));
+    option.AddPolicy("OrderCreate", builder => builder.RequireClaim(ClaimTypes.AuthorizationDecision, "Permission.Order.Create"));
+
+
+   
 });
 
 
@@ -64,15 +79,21 @@ builder.Services.AddAuthorization(option =>
 builder.Services.AddTransient<IAuth, Auth>();
 builder.Services.AddTransient<IPasswordHasher, PasswordHasher>();
 builder.Services.AddTransient<IFileHelper, FileHelper>();
+builder.Services.AddTransient<SmsMessage>();
+builder.Services.AddTransient<IMessage<SmsDetail>,SmsMessage>();
+builder.Services.AddSingleton<IAuthorizationPolicyProvider, AuthorizationPolicyProvider>();
 
 #endregion
 
 //register Intermediary
 #region Intermediary
 builder.Services.AddTransient<IRequestToAreaRepository, RequestToAreaRepository>();
-
+builder.Services.AddTransient<IOrderToMaterialRepository, OrderToMaterialRepository>();
+builder.Services.AddTransient<IOrderToRequestRepository, OrderToRequestRepository>();
+builder.Services.AddTransient<IMessageToUserRepository, MessageToUserRepository>();
 #endregion
 
+builder.Services.AddSignalR();
 
 //RunTimeCompiler
 mvcbuilder.AddRazorRuntimeCompilation();
@@ -94,11 +115,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+
 //authentication Middleware
 app.UseAuthentication();
 app.UseAuthorization();
-
 //app.MapRazorPages();
+
 
 
 app.MapControllerRoute("areaRoute",
@@ -108,6 +130,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=Index}/{id?}");
 
-
+app.MapHub<ChatHub>("/chathub");
 
 app.Run();

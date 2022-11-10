@@ -27,3 +27,11 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\n
 C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\net6.0\Area.Application.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\net6.0\Area.Domain.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\net6.0\Intermediary.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\net6.0\Service.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\net6.0\Service.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\net6.0\Service.Application.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\net6.0\Service.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\net6.0\Order.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\net6.0\Order.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\net6.0\User.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Configuration\bin\Debug\net6.0\User.Domain.pdb

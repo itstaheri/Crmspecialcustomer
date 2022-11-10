@@ -1,0 +1,15 @@
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\bin\Debug\net6.0\Message.Domain.deps.json
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\bin\Debug\net6.0\Message.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\bin\Debug\net6.0\Message.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\bin\Debug\net6.0\Frameworkes.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\bin\Debug\net6.0\Frameworkes.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\obj\Debug\net6.0\Message.Domain.csproj.AssemblyReference.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\obj\Debug\net6.0\Message.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\obj\Debug\net6.0\Message.Domain.AssemblyInfoInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\obj\Debug\net6.0\Message.Domain.AssemblyInfo.cs
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\obj\Debug\net6.0\Message.Domain.csproj.CoreCompileInputs.cache
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\obj\Debug\net6.0\Message.Domain.csproj.CopyComplete
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\obj\Debug\net6.0\Message.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\obj\Debug\net6.0\refint\Message.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\obj\Debug\net6.0\Message.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Message.Domain\obj\Debug\net6.0\ref\Message.Domain.dll

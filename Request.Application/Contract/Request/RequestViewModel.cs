@@ -23,7 +23,7 @@ namespace Request.Application.Contract.Request
         public string ConstantPhone { get;  set; }
         public string Phone { get;  set; }
         public bool IsConfirm { get;  set; }
-        public string CreationDate  { get; set; }
+        public DateTime CreationDate  { get; set; }
         public string LetterPhoto  { get; set; }
         public string LetterId  { get; set; }
     }

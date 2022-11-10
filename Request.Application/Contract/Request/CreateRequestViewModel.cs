@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Request.Application.Common;
+﻿using Frameworkes;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

@@ -53,9 +53,9 @@ namespace Frameworkes.Auth
                 model.Username = claims.FirstOrDefault(x => x.Type == "Username")?.Value;
                 model.ProfilePicture = claims.FirstOrDefault(x => x.Type == "ProfilePicture")?.Value;
                 model.Code = claims.FirstOrDefault(x => x.Type == "Code")?.Value;
-                model.UserId = long.Parse(claims.FirstOrDefault(x => x.Type == "UserId").Value);
+                model.UserId = long.Parse(claims.FirstOrDefault(x => x.Type == "AccountId").Value);
                 model.RoleId = long.Parse(claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value);
-                var per = JsonConvert.DeserializeObject<string>(claims.FirstOrDefault(x => x.Type == "Permissions").Value).ToList();
+                //var per = JsonConvert.DeserializeObject<string>(claims.FirstOrDefault(x => x.Type == "Permissions").Value).ToList();
             });
 
         
@@ -87,7 +87,7 @@ namespace Frameworkes.Auth
                 new Claim("Code",model.Code),
                 new Claim("ProfilePicture",model.ProfilePicture),
                 new Claim(ClaimTypes.Role,model.RoleId.ToString()),
-                new Claim("Permissions",permissions)
+                new Claim(ClaimTypes.AuthorizationDecision,permissions)
             };
             var claimIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var authProperties = new AuthenticationProperties

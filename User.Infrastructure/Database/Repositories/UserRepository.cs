@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using User.Domain.UserAgg;
+using User.Domain.UserLogAgg;
 
 namespace User.Infrastructure.Database.Repositories
 {
@@ -35,12 +36,25 @@ namespace User.Infrastructure.Database.Repositories
             }
         }
 
-       
+        public async Task CreateUserLog(UserLogModel commend)
+        {
+            try
+            {
+                await _dbContext.userLogs.AddAsync(commend);
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw new SaveErrorException(ex.Message, ex.InnerException);
+            }
+
+        }
 
         public async Task<List<UserModel>> GetAll()
         {
             //GetAll UsersInfo from database
-            return await _dbContext.users.ToListAsync();
+            return await _dbContext.users.AsNoTracking().ToListAsync();
         }
 
         public async Task<UserModel> GetBy(long Id)
@@ -55,9 +69,15 @@ namespace User.Infrastructure.Database.Repositories
             return await _dbContext.users.FirstOrDefaultAsync(x => x.Code == Code);
         }
 
+     
+
+        public async Task<List<UserLogModel>> GetAllUsersLogInfo()
+        {
+            return await _dbContext.userLogs.ToListAsync();
+        }
+
         public async Task SaveChanges()
         {
-            
             try
             {
                 await _dbContext.SaveChangesAsync();
@@ -65,7 +85,7 @@ namespace User.Infrastructure.Database.Repositories
             catch (Exception ex)
             {
 
-                throw new SaveErrorException(ex.Message,ex.InnerException);
+                throw new SaveErrorException(ex.Message, ex.InnerException);
             }
         }
     }

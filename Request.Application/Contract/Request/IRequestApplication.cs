@@ -11,7 +11,7 @@ namespace Request.Application.Contract.Request
         Task CreateRequest(CreateRequestViewModel commend);
         Task EditRequest(EditRequestViewModel commend);
         //Task<RequestViewModel> GetRequestInfoBy(long ServiceId);
-        Task<List<RequestViewModel>> GetAllRequestInfo();
+        Task<List<RequestViewModel>> GetAllRequestInfo(RequestSearchViewModel commend);
         Task RemoveRequest(long RequestId);
         Task ConfirmRequest(long RequestId);
         Task DeConfirmRequest(long RequestId);

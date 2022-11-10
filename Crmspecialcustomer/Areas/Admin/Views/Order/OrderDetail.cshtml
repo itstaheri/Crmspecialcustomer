@@ -1,0 +1,266 @@
+﻿@using global::Order.Application.Contract.OrderDetail;
+@using Frameworks;
+
+<div class="content-body">
+
+    <!-- Page Headings Start -->
+    <div class="row justify-content-between align-items-center mb-10">
+        <div> <h3>ایجاد براورد برای :</h3></div>
+        <div class="add-edit-product-wrap col-12">
+
+            <div class="add-edit-product-form">
+                <form asp-action="AddOrderDetail" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <h4 class="title">ایجاد فاکتور</h4>
+
+                    <div class="row">
+                        <div class="col-12 col-lg-4  mb-30">
+                            <label>جنس</label>
+                            <select id="selectmaterialsforcreate" asp-items="@ViewBag.Materials" class="form-control select2">
+                                <option value=0>انتخاب جنس</option>
+
+                            </select>
+                        </div>
+                        <input class="form-control" name="MaterialId" id="MaterialId" type="hidden" />
+                        <input class="form-control" name="OrderId" type="hidden" value="@ViewBag.OrderId" />
+                        <div class="col-6 col-lg-2  mb-30"><label>قیمت واحد</label><input class="form-control" id="UnitPrice" name="UnitPrice" type="number" required readonly></div>
+                        <div class="col-6 col-lg-2  mb-30"><label>قیمت مواد پای کار</label><input class="form-control" id="MaterialPrice" type="number" required readonly></div>
+                        <div class="col-6 col-lg-2  mb-30"><label>هزینه اجرایی</label><input class="form-control" id="SalaryPrice" type="number" required readonly></div>
+                        <div class="col-6 col-lg-2  mb-30"><label>واحد</label><input class="form-control" id="UnitOfMaterial" type="text" required readonly></div>
+
+                        <div class="col-6 col-lg-3  mb-30"><label>مقدار</label><input class="form-control" type="number" name="Value" required></div>
+                        <div class="col-6 col-lg-3  mb-30"><label>تعداد Core موجود</label><input class="form-control" type="number" name="CoreCount" required></div>
+                        <div class="col-6 col-lg-3  mb-30"><label>تعداد Core سهم طرف قرارداد</label><input class="form-control" type="number" name="CoreCountSide" required></div>
+
+
+                        <div class="col-6 col-lg-3  mb-30">
+                            <label>تخفیف</label>
+                            <input id="ManualDiscountCreate" class="form-control" type="number" name="ManualDiscount" placeholder=" مقدار تخفیف دستی" hidden />
+                            <input id="DiscountRateCreate" class="form-control" type="number" name="DiscountRate" placeholder="درصد تخفیف" max="100" />
+                            <label><input id="changediscountcreate" type="checkbox">تغییر حالت</label>
+                        </div>
+
+
+                        <div class="col-12 col-lg-12  mb-30"><textarea class="form-control" name="Description" type="text" placeholder="توضیحات" required></textarea></div>
+
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                            <button type="submit" class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره</button>
+                        </div>
+                    </div><!-- Button Group End -->
+                     <div class="row">
+                        <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                            <a  class="button button-outline button-primary mb-10 ml-10 mr-0" asp-action="Excel" asp-route-OrderId="@ViewBag.OrderId">اکسل</a>
+                        </div>
+                    </div><!-- Button Group End -->
+
+                </form>
+            </div>
+
+        </div><!-- Add or Edit Product End -->
+    </div>
+    @await Component.InvokeAsync("OrderDetails", ViewBag.OrderId);
+
+
+</div>
+<!--Modal Edit-->
+<div class="modal fade" id="exampleModal5">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ویرایش مورد</h5>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="EditOrderDetail" method="post">
+                    @*<div asp-validation-summary="None" class="text-danger"></div>*@
+                    <h4 class="title">ایجاد فاکتور</h4>
+
+                    <div class="row">
+                        <div class="col-12 col-lg-6  mb-30">
+                            <label>جنس</label>
+                            <select id="selectmaterialsforedit" asp-items="@ViewBag.Materials" class="form-control select2">
+                                <option value=0>انتخاب جنس</option>
+
+                            </select>
+                        </div>
+                        <input class="form-control" name="OrderId" type="hidden" value="@ViewBag.OrderId" />
+                        <input class="form-control" name="MaterialId" id="MaterialIdEdit" type="hidden" />
+                        <input class="form-control" name="OrderDetailId" id="OrderDetailId" type="hidden" />
+                        <div class="col-6 col-lg-6  mb-30"><label>قیمت واحد</label><input class="form-control" id="UnitPriceEdit" name="UnitPrice" type="number" required readonly></div>
+                        <div class="col-6 col-lg-6  mb-30"><label>قیمت مواد پای کار</label><input class="form-control" id="MaterialPriceEdit" type="number" required readonly></div>
+                        <div class="col-6 col-lg-6  mb-30"><label>هزینه اجرایی</label><input class="form-control" id="SalaryPriceEdit" type="number" required readonly></div>
+                        <div class="col-6 col-lg-6  mb-30"><label>واحد</label><input class="form-control" id="UnitOfMaterialEdit" type="text" required readonly></div>
+
+                        <div class="col-6 col-lg-6  mb-30"><label>مقدار</label><input class="form-control" id="EditValue" type="number" name="Value" required></div>
+                        <div class="col-6 col-lg-6  mb-30"><label>تعداد Core موجود</label><input class="form-control" value="1" id="EditCoreCount" type="number" name="CoreCount" required></div>
+                        <div class="col-6 col-lg-6  mb-30"><label>تعداد Core سهم طرف قرارداد</label><input class="form-control" value="1" id="EditCoreCountSide" type="number" name="CoreCountSide" required></div>
+
+
+                        <div class="col-6 col-lg-6  mb-30">
+                            <label>تخفیف</label>
+                            <input id="EditManualDiscount" class="form-control" type="number" name="ManualDiscount" placeholder=" مقدار تخفیف دستی" hidden>
+                            <input id="EditDiscountRate" class="form-control" type="number" name="DiscountRate" placeholder="درصد تخفیف" max="100">
+                            <label><input id="changediscountedit" type="checkbox">تغییر حالت</label>
+                        </div>
+
+
+                        <div class="col-12 col-lg-12  mb-30"><textarea class="form-control" name="Description" id="EditDescription" type="text" placeholder="توضیحات" required></textarea></div>
+
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                            <button type="submit" class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره</button>
+                        </div>
+                    </div><!-- Button Group End --> 
+                   
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/assets/js/vendor/jquery-3.3.1.min.js"></script>
+<!--select material for create-->
+<script>
+    $("#selectmaterialsforcreate").change(function () {
+           var materialId = $("#selectmaterialsforcreate option:selected").val()
+           $.ajax({
+               type: 'POST',
+               url: '@Url.Action("GetMaterialInfo","Order")',
+               data: { "materialId": materialId },
+               headers: { "RequestVerificationToken": materialId },
+               dataType: 'json',
+               success: function (response) {
+                   $(response).each(function () {
+                       $("#MaterialId").val(this.materialId)
+                       $("#UnitPrice").val(this.unitPrice)
+                       $("#MaterialPrice").val(this.materialPrice)
+                       $("#SalaryPrice").val(this.salaryPrice)
+                       $("#UnitOfMaterial").val(this.unitOfMaterial)
+                   })
+
+
+               },
+
+           })
+       })
+
+</script>
+<!--select material for edit-->
+<script>
+    $("#selectmaterialsforedit").change(function () {
+           var materialId = $("#selectmaterialsforedit option:selected").val()
+           $.ajax({
+               type: 'POST',
+               url: '@Url.Action("GetMaterialInfo","Order")',
+               data: { "materialId": materialId },
+               headers: { "RequestVerificationToken": materialId },
+               dataType: 'json',
+               success: function (response) {
+                   $(response).each(function () {
+                       $("#MaterialIdEdit").val(this.materialId)
+                       $("#UnitPriceEdit").val(this.unitPrice)
+                       $("#MaterialPriceEdit").val(this.materialPrice)
+                       $("#SalaryPriceEdit").val(this.salaryPrice)
+                       $("#UnitOfMaterialEdit").val(this.unitOfMaterial)
+                   })
+
+
+               },
+
+           })
+
+       })
+
+</script>
+<!--change discount input create-->
+<script>
+       var discountrate = $("#DiscountRateCreate");
+    var discountamount = $("#ManualDiscountCreate");
+
+    $("#changediscountcreate").change(function(){
+        if(discountrate.attr("hidden")){
+            discountrate.removeAttr("hidden")
+            discountamount.attr("hidden",true)
+        }
+        else{
+            discountamount.removeAttr("hidden")
+            discountrate.attr("hidden",true)
+        }
+    })
+
+
+</script>
+<!--select material edit with aterialid-->
+<script>
+    function material(MaterialId){
+         var materialId = MaterialId
+           $.ajax({
+               type: 'POST',
+               url: '@Url.Action("GetMaterialInfo","Order")',
+               data: { "materialId": materialId },
+               headers: { "RequestVerificationToken": materialId },
+               dataType: 'json',
+               success: function (response) {
+                   $(response).each(function () {
+                       $("#MaterialIdEdit").val(this.materialId)
+                       $("#UnitPriceEdit").val(this.unitPrice)
+                       $("#MaterialPriceEdit").val(this.materialPrice)
+                       $("#SalaryPriceEdit").val(this.salaryPrice)
+                       $("#UnitOfMaterialEdit").val(this.unitOfMaterial)
+                   })
+
+
+               },
+
+           })
+    }
+</script>
+<!--change discount input edit-->
+<script>
+    var discountrate = $("#EditDiscountRate");
+    var discountamount = $("#EditManualDiscount");
+
+    $("#changediscountedit").change(function(){
+        if(discountrate.attr("hidden")){
+            discountrate.removeAttr("hidden")
+            discountamount.attr("hidden",true)
+        }
+        else{
+            discountamount.removeAttr("hidden")
+            discountrate.attr("hidden",true)
+        }
+    })
+
+</script>
+<script>
+      function GetValue(OrderDetailId,MaterialId,Value,CoreCount,CoreCountSide,ManualDiscount,DiscountRate,Description){
+
+       $("#OrderDetailId").val(OrderDetailId)
+       $("#EditMaterialId").val(MaterialId)
+       $("#EditValue").val(Value)
+       $("#EditCoreCount").val(CoreCount)
+       $("#EditCoreCountSide").val(CoreCountSide)
+       $("#EditManualDiscount").val(ManualDiscount)
+       $("#EditDiscountRate").val(DiscountRate)
+       $("#EditDescription").val(Description)
+
+          //MaterialId selected
+      $("#selectmaterialsforedit option").attr('selected',false); //remove selected of all options
+      $('#selectmaterialsforedit option[value='+MaterialId+']').attr('selected',true); //add selected attribute to option whoes value is <MaterialId>
+      material(MaterialId)
+    }
+
+</script>

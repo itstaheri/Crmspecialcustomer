@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using User.Application.Common;
 using User.Application.Contract;
+using User.Application.Contract.UserLog;
 
 namespace User.Application.Services
 {
@@ -18,7 +19,9 @@ namespace User.Application.Services
         Task DeActiveUser(long UserId);
         Task<List<UserViewModel>> GetAllInfo();
         Task<LoginResult> Login(LoginViewModel commend);
+        Task Logout();
         Task<bool> ChangePassword(ChangePassword commend);
+        Task<List<UserLogViewModel>> GetAllUsersLogInfo();
         
     }
 }

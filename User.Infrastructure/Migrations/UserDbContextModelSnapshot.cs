@@ -73,6 +73,29 @@ namespace User.Infrastructure.Migrations
                     b.ToTable("users");
                 });
 
+            modelBuilder.Entity("User.Domain.UserLogAgg.UserLogModel", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ActionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("userLogs");
+                });
+
             modelBuilder.Entity("User.Domain.UserRoleAgg.UserPermissionModel", b =>
                 {
                     b.Property<long>("Id")

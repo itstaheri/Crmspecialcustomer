@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Exceptions\Exceptions.csproj" />
     <ProjectReference Include="..\Frameworkes\Frameworkes.csproj" />
     <ProjectReference Include="..\User.Domain\User.Domain.csproj" />

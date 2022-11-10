@@ -1,6 +1,7 @@
 ﻿using Area.Application.Contract.Center;
 using Area.Application.Contract.City;
 using Area.Application.Contract.State;
+using Crmspecialcustomer.HostFrameworks.Pagination;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Request.Application.Contract.Request;
@@ -25,10 +26,26 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Request
             _centerApplication = centerApplication;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(RequestSearchViewModel model)
         {
-            var requests = await _requestApplication.GetAllRequestInfo();
-            return View(requests);
+            var requests = await _requestApplication.GetAllRequestInfo(model);
+            #region pagination 
+            PaginationViewModel<RequestViewModel> page = new PaginationViewModel<RequestViewModel>();
+            if (requests.Count >= 9)
+            {
+                page.CurrentPage = model.pageId;
+                page.PageCount = (int)Math.Ceiling(requests.Count / (double)9);
+                page.Models = requests.OrderBy(x => x.CreationDate).Skip((model.pageId - 1) * 9).Take(9).ToList();
+
+            }
+            else
+            {
+                page.CurrentPage = model.pageId > 0 ? model.pageId : 1;
+                page.PageCount = 1;
+                page.Models = requests;
+            }
+            #endregion
+            return View(page);
         }
         public async  Task<IActionResult> Create()
         {

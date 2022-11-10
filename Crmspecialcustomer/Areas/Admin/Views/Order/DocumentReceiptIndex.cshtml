@@ -1,0 +1,151 @@
+﻿@using global::Order.Application.Contract.OrderDocumentReceipt;
+@using Frameworks
+@model List<DocumentReceiptViewModel>
+
+<button class="button button-disqus" data-toggle="modal" data-target="#exampleModal4" data-whatever="mdo">افزودن قبض</button>
+
+
+<div class="col-lg-12 col-12 mb-30">
+    <div class="box">
+
+        <div class="box-body">
+            <table class="table" style="text-align:center;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th data-name="فیش">فیش</th>
+                        <th data-name="مبلغ پرداخت شده">مبلغ پرداخت شده</th>
+                        <th data-name="تاریخ پرداخت">تاریخ پرداخت</th>
+                        <th data-name="توضیحات">توضیحات</th>
+                        <th>ویرایش</th>
+                        <th>حذف</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var receipt in Model)
+                    {
+                        <tr>
+
+                            <td height="60" width="60" data-toggle="modal" data-target="#ModalReceiptPhoto" data-whatever="mdo" onclick="GetValue(@receipt.OrderId,'@receipt.DocumentReceiptPhoto')"><img src="~/Media/Receipts/@receipt.OrderId/@receipt.DocumentReceiptPhoto" /></td>
+                            <td>@receipt.AmountPaid.ToMoney() تومان</td>
+                            <td>@receipt.CreationDate</td>
+                            <td>@(receipt.Description.Length <= 20 ? @receipt.Description : @receipt.Description.Substring(0,20))</td>
+                            <td>
+                                <button class="button button-disqus" data-toggle="modal" data-target="#exampleModal5" data-whatever="mdo" onclick="GetValue('@receipt.DocumentReceiptId','@receipt.OrderId','@receipt.AmountPaid','@receipt.Description','@receipt.DocumentReceiptPhoto')">ویرایش</button>
+
+                            </td>
+                            <td width="200px">
+                                <form asp-action="DocumentReceiptRemove">
+                                    <input type="hidden" name="DocumentReceiptId" value=@receipt.DocumentReceiptId>
+                                    <input type="hidden" name="OrderId" value=@receipt.OrderId>
+                                    <button class="btn btn-danger">حذف</button>
+                                </form>
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!--Modal ReceiptPhoto-->
+<div class="modal fade" id="ModalReceiptPhoto">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+               
+                <img id="DocumentReceiptPhotoModal" >
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Modal Create-->
+<div class="modal fade" id="exampleModal4">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">افزودن قبض جدید</h5>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-lg-12 col-12 mb-30">
+                    <form asp-action="AddDocumentReceipt" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <h4 class="title">ایجاد فاکتور</h4>
+                        <input type="hidden" name="OrderId" value="@ViewBag.OrderId" />
+                        <input type="hidden" name="OrderDocumentReceiptId" />
+                        <div class="col-6 col-lg-12  mb-30"><label>مبلغ پرداخت شده</label><input class="form-control" name="AmountPaid" type="number" required></div>
+                        <div class="col-6 col-lg-12  mb-30"><label>توضیحات</label><input class="form-control" name="Description" type="text" required></div>
+                        <div class="col-6 col-lg-auto  mb-30"><label>بارگذاری رسید</label><input class="form-control" name="DocumentReceiptPhoto" type="file" required></div>
+                        <div class="row">
+                            <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                                <button type="submit" class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره</button>
+                            </div>
+                        </div><!-- Button Group End -->
+                    </form>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--Modal Edit-->
+<div class="modal fade" id="exampleModal5">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ویرایش قبض</h5>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="col-lg-12 col-12 mb-30">
+                <div class="modal-body">
+                    <form asp-action="EditDocumentReceipt" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <h4 class="title">ایجاد فاکتور</h4>
+                        <input type="hidden" name="OrderId" value="@ViewBag.OrderId" />
+                        <div class="col-12 col-lg-12  mb-30"><label>مبلغ پرداخت شده</label><input class="form-control" id="AmountPaid" name="AmountPaid" type="number" required></div>
+                        <div class="col-12 col-lg-12  mb-30"><label>توضیحات</label><input class="form-control" id="Description" name="Description" type="text" required></div>
+                        <div class="col-6 col-lg-auto  mb-30"><label>تغییر تصویر رسید</label><input class="form-control" name="DocumentReceiptPhoto" type="file" required></div>
+                        <div class="col-6 col-lg-4  mb-30"><img id="DocumentReceiptPhoto" src="" /></div>
+                        <div class="row">
+                            <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                                <button type="submit" class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره</button>
+                            </div>
+                        </div><!-- Button Group End -->
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+     //Get CenterValue by OnClick htmlEvent for insert to Editinputs value
+    function GetValue(OrderDocumentReceiptId,OrderId,AmountPaid,Description,DocumentReceiptPhoto){
+       $("#AmountPaid").val(AmountPaid)
+       $("#Description").val(Description)
+       $("#DocumentReceiptPhoto").attr('src',`/Media/Receipts/${OrderId}/${DocumentReceiptPhoto}`)
+    }
+</script>
+<script>
+     //Get CenterValue by OnClick htmlEvent for insert to Editinputs value
+    function GetValue(OrderId,DocumentReceiptPhoto){
+        var value = `/Media/Receipts/${OrderId}/${DocumentReceiptPhoto}`
+       $("#DocumentReceiptPhotoModal").attr('src',value)
+    }
+</script>

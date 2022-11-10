@@ -1,23 +1,75 @@
-﻿@using global::Request.Application.Contract.Request
-@model List<RequestViewModel>
+﻿@using Crmspecialcustomer.HostFrameworks.Pagination
+@using global::Request.Application.Contract.Request
+@using Frameworks
+@model PaginationViewModel<RequestViewModel>;
 
 
 <a class="button button-disqus" asp-action="Create">افزودن درخواست</a>
 
+<div class="add-edit-product-wrap col-12">
 
+    <div class="add-edit-product-form">
+        <form method="post" asp-action="Index">
+            <h4 class="title">جستجو</h4>
+
+            <div class="row">
+                <div class="col-lg-2 col-12 mb-30">
+                    <label>نام شرکت</label>
+                    <input class="form-control" name="CompanyName" type="text" >
+                </div> 
+                <div class="col-lg-2 col-12 mb-30">
+                    <label>کدمشتری</label>
+                    <input class="form-control" name="CustomerCode" type="text" >
+                </div>
+                <div class="col-lg-2 col-12 mb-30">
+                    <label>شهر</label>
+                    <input class="form-control" name="CityName" type="text" >
+                </div>
+                <div class="col-lg-2 col-12 mb-30">
+                    <label>شماره همراه</label>
+                    <input class="form-control" name="Phone" type="text" >
+                </div>
+                 <div class="col-lg-2 col-12 mb-30">
+                    <label>شماره ثابت</label>
+                    <input class="form-control" name="ConstantPhone" type="text" >
+                </div>
+                <div class="col-lg-3 col-12 mb-30">
+                    <label>از تاریخ</label>
+                    <input  class="form-control PersianDateInput" name="FromDate" >
+                </div>
+                <div class="col-lg-3 col-12 mb-30">
+                    <label>تا تاریخ</label>
+                    <input  class="form-control PersianDateInput" name="ToDate" >
+                </div>
+                <div class="col-lg-2 col-12 mb-30">
+                    <label>وضعیت</label>
+                    <label><input  type="radio" class="form-control" name="IsConfirm" value="true" >تایید شده</label>
+                    <label><input  type="radio" class="form-control" name="IsConfirm" value="false" >تایید نشده</label>
+                </div>
+                 <input type="hidden" value="true" name="Status"/>
+                <div class="col-lg-2 col-12 mb-30"><button type="submit" class="btn btn-primary">جستجو</button></div>
+
+            </div>
+
+
+
+        </form>
+    </div>
+
+</div><!-- Add or Edit Product End -->
 <div class="col-lg-12 col-12 mb-30">
     <div class="box">
 
         <div class="box-body">
-            <table class="table" style="text-align:center;">
+            <table class="table" style="text-align:center;" id="tblData">
                 <thead class="thead-dark">
                     <tr>
                         <th data-name="نامه">نامه</th>
                         <th data-name="کدمشتری">کدمشتری</th>
                         <th data-name="سرویس">سرویس</th>
                         <th data-name="درخواست کننده">درخواست کننده</th>
-                        <th data-name="مبدا">مبدا</th>
-                        <th data-name="مقصد">مقصد</th>
+                        <th data-name="مبدا درخواست کننده">مبدا درخواست کننده</th>
+                        <th data-name="مقصد درخواست کننده">مقصد درخواست کننده</th>
                         <th data-name="تلفن ثابت">تلفن ثابت</th>
                         <th data-name="تلفن همراه">تلفن همراه</th>
                         <th data-name="استان">استان</th>
@@ -30,7 +82,7 @@
                 </thead>
                 <tbody>
 
-                    @foreach (var request in Model)
+                    @foreach (var request in Model.Models)
                     {
                         <tr>
 
@@ -81,6 +133,20 @@
 
                 </tbody>
             </table>
+              <div class="footable-pagination-wrapper">
+                    <ul class="pagination">
+                        <li class="footable-page-nav disabled" data-page="prev"><a  asp-action="Index" asp-route-PageId="@(Model.CurrentPage-1)" class="footable-page-link" >‹</a></li>
+                        @for (int i = 1; i <= Model.PageCount; i++)
+                        {
+                            <li class="footable-page visible @(Model.CurrentPage == i ? "active" : "")" data-page="1"><a asp-action="Index" asp-route-PageId="@i" class="footable-page-link">@i</a></li>
+
+                        }
+                        <li class="footable-page-nav" data-page="next"><a  asp-action="Index" asp-route-PageId="@(Model.CurrentPage+1)"  class="footable-page-link">›</a></li>
+                    </ul><div class="divider"></div><span class="label label-default">1 of 3</span>
+                </div>
+                  <!--Export Button-->
+            <button style="color:black" class="button button-success" onclick="exportTableToExcel('tblData','@DateTime.Now.ToFarsiFull() گزارش درخواست ها')">خروجی اکسل</button>
+
         </div>
     </div>
 </div>
@@ -112,3 +178,4 @@
        $("#letterPhoto").attr('src',value)
     }
 </script>
+ <script src="~/js/ExportExcel.js"></script>

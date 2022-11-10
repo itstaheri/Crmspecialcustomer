@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Crmspecialcustomer.HostFrameworks.Pagination;
+using Microsoft.AspNetCore.Mvc;
 using Service.Application.Contract.Material;
 
 namespace Crmspecialcustomer.Areas.Admin.Controllers.Service
@@ -13,10 +14,27 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Service
             _materialApplication = materialApplication;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageId = 1)
         {
             var material = await _materialApplication.GetAllMaterialsInfo();
-            return View(material);
+            #region pagination 
+            PaginationViewModel<MaterialViewModel> page = new PaginationViewModel<MaterialViewModel>();
+            if (material.Count >= 9)
+            {
+                page.CurrentPage = pageId;
+                page.PageCount = (int)Math.Ceiling(material.Count / (double)9);
+                page.Models = material.OrderBy(x => x.CreationDate).Skip((pageId - 1) * 9).Take(9).ToList();
+
+            }
+            else
+            {
+                page.CurrentPage = pageId > 0 ? pageId : 1;
+                page.PageCount = 1;
+                page.Models = material;
+            }
+            #endregion
+
+            return View(page);
 
         }
         //create index

@@ -12,8 +12,8 @@ namespace User.Application.Common
         public long UserId { get; set; }
 
 
-        public string? NewPassword { get; set; }
-        [Compare(nameof(NewPassword), ErrorMessage = "تکرار رمزعبور با رمزعبور وارد شده تطابق ندارد!")]
-        public string? RePassword { get; set; }
+        public string ?NewPassword { get; set; }
+       // [Compare("NewPassword", ErrorMessage = "تکرار رمزعبور با رمزعبور وارد شده تطابق ندارد!")]
+        public string ?RePassword { get; set; }
     }
 }

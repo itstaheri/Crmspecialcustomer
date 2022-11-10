@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using User.Domain.UserAgg;
+using User.Domain.UserLogAgg;
 using User.Domain.UserRoleAgg;
 using User.Infrastructure.Database.Mapps;
 
@@ -19,6 +20,7 @@ namespace User.Infrastructure.Database
         public DbSet<UserModel> users { get; set; }
         public DbSet<UserPermissionModel> userPermissions { get; set; }
         public DbSet<UserRoleModel> userRoles { get; set; }
+        public DbSet<UserLogModel> userLogs { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             //mapping registers

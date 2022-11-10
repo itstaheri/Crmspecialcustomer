@@ -25,3 +25,11 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net
 C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net6.0\Request.Infrastructure.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net6.0\Request.Infrastructure.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net6.0\Exceptions.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net6.0\Service.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net6.0\Service.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net6.0\Service.Application.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net6.0\Service.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net6.0\Order.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net6.0\Order.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net6.0\User.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Request.Application\bin\Debug\net6.0\User.Domain.pdb

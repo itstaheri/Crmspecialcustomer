@@ -17,3 +17,15 @@ C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\obj\Debug\net6.0\Int
 C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\obj\Debug\net6.0\refint\Intermediary.dll
 C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\obj\Debug\net6.0\Intermediary.pdb
 C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\obj\Debug\net6.0\ref\Intermediary.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\Service.Application.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\Service.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\Service.Application.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\Service.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\Order.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\Order.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\Exceptions.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\Exceptions.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\Request.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\Request.Domain.pdb
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\User.Domain.dll
+C:\Users\alith\source\repos\Crmspecialcustomer\Intermediary\bin\Debug\net6.0\User.Domain.pdb

@@ -1,0 +1,58 @@
+﻿@using global::Order.Application.Contract.OrderDetail
+@using global::Frameworks
+@model List<OrderDetailViewModel>
+
+<div class="box">
+
+        <div class="box-body">
+            <table class="table" style="text-align:center;overflow-x:auto;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>نام جنس</th>
+                        <th>تعداد core موجود</th>
+                        <th>مقدار</th>
+                        <th>تعداد core سهم طرف قرارداد</th>
+                        <th>واحد</th>
+                        <th>قیمت مواد پای کار</th>
+                        <th>هزینه اجرایی</th>
+                        <th>قیمت واحد</th>
+                        <th>قیمت کل</th>
+                        <th>سهم طرف قرار داد</th>
+                        <th>قیمت بعد از تخفیف</th>
+                        <th>توضیحات</th>
+                        <th>ویرایش</th>
+                        <th>حذف</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var detail in Model)
+                    {
+                        <tr>
+
+                            <td>@(detail.ServiceName.Length <= 20 ? @detail.ServiceName : @detail.ServiceName.Substring(0,15))</td>
+                            <td>@detail.CoreCount</td>
+                            <td>@detail.Value</td>
+                            <td>@detail.CoreCountSide</td>
+                            <td>@detail.UnitOfMaterial</td>
+                            <td>@detail.MaterialPrice.ToMoney() تومان</td>
+                            <td>@detail.SalaryPrice.ToMoney() تومان</td>
+                            <td>@detail.UnitPrice.ToMoney() تومان</td>
+                            <td>@detail.TotalPrice.ToMoney() تومان</td>
+                            <td>@detail.CustomerShare.ToMoney() تومان</td>
+                            <td>@detail.PayAmount.ToMoney() تومان</td>
+                            <td>@(detail.Description.Length <= 20 ? @detail.Description : @detail.Description.Substring(0,20))</td>
+                            <td>
+                                <button id="EditButton" class="button button-disqus" data-toggle="modal" data-target="#exampleModal5" data-whatever="mdo" onclick="GetValue(@detail.OrderDetailId,@detail.MaterialId,@detail.Value,@detail.CoreCount,@detail.CoreCountSide,@detail.ManualDiscount,@detail.DiscountRate,'@detail.Description')">ویرایش</button>
+
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" asp-action="RemoveMaterial" asp-route-OrderDetailId="@detail.OrderDetailId">حذف</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>

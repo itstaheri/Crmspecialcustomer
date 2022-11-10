@@ -40,16 +40,16 @@
                         <div class="col-12 col-lg-3 col-12 mb-30"><input class="form-control" asp-for="Destination" type="text" placeholder="مقصد" required></div>
                         <div class="col-lg-3 col-12 mb-30">
                             <select id="servicelist" asp-for="ServiceId" asp-items="ViewBag.Services" class="form-control select2">
-                                <option value="0">انتخاب سرویس</option>
+                                <option value="0">انتخاب سرویس مورد نیاز</option>
                             </select>
                         </div>
 
-                        <div class="col-3 col-lg-6 col-12 mb-30"><input class="form-control" asp-for="LetterPhoto" type="file" required></div>
+                        <div class="col-3 col-lg-6 col-12 mb-30"><input class="form-control" asp-for="LetterPhoto" type="file" placeholder="تصویر نامه درخواست کننده" required></div>
                     </div>
 
                     <div class="row">
                         <div class="d-flex flex-wrap justify-content-end col mbn-10">
-                            <button type="submit" class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره و انتشار</button>
+                            <button type="submit" class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره</button>
                         </div>
                     </div><!-- Button Group End -->
 
