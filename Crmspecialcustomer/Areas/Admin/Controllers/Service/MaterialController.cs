@@ -1,10 +1,12 @@
 ﻿using Crmspecialcustomer.HostFrameworks.Pagination;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Application.Contract.Material;
 
 namespace Crmspecialcustomer.Areas.Admin.Controllers.Service
 {
     [Area("Admin")]
+    [Authorize("MaterialCreatorAccess")]
     public class MaterialController : Controller
     {
         private readonly IMaterialApplication _materialApplication;
@@ -22,8 +24,8 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Service
             if (material.Count >= 9)
             {
                 page.CurrentPage = pageId;
-                page.PageCount = (int)Math.Ceiling(material.Count / (double)9);
-                page.Models = material.OrderBy(x => x.CreationDate).Skip((pageId - 1) * 9).Take(9).ToList();
+                page.PageCount = (int)Math.Ceiling(material.Count / (double)50);
+                page.Models = material.OrderBy(x => x.CreationDate).Skip((pageId - 1) * 50).Take(50).ToList();
 
             }
             else

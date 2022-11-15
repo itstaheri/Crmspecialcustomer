@@ -14,7 +14,7 @@ namespace Crmspecialcustomer.Areas.Admin.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var query = (await _userApplication.GetAllUsersLogInfo()).OrderByDescending(x => x.ActionDate).Take(9).ToList();
+            var query = (await _userApplication.GetAllUsersLogInfo()).OrderByDescending(x => x.ActionDate).Take(8).ToList();
             return View(query);
         }
     }

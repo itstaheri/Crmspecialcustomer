@@ -19,7 +19,7 @@ namespace User.Infrastructure.Database.Repositories
             _dbContext = dbContext;
         }
 
-      
+
 
         public async Task Create(UserModel entity)
         {
@@ -60,7 +60,10 @@ namespace User.Infrastructure.Database.Repositories
         public async Task<UserModel> GetBy(long Id)
         {
             //GetUserInfo by UserId from database
-            return await _dbContext.users.FirstOrDefaultAsync(x=>x.Id == Id);
+            var userDetail = await _dbContext.users.FirstOrDefaultAsync(x => x.Id == Id);
+            if (userDetail == null) throw new NotFoundException(nameof(userDetail), Id);
+            return userDetail;
+
         }
 
         public async Task<UserModel> GetInfoBy(string Code)
@@ -69,7 +72,7 @@ namespace User.Infrastructure.Database.Repositories
             return await _dbContext.users.FirstOrDefaultAsync(x => x.Code == Code);
         }
 
-     
+
 
         public async Task<List<UserLogModel>> GetAllUsersLogInfo()
         {

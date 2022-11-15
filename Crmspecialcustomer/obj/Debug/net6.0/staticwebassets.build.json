@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vI6UIJVz/6VSipdDZOJgEMhPdZRslBSfG8XcXVhOJQo=",
+  "Hash": "3d67WvtyEkdMJ+L1/yqEKKGuL7xhNDOveHi/ONLMN/U=",
   "Source": "Crmspecialcustomer",
   "BasePath": "_content/Crmspecialcustomer",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Crmspecialcustomer.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\403.html",
+      "SourceId": "Crmspecialcustomer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\",
+      "BasePath": "_content/Crmspecialcustomer",
+      "RelativePath": "403.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\403.html"
     },
     {
       "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\assets\\css\\helper.css",
@@ -3349,6 +3366,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\media\\video-1-720p.mp4"
     },
     {
+      "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\css\\403.css",
+      "SourceId": "Crmspecialcustomer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\",
+      "BasePath": "_content/Crmspecialcustomer",
+      "RelativePath": "css/403.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\403.css"
+    },
+    {
       "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\css\\Login_v2\\css\\main.css",
       "SourceId": "Crmspecialcustomer",
       "SourceType": "Discovered",
@@ -6494,6 +6528,23 @@
       "OriginalItemSpec": "wwwroot\\Media\\2020104163548logo (1).png"
     },
     {
+      "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\Media\\icon.jpg",
+      "SourceId": "Crmspecialcustomer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\",
+      "BasePath": "_content/Crmspecialcustomer",
+      "RelativePath": "Media/icon.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Media\\icon.jpg"
+    },
+    {
       "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\Media\\Letters\\439848359332323258491\\hosting.jpg",
       "SourceId": "Crmspecialcustomer",
       "SourceType": "Discovered",
@@ -6866,6 +6917,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Media\\Users\\11\\29weekend-film1-mediumSquareAt3X.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\Media\\Users\\14\\icon.png",
+      "SourceId": "Crmspecialcustomer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\",
+      "BasePath": "_content/Crmspecialcustomer",
+      "RelativePath": "Media/Users/14/icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Media\\Users\\14\\icon.png"
     },
     {
       "Identity": "C:\\Users\\alith\\source\\repos\\Crmspecialcustomer\\Crmspecialcustomer\\wwwroot\\Media\\Users\\3\\icon.png",

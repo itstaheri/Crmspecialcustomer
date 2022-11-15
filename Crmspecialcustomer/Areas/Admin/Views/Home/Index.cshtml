@@ -1,4 +1,6 @@
-﻿<!-- Top Report Wrap Start -->
+﻿@using Frameworkes.Auth
+@inject IAuth _auth;
+<!-- Top Report Wrap Start -->
 <div class="row">
     <!-- Top Report Start -->
     <div class="col-xlg-4 col-md-6 col-12 mb-30">
@@ -13,7 +15,7 @@
             <!-- Content -->
             <div class="content">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <h3>تعداد کل</h3>
                         <h4>@ViewBag.OrderCountAll</h4>
                     </div>
@@ -21,7 +23,7 @@
                         <h3>پرداخت شده</h3>
                         <h4>@ViewBag.OrderIsPaid</h4>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <h3>پرداخت نشده</h3>
                         <h4>@ViewBag.OrderIsNotPaid</h4>
                     </div>
@@ -34,7 +36,7 @@
                 <div class="progess">
                     <div class="progess-bar" style="width: 100%;"></div>
                 </div>
-                <p>98٪ بازدید کننده منحصر به فرد</p>
+                <p>گزارش کلی برآورد ها</p>
             </div>
 
         </div>
@@ -73,18 +75,18 @@
                 <div class="progess">
                     <div class="progess-bar" style="width: 100%;"></div>
                 </div>
-                <p>98٪ بازدید کننده منحصر به فرد</p>
+                <p>گزارش کلی درخواست ها</p>
             </div>
 
         </div>
     </div><!-- Top Report End -->
     <!-- Top Report Start -->
-    <div class="col-xlg-4 col-md-6 col-12 mb-30" >
+    <div class="col-xlg-4 col-md-6 col-12 mb-30">
         <div class="top-report">
 
             <!-- Head -->
             <div class="head">
-                <h4>پیام ها</h4>
+                <h4>پیام های من</h4>
                 <a asp-controller="" asp-action="" class="view"><i class="zmdi zmdi-eye"></i></a>
             </div>
 
@@ -93,15 +95,15 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h3>تعداد کل</h3>
-                        <h4>85,000.00</h4>
+                        <h4>@ViewBag.UserMessagesCount</h4>
                     </div>
                     <div class="col-md-4">
                         <h3>خوانده شده</h3>
-                        <h4>85,000.00</h4>
+                        <h4>@ViewBag.ReadedMessages</h4>
                     </div>
                     <div class="col-md-4">
                         <h3>خوانده نشده</h3>
-                        <h4>85,000.00</h4>
+                        <h4>@ViewBag.UnreadMessages</h4>
                     </div>
                 </div>
 
@@ -112,7 +114,7 @@
                 <div class="progess">
                     <div class="progess-bar" style="width: 100%;"></div>
                 </div>
-                <p>88٪ از بازدید کننده منحصر به فرد</p>
+                <p>گزارش کلی پیام ها</p>
             </div>
 
         </div>
@@ -120,5 +122,11 @@
     <!-- Top Report Start -->
 
 </div><!-- Top Report Wrap End -->
-@(await Component.InvokeAsync("UserLogs"))
+<div class="row">
+    @if (_auth.GetCurrentUserInfofromClaims().Result.RoleId == 3) //just visible for admin role
+    {
+        @(await Component.InvokeAsync("UserLogs"))
 
+    }
+    @(await Component.InvokeAsync("MessageList"))
+</div>

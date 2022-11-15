@@ -6,6 +6,7 @@ using Message.Application.Contract.UserMessage;
 using Message.Application.Services;
 using Message.Domain.MessageAgg;
 using Message.Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,10 +48,10 @@ namespace Message.Application.Implement
 
         }
 
-        public async Task<List<MessageViewModel>> GetAllMessages(long UserId)
+        public async Task<List<MessageViewModel>> GetAllMessages(MessageSearchViewModel? commend)
         {
-
-            var userMessage = (await repository.GetUserMessagesBy(UserId)).ToList();
+            var dateOfMonthAgo = DateTime.Now.Month - 1;
+            var userMessage = (await repository.GetUserMessagesBy(_auth.GetCurrentId())).ToList();
 
             var messages = userMessage.Select(q => q.Message).Select(x => new MessageViewModel
             {
@@ -71,6 +72,25 @@ namespace Message.Application.Implement
                     message.IsReadByCurrentUser = check ? true : false;
 
                 }
+            }
+            if (commend != null)
+            {
+                //by index
+                if (!string.IsNullOrWhiteSpace(commend.Index))
+                    messages = messages.Where(x => x.Subject.Contains(commend.Index) || x.BodyMessage.Contains(commend.Index)).ToList();
+                //by date
+                if (commend.MonthAgo != null)
+                    messages = messages.Where(x => x.CreationDate.Month <= DateTime.Now.Month-1).ToList();
+                if (commend.WeekAgo != null)
+                    messages = messages.Where(x => x.CreationDate.Day <= DateTime.Now.Day - 7).ToList();
+                if (commend.DayAgo != null)
+                    messages = messages.Where(x => x.CreationDate.Day < DateTime.Now.Day - 1).ToList();
+                if (commend.ToDay != null)
+                    messages = messages.Where(x => x.CreationDate.Day == DateTime.Now.Day).ToList();
+
+                //by status of read
+                if (commend.IsRead != null)
+                    messages = messages.Where(x => x.IsReadByCurrentUser == commend.IsRead).ToList();
             }
 
             return messages.OrderByDescending(x => x.CreationDate).ToList();
@@ -101,7 +121,7 @@ namespace Message.Application.Implement
             List<MessageViewModel> messages = new List<MessageViewModel>();
 
             //add unread message to (messages) list
-            foreach (var message in unreadMessages) 
+            foreach (var message in unreadMessages)
             {
                 var messageInfo = await repository.GetMessageBy(message.MessageId);
                 messages.Add(new MessageViewModel
@@ -112,7 +132,7 @@ namespace Message.Application.Implement
 
                 });
             }
-            return messages.OrderByDescending(x=>x.CreationDate).ToList();
+            return messages.OrderByDescending(x => x.CreationDate).ToList();
         }
 
         public async Task HideMessage(long MessageId)

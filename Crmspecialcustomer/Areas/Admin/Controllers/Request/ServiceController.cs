@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Request.Application.Contract.Service;
 
 namespace Crmspecialcustomer.Areas.Admin.Controllers.Request
 {
     [Area("Admin")]
+    [Authorize("RequestCreatorAccess")]
     public class ServiceController : Controller
     {
         private readonly IServiceApplication _serviceApplication;

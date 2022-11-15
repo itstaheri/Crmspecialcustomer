@@ -43,7 +43,7 @@ namespace Message.Infrastructure.Database.Repositories
             var message = await _dbContext.messages.FirstOrDefaultAsync(x=>x.Id == Id && !x.IsHide);
             if (message == null) throw new NotFoundException(Id.ToString(), message);
             return message;
-        }
+        }   
 
         public async Task<List<UserMessageModel>> GetUserMessagesBy(long UserId)
         {

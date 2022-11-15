@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using User.Application.Services;
 
 namespace Crmspecialcustomer.Areas.Admin.Controllers.UserRole
 {
     [Area("Admin")]
-
+    [Authorize("AdminAccess")]
     public class UserRoleController : Controller
     {
         private readonly IUserRoleApplication _UserRoleApplication;

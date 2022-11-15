@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Crmspecialcustomer.HostFrameworks.Pagination;
+using Message.Application.Contract;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using User.Application.Common;
 using User.Application.Contract;
+using User.Application.Contract.UserLog;
 using User.Application.Services;
 
 namespace Crmspecialcustomer.Controllers.Users
 {
     [Area("Admin")]
-
+    [Authorize("AdminAccess")]
     public class UsersController : Controller
     {
         private readonly IUserApplication _UserApplication;
@@ -87,6 +91,27 @@ namespace Crmspecialcustomer.Controllers.Users
             return RedirectToAction("index");
            
 
+        }
+        public async Task<IActionResult> UserLogs(int pageId = 1)
+        {
+            var userLogs = await _UserApplication.GetAllUsersLogInfo();
+            #region pagination 
+            PaginationViewModel<UserLogViewModel> page = new PaginationViewModel<UserLogViewModel>();
+            if (userLogs.Count >= 50)
+            {
+                page.CurrentPage = pageId;
+                page.PageCount = (int)Math.Ceiling(userLogs.Count / (double)50);
+                page.Models = userLogs.OrderBy(x => x.ActionDate).Skip((pageId - 1) * 50).Take(50).ToList();
+
+            }
+            else
+            {
+                page.CurrentPage = pageId > 0 ? pageId : 1;
+                page.PageCount = 1;
+                page.Models = userLogs;
+            }
+            #endregion
+            return View(page);
         }
     }
 }

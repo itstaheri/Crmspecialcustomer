@@ -15,7 +15,10 @@ using User.Application.Common;
 
 namespace Crmspecialcustomer.Areas.Admin.Controllers.Order
 {
+
     [Area("Admin")]
+    [Authorize("OrderExpertAccess")]
+
     public class OrderController : Controller
     {
         private readonly IOrderApplication _orderApplication;
@@ -39,8 +42,8 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Order
             if (orders.Count >= 9)
             {
                 page.CurrentPage = model.PageId;
-                page.PageCount = (int)Math.Ceiling(orders.Count / (double)9);
-                page.Models = orders.OrderBy(x => x.CreationDate).Skip((model.PageId - 1) * 9).Take(9).ToList();
+                page.PageCount = (int)Math.Ceiling(orders.Count / (double)50);
+                page.Models = orders.OrderBy(x => x.CreationDate).Skip((model.PageId - 1) * 50).Take(50).ToList();
 
             }
             else
@@ -161,6 +164,7 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Order
         {
             return View();
         }
+       
        
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Frameworkes.Auth;
+using Message.Application.Contract;
 using Message.Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,6 @@ using User.Application.Services;
 namespace Crmspecialcustomer.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize("AdminArea")]
     public class HomeController : Controller
     {
         private readonly IOrderApplication _orderApplication;
@@ -41,7 +41,10 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers
             ViewBag.RequestCountAll = request.Count();
             ViewBag.RequestIsConfirm = request.Where(x=>x == true).Count();
             ViewBag.RequestIsNotConfirmed = request.Where(x=>x == false).Count();
-
+            var userMessages = (await _messageApplication.GetAllMessages(new MessageSearchViewModel()));
+            ViewBag.UserMessagesCount = userMessages.Count();
+            ViewBag.UnreadMessages = userMessages.Where(x=>!x.IsReadByCurrentUser).Count();
+            ViewBag.ReadedMessages= userMessages.Where(x => x.IsReadByCurrentUser).Count();
             return View();
 
 
@@ -49,7 +52,7 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers
         public async Task<IActionResult> Logout()
         {
             await _userApplication.Logout();
-            return Redirect("./");
+            return Redirect("/");
         }
         public async Task<IActionResult> GetMessages()
         {

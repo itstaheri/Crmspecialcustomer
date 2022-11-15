@@ -59,11 +59,16 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         q.LoginPath = new PathString("/Account");
         q.LogoutPath = new PathString("/Account");
-        q.AccessDeniedPath = new PathString("/AccessDenied");
+        q.AccessDeniedPath = new PathString("/403.html");
     });
 builder.Services.AddAuthorization(option =>
 {
-    option.AddPolicy("AdminArea", builder => builder.RequireRole( new List<string> { "1", "2" }));
+    option.AddPolicy("AdminAccess", builder => builder.RequireRole( new List<string> { "3" }));
+    option.AddPolicy("RequestCreatorAccess", builder => builder.RequireRole( new List<string> { "3","4" }));
+    option.AddPolicy("NetworkManagerAccess", builder => builder.RequireRole( new List<string> { "3","5" }));
+    option.AddPolicy("MaterialCreatorAccess", builder => builder.RequireRole( new List<string> { "3","6" }));
+    option.AddPolicy("OrderExpertAccess", builder => builder.RequireRole( new List<string> { "3","7" }));
+    option.AddPolicy("AllAccess", builder => builder.RequireRole( new List<string> { "3","4","5","6","7" }));
     option.AddPolicy("OrderCreate", builder => builder.RequireClaim(ClaimTypes.AuthorizationDecision, "Permission.Order.Create"));
 
 

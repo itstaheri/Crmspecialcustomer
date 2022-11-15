@@ -15,7 +15,7 @@ namespace Message.Application.Services
         Task ShowMessage(long MessageId);
         Task IsRead(long MessageId, long UserId);
         Task<MessageViewModel> GetMessageDetailBy(long MessageId);
-        Task<List<MessageViewModel>> GetAllMessages(long UserId);
+        Task<List<MessageViewModel>> GetAllMessages(MessageSearchViewModel commend);
         Task RemoveMessage(long MessageId);
         Task<List<MessageViewModel>> GetUnreadMessageFromUser(long UserId);
 

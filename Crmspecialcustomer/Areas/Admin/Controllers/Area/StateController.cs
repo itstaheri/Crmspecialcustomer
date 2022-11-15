@@ -1,10 +1,12 @@
 ﻿using Area.Application.Common;
 using Area.Application.Contract.State;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Crmspecialcustomer.Areas.Admin.Controllers.Area
 {
     [Area("Admin")]
+    [Authorize("AdminAccess")]
 
     public class StateController : Controller
     {

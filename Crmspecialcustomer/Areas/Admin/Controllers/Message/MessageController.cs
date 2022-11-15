@@ -2,13 +2,16 @@
 using Frameworkes.Auth;
 using Message.Application.Contract;
 using Message.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using User.Application.Common;
 using User.Application.Services;
 
 namespace Crmspecialcustomer.Areas.Admin.Controllers.Message
 {
     [Area("Admin")]
+    [Authorize]
     public class MessageController : Controller
     {
         private readonly IUserApplication _userApplication;
@@ -28,7 +31,7 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Message
             ViewBag.ManagerUsers = (await _userApplication.GetAllInfo()).Where(x => x.RoleId == 1).ToList();
             ViewBag.AdminUsers = (await _userApplication.GetAllInfo()).Where(x => x.RoleId == 2).ToList();
 
-            var messages = await _messageApplication.GetAllMessages(_auth.GetCurrentId());
+            var messages = await _messageApplication.GetAllMessages(model);
 
             #region pagination 
             PaginationViewModel<MessageViewModel> page = new PaginationViewModel<MessageViewModel>();
@@ -49,7 +52,7 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Message
 
             return View(page);
         }
-      
+
         public async Task<IActionResult> HideMessage(long MessageId)
         {
             await _messageApplication.HideMessage(MessageId);
@@ -67,11 +70,11 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Message
         }
         public async Task<IActionResult> CreateMessage()
         {
-            ViewBag.Users = (await _userApplication.GetAllInfo()).Select(x=>new SelectListItem(x.Username,x.UserId.ToString()));
+            ViewBag.Users = (await _userApplication.GetAllInfo()).Select(x => new SelectListItem(x.Username, x.UserId.ToString()));
             return View();
 
         }
-        public async Task<IActionResult> Create(CreateMessageViewModel model)
+        public IActionResult Create(CreateMessageViewModel model)
         {
             //await _messageApplication.CreateMessage(model);
             return RedirectToAction("Index");
@@ -80,18 +83,31 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Message
         public async Task<IActionResult> Message(long MessageId)
         {
             await _messageApplication.IsRead(MessageId, _auth.GetCurrentId());
-            var message =await  _messageApplication.GetMessageDetailBy(MessageId);
+            var message = await _messageApplication.GetMessageDetailBy(MessageId);
             return View(message);
         }
-        public async Task<IActionResult> GetAdminUsers()
+
+        public async Task<IActionResult> GetRoleUsers(long RoleId)
         {
-            var admins = (await _userApplication.GetAllInfo()).Where(x => x.RoleId == 2).Select(x => new { x.UserId, x.Username }).ToList();
-            return new JsonResult(admins);
+            var users = (await _userApplication.GetAllInfo());
+            switch (RoleId)
+            {
+                case ((long)UserRolesEnum.Admin):
+                    users = users.Where(x => x.RoleId == ((long)UserRolesEnum.Admin)).ToList();
+                    break;
+                case ((long)UserRolesEnum.MaterialCreator):
+                    users = users.Where(x => x.RoleId == ((long)UserRolesEnum.MaterialCreator)).ToList();
+                    break;
+                case ((long)UserRolesEnum.RequestCreator):
+                    users = users.Where(x => x.RoleId == ((long)UserRolesEnum.RequestCreator)).ToList();
+                    break;
+                case ((long)UserRolesEnum.OrderExpert):
+                    users = users.Where(x => x.RoleId == ((long)UserRolesEnum.OrderExpert)).ToList();
+                    break;
+               
+            }
+            return new JsonResult(users.Select(x=>new {x.UserId,x.Username}));
         }
-        public async Task<IActionResult> GetManagerUsers()
-        {
-            var managers = (await _userApplication.GetAllInfo()).Where(x => x.RoleId == 1).Select(x => new { x.UserId, x.Username }).ToList();
-            return new JsonResult(managers);
-        }
+     
     }
 }

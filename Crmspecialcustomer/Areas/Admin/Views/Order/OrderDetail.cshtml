@@ -35,9 +35,9 @@
 
                         <div class="col-6 col-lg-3  mb-30">
                             <label>تخفیف</label>
-                            <input id="ManualDiscountCreate" class="form-control" type="number" name="ManualDiscount" placeholder=" مقدار تخفیف دستی" hidden />
-                            <input id="DiscountRateCreate" class="form-control" type="number" name="DiscountRate" placeholder="درصد تخفیف" max="100" />
-                            <label><input id="changediscountcreate" type="checkbox">تغییر حالت</label>
+                            <input id="manualDiscountCreate" class="form-control" type="number" name="ManualDiscount" placeholder=" مقدار تخفیف دستی" hidden />
+                            <input id="discountrateCreate" class="form-control" type="number" name="DiscountRate" placeholder="درصد تخفیف" max="100" />
+                            <label><input id="changediscountcreate" type="checkbox">تغییر نوع تخفیف</label>
                         </div>
 
 
@@ -52,11 +52,7 @@
                             <button type="submit" class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره</button>
                         </div>
                     </div><!-- Button Group End -->
-                     <div class="row">
-                        <div class="d-flex flex-wrap justify-content-end col mbn-10">
-                            <a  class="button button-outline button-primary mb-10 ml-10 mr-0" asp-action="Excel" asp-route-OrderId="@ViewBag.OrderId">اکسل</a>
-                        </div>
-                    </div><!-- Button Group End -->
+
 
                 </form>
             </div>
@@ -64,6 +60,11 @@
         </div><!-- Add or Edit Product End -->
     </div>
     @await Component.InvokeAsync("OrderDetails", ViewBag.OrderId);
+    <div class="row">
+        <div class="d-flex flex-wrap justify-content-end col mbn-10">
+            <a class="button button-outline button-success mb-10 ml-10 mr-0" asp-action="Excel" asp-route-OrderId="@ViewBag.OrderId">اکسل</a>
+        </div>
+    </div><!-- Button Group End -->
 
 
 </div>
@@ -105,7 +106,7 @@
                             <label>تخفیف</label>
                             <input id="EditManualDiscount" class="form-control" type="number" name="ManualDiscount" placeholder=" مقدار تخفیف دستی" hidden>
                             <input id="EditDiscountRate" class="form-control" type="number" name="DiscountRate" placeholder="درصد تخفیف" max="100">
-                            <label><input id="changediscountedit" type="checkbox">تغییر حالت</label>
+                            <label><input id="changediscountedit" type="checkbox">تغییر نوع تخفیف</label>
                         </div>
 
 
@@ -119,8 +120,8 @@
                         <div class="d-flex flex-wrap justify-content-end col mbn-10">
                             <button type="submit" class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره</button>
                         </div>
-                    </div><!-- Button Group End --> 
-                   
+                    </div><!-- Button Group End -->
+
 
                 </form>
 
@@ -187,17 +188,17 @@
 </script>
 <!--change discount input create-->
 <script>
-       var discountrate = $("#DiscountRateCreate");
-    var discountamount = $("#ManualDiscountCreate");
+       var discountratecreate = $("#discountrateCreate");
+    var discountamountcreate = $("#manualDiscountCreate");
 
     $("#changediscountcreate").change(function(){
-        if(discountrate.attr("hidden")){
-            discountrate.removeAttr("hidden")
-            discountamount.attr("hidden",true)
+        if(discountratecreate.attr("hidden")){
+            discountratecreate.removeAttr("hidden")
+            discountamountcreate.attr("hidden",true)
         }
         else{
-            discountamount.removeAttr("hidden")
-            discountrate.attr("hidden",true)
+            discountamountcreate.removeAttr("hidden")
+            discountratecreate.attr("hidden",true)
         }
     })
 

@@ -1,5 +1,6 @@
 ﻿@using Crmspecialcustomer.HostFrameworks.Pagination
 @using global::Message.Application.Contract
+@using global::User.Application.Common
 @model PaginationViewModel<MessageViewModel>
 @using Frameworks
 
@@ -16,12 +17,13 @@
             <!--Todo List Menu Start-->
             <div class="todo-list-menu">
                 <ul>
-                    <li><a href="#"><i class="zmdi zmdi-star"></i> ستاره</a></li>
-                    <li><a href="#"><i class="zmdi zmdi-time-restore"></i> دیروز</a></li>
-                    <li><a href="#"><i class="zmdi zmdi-calendar"></i> 7 روز قبل</a></li>
-                    <li><a href="#"><i class="zmdi zmdi-calendar-check"></i> 30 روز قبل</a></li>
-                    <li><a href="#"><i class="zmdi zmdi-check-square"></i> تایید</a></li>
-                    <li><a href="#"><i class="zmdi zmdi-delete"></i> زباله ها</a></li>
+                    <li><a asp-controller ="Message" asp-action="Index"><i class="zmdi zmdi-time-restore"></i> همه</a></li>
+                    <li><a asp-controller ="Message" asp-action="Index" asp-route-ToDay="true"><i class="zmdi zmdi-time-restore"></i> امروز</a></li>
+                    <li><a asp-controller ="Message" asp-action="Index" asp-route-DayAgo="true"><i class="zmdi zmdi-time-restore"></i> دیروز</a></li>
+                    <li><a asp-controller ="Message" asp-action="Index" asp-route-WeekAgo="true"><i class="zmdi zmdi-calendar"></i> 7 روز قبل</a></li>
+                    <li><a asp-controller ="Message" asp-action="Index" asp-route-MonthAgo="true"><i class="zmdi zmdi-calendar-check"></i> 30 روز قبل</a></li>
+                    <li><a asp-controller ="Message" asp-action="Index" asp-route-IsRead="true"><i class="zmdi zmdi-check-square"></i> خوانده شده</a></li>
+                    <li><a asp-controller ="Message" asp-action="Index" asp-route-IsRead="false"><i class="zmdi zmdi-check-square"></i> خوانده نشده</a></li>
                 </ul>
             </div>
             <!--Todo List Menu End-->
@@ -30,9 +32,9 @@
 
                 <!--Todo List Search Start-->
                 <div class="todo-list-search">
-                    <form action="#">
-                        <button><i class="zmdi zmdi-search"></i></button>
-                        <input type="text" placeholder="جستجو برای انجام">
+                    <form asp-action="Index" method="post">
+                        <button type="submit"><i class="zmdi zmdi-search"></i></button>
+                        <input name="Index" type="text" placeholder="جستجو برای انجام">
                     </form>
                 </div>
                 <!--Todo List Search End-->
@@ -42,7 +44,7 @@
                         <li>
                             <div class="list-action">
                                 <label class="adomx-checkbox">
-                                    <input type="checkbox"> <i class="icon"></i>
+                                    <input type="checkbox" disabled @(message.IsReadByCurrentUser?"checked":"")> <i class="icon"></i>
                                 </label>
                                 <button class="remove"><i class="zmdi zmdi-delete"></i></button>
                             </div>
@@ -80,6 +82,17 @@
 
         </div>
         <!--Todo List Wrapper End-->
+         <div class="footable-pagination-wrapper" style="padding:15px">
+                    <ul class="pagination">
+                        <li class="footable-page-nav disabled" data-page="prev"><a  asp-action="Index" asp-route-PageId="@(Model.CurrentPage-1)" class="footable-page-link" >‹</a></li>
+                        @for (int i = 1; i <= Model.PageCount; i++)
+                        {
+                            <li class="footable-page visible @(Model.CurrentPage == i ? "active" : "")" data-page="1"><a asp-action="Index" asp-route-PageId="@i" class="footable-page-link">@i</a></li>
+
+                        }
+                        <li class="footable-page-nav" data-page="next"><a  asp-action="Index" asp-route-PageId="@(Model.CurrentPage+1)"  class="footable-page-link">›</a></li>
+                    </ul><div class="divider"></div><span class="label label-default">1 of 3</span>
+                </div>
     </div>
     <!--App Todo List End-->
 
@@ -95,7 +108,7 @@
             </div>
             <div class="modal-body">
                 <form >
-                    <h4 class="title">ارسال اعلان جدید</h4>
+                    <h4 class="title">ارسال پیام جدید</h4>
 
                     <div class="row">
                         <div class="col-lg-12 col-12 mb-30"><input class="form-control" id="subject" name="Subject" type="text" placeholder="موضوع" required></div>
@@ -105,14 +118,18 @@
                         <div class="col-lg-12 col-12 mb-30">
                             <ul class="nav nav-pills justify-content-center">
                                 <li class="nav-item">
-                                    <a id="AdminSelect" class="nav-link active" aria-current="page">Admins</a>
+                                    <a id="admin" class="nav-link" aria-current="page" onclick="getRoleUsers(@((long)UserRolesEnum.Admin))">ادمین</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a id="ManagerSelect" class="nav-link">Managers</a>
+                                    <a id="requestCreator" class="nav-link" onclick="getRoleUsers(@((long)UserRolesEnum.RequestCreator))">مسئول درخواست</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Members</a>
+                                    <a id="orderExpert" class="nav-link" onclick="getRoleUsers(@((long)UserRolesEnum.OrderExpert))">کارشناس برآورد</a>
                                 </li>
+                                   <li class="nav-item">
+                                    <a id="materialCreator" class="nav-link" onclick="getRoleUsers(@((long)UserRolesEnum.MaterialCreator))">مسئول فهرست بهاء</a>
+                                </li>
+
 
                             </ul>
                             <select id="ToUsersId" name="ToUsersId" asp-items="ViewBag.Users" class="form-control select2" multiple>
@@ -139,11 +156,12 @@
 <script src="~/js/signalr/dist/browser/signalr.min.js"></script>
 <script asp-append-version="true" src="~/js/chat.js"></script>
 <script>
-    $("#AdminSelect").click(function(){
-        $.ajax({
+  function getRoleUsers(roleId){
+       $.ajax({
         type:'POST',
-        url:'@Url.Action("GetAdminUsers","Message")',
+        url:'@Url.Action("GetRoleUsers","Message")',
         dataType:'json',
+        data : { "RoleId": roleId },
         success:function(response){
             $("#ToUsersId option").remove()
             $(response).each(function () {
@@ -152,19 +170,6 @@
             })
         }
     })
-    })
-      $("#ManagerSelect").click(function(){
-        $.ajax({
-        type:'POST',
-        url:'@Url.Action("GetManagerUsers","Message")',
-        dataType:'json',
-        success:function(response){
-            $("#ToUsersId option").remove()
-            $(response).each(function () {
-                $("#ToUsersId").append(`<option value="${this.userId}">${this.username}</option>`)
-
-            })
-        }
-    })
-    })
+  }
+     
 </script>

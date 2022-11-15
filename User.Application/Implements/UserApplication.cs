@@ -107,9 +107,7 @@ namespace User.Application.Implements
             user.Edit(commend.Username, commend.FullName, commend.Code, picture, commend.Phone, commend.RoleId,_auth.GetCurrentId());
 
             await _repository.SaveChanges();
-            //login again current user
-            if(user.Id == _auth.GetCurrentId())
-                await Login(new LoginViewModel { Code = user.Code, Password = user.Password });
+            
 
             return new UserResult(user.Username, UserStatus.CreateSuccess);
         }
@@ -171,10 +169,10 @@ namespace User.Application.Implements
         {
             //get user info by code
             var user = await _repository.GetInfoBy(commend.Code);
-            if (!user.IsActive) return new LoginResult(nameof(LoginResultMessage.DeActiveUser));
 
             if (user == null) return new LoginResult(nameof(LoginResultMessage.WrongUsername));
 
+            if (!user.IsActive) return new LoginResult(nameof(LoginResultMessage.DeActiveUser));
 
             (bool Verified, bool NeedsUpgrade) = _hash.Check(user.Password, commend.Password);
             if (!Verified) return new LoginResult(nameof(LoginResultMessage.WrongPassword));

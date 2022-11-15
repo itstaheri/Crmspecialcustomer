@@ -1,9 +1,11 @@
 ﻿using Area.Application.Contract.Center;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Crmspecialcustomer.Areas.Admin.Controllers.Area
 {
     [Area("Admin")]
+    [Authorize("AdminAccess")]
     public class CenterController : Controller
     {
         private readonly ICenterApplication _centerApplication;

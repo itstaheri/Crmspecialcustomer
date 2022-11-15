@@ -2,6 +2,7 @@
 using Area.Application.Contract.City;
 using Area.Application.Contract.State;
 using Crmspecialcustomer.HostFrameworks.Pagination;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Request.Application.Contract.Request;
@@ -10,6 +11,7 @@ using Request.Application.Contract.Service;
 namespace Crmspecialcustomer.Areas.Admin.Controllers.Request
 {
     [Area("Admin")]
+    [Authorize("RequestCreatorAccess")]
     public class RequestController : Controller
     {
         private readonly IRequestApplication _requestApplication;
@@ -34,8 +36,8 @@ namespace Crmspecialcustomer.Areas.Admin.Controllers.Request
             if (requests.Count >= 9)
             {
                 page.CurrentPage = model.pageId;
-                page.PageCount = (int)Math.Ceiling(requests.Count / (double)9);
-                page.Models = requests.OrderBy(x => x.CreationDate).Skip((model.pageId - 1) * 9).Take(9).ToList();
+                page.PageCount = (int)Math.Ceiling(requests.Count / (double)50);
+                page.Models = requests.OrderBy(x => x.CreationDate).Skip((model.pageId - 1) * 50).Take(50).ToList();
 
             }
             else

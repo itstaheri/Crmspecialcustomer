@@ -1,9 +1,11 @@
 ﻿using Area.Application.Contract.City;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Crmspecialcustomer.Areas.Admin.Controllers.Area
 {
     [Area("Admin")]
+    [Authorize("AdminAccess")]
     public class CityController : Controller
     {
         private readonly ICityApplication _cityApplication;
